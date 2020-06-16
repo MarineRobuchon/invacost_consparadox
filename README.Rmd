@@ -1,0 +1,15 @@
+---
+title: "Originality and threat status of economically important exotic species: revealing conservation paradoxes"
+author: Github repository & scripts created by Marine Robuchon, with contributions of Céline Bellard and XXX
+output: 
+  # html_document: 
+  #   theme: united
+  #   toc: true
+  #   toc_float: false
+  github_document:
+    toc: true
+    toc_depth: 3
+---
+
+## 1. Description & organisation of the repository
+The purpose of this github repository is to document the data used, the analyses carried out and the figures and tables produced with RStudio for the paper "Originality and threat status of economically important exotic species: revealing conservation paradoxes". 
