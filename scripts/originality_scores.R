@@ -8,6 +8,10 @@ library(StatMatch)
 library(ape)
 library(phylobase)
 library(cluster)
+library(dplyr)
+library(Rarity)
+library(kader)
+library(ade4)
 
 ### mammals with VertLife  ----
 
@@ -54,34 +58,75 @@ write.csv2(mam_db_phylori.med, paste0(getwd(), "/outputs/mammals_vertlife_distan
 ## load trait data
 mamtraits <- read.csv(paste0(getwd(),"/data/MamFuncDat.txt"), sep = "\t")
 mamtraits <- na.omit(mamtraits) # remove empty rows
-# let’s add a column to mamtraits with equivalents names in mamtax
-# and suppress the species names with no equivalents in mamtax from mamtraits:
-mamtraits$mamtraits_genus_species <- gsub(" ", "_", mamtraits$Scientific)
-mamtraits <- merge(mamtraits, mamtax[c("Species_Name", "MSW3_sciName_matched")], 
-                   by.x = "mamtraits_genus_species", by.y = "MSW3_sciName_matched")
-rownames(mamtraits) <- mamtraits$Species_Name
+rownames(mamtraits) <- mamtraits$Scientific
 mamtraits <- mamtraits[, c("Diet.Inv", "Diet.Vend", "Diet.Vect", "Diet.Vfish", 
                            "Diet.Vunk", "Diet.Scav", "Diet.Fruit", "Diet.Nect", 
                            "Diet.Seed", "Diet.PlantO",  "ForStrat.Value", "Activity.Nocturnal", 
                            "Activity.Crepuscular", "Activity.Diurnal", "BodyMass.Value")] # only keep trait values 
 
+## examination of diet traits (10) and calculation of diet originality
+# trait selection
+mamdiet <- mamtraits[, c("Diet.Inv", "Diet.Vend", "Diet.Vect", "Diet.Vfish", 
+                         "Diet.Vunk", "Diet.Scav", "Diet.Fruit", "Diet.Nect", 
+                         "Diet.Seed", "Diet.PlantO")]
+mamdiet[rowSums(mamdiet) != 100 ,] # check if all species have diet info
+mamdiet["Myzopoda aurita", "Diet.Inv"] <- 100 # add missing data for the 3 species from Phylacine trait data
+mamdiet["Mystacina robusta", "Diet.PlantO"] <- 80
+mamdiet["Mystacina robusta", "Diet.Inv"] <- 20
+mamdiet["Mystacina tuberculata", "Diet.PlantO"] <- 11
+mamdiet["Mystacina tuberculata", "Diet.Inv"] <- 89
 
-## tree-based functional originality
-# first calculate fucntional dissimilarity among species using the Gower's distance
-dfun_mam <- daisy(x = mamtraits , metric = "gower")
-# now make the functional tree
-mamfuntree <- hclust(as.dist(dfun_mam), method = "average")
-mamfuntree <- as.phylo(mamfuntree)
-# finally caculate tree-based functional originality
-# NB: maybe we should use several trees (eg calculated with method Ward and/or based on another distance metric) 
-# to take into account functional uncertainty
-mam_tb_funcori <- distinctTree(mamfuntree)
-write.csv2(mam_tb_funcori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_funcori.csv")) # save results
+# trait transformation : none as it is percentage (but may be recoded in categorical variables)
+# trait correlation
+corPlot(mamdiet, method = "pearson") # no pair of traits show correlation > 0.7 so we keep them all
+# tree-based diet originality
+ddiet_mam <- dist.ktab(ktab.list.df(list(prep.fuzzy(mamdiet, 10))), type = "F") # calculation with Gower's general coefficient of distance
+# ddiet_mam <- dsimFun(df = mamdiet, vartype = "P", method = 2, type = "dissimilarity") # calculation with the Jaccard coefficient
+mamdiettree <- hclust(as.dist(ddiet_mam), method = "average")
+mamdiettree <- as.phylo(mamdiettree)
+mam_tb_dietori <- distinctTree(mamdiettree)
+write.csv2(mam_tb_dietori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_dietori.csv"))
+# distance-based diet originality
+mam_db_dietori <- distinctDis(as.dist(ddiet_mam))
+write.csv2(mam_db_dietori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_dietori.csv")) # save results
 
-## distance-based functional originality
-# NB: maybe we should use several distances to take into account functional uncertainty
-mam_db_funcori <- distinctDis(as.dist(dfun_mam))
-write.csv2(mam_db_funcori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_funcori.csv")) # save results
+## examination of activity and foraging traits representing spatio-temporal activity (4)
+mamactivity <- mamtraits[, c("Activity.Nocturnal", "Activity.Crepuscular", "Activity.Diurnal", "ForStrat.Value")]
+# trait transformation : none
+# trait correlation : not investigated as traits are binary or categorical
+# tree-based activity originality
+mamactivity_temporal <- prep.binary(mamactivity[, 1:3], 3)
+mamactivity_spatial <- data.frame(mamtraits[, c("ForStrat.Value")])
+rownames(mamactivity_spatial) <- rownames(mamtraits)
+dactivity_mam <- dist.ktab(ktab.list.df(list(mamactivity_temporal, mamactivity_spatial)), type = c("B", "N")) # calculation with Gower's general coefficient of distance
+mamactivitytree <- hclust(as.dist(dactivity_mam), method = "average")
+mamactivitytree <- as.phylo(mamactivitytree)
+mam_tb_activityori <- distinctTree(mamactivitytree)
+write.csv2(mam_tb_activityori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_activityori.csv"))
+# distance-based activity originality
+mam_db_activityori <- distinctDis(as.dist(dactivity_mam))
+write.csv2(mam_db_activityori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_activityori.csv")) # save results
+
+## examination of body mass trait (1)
+mambodymass <- data.frame(mamtraits[, c("BodyMass.Value")])
+rownames(mambodymass) <- rownames(mamtraits)
+# trait transformation: cube root
+mambodymass <- kader:::cuberoot(mambodymass)
+# trait correlation : none (one trait only)
+# tree-based body mass originality
+dmass_mam <- dist.ktab(ktab.list.df(list(mambodymass)), type = "Q")
+mammasstree <- hclust(as.dist(dmass_mam), method = "average")
+mammasstree <- as.phylo(mammasstree)
+mam_tb_massori <- distinctTree(mammasstree)
+write.csv2(mam_tb_massori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_massori.csv"))
+# distance-based body mass originality
+mam_db_massori <- distinctDis(as.dist(dmass_mam))
+write.csv2(mam_db_massori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_massori.csv")) # save results
+
+
+
+
+
   
   
  
