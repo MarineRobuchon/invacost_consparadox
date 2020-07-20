@@ -1,5 +1,5 @@
 #############################################################################################
-# script to calculate originality scores for mammals and birds
+# script to calculate originality scores for birds and birds
 #############################################################################################
 
 ### load packages ----
@@ -123,12 +123,24 @@ write.csv2(mam_tb_massori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based
 mam_db_massori <- distinctDis(as.dist(dmass_mam))
 write.csv2(mam_db_massori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_massori.csv")) # save results
 
-
-
-
-
-  
-  
+## calculation of a global score of functional originality
+## by taking the mean over diet originality, activity originality and mass originality
+# tree-based functional originality with ED
+# mam_tb_dietori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_tree-based_dietori.csv"))
+# mam_tb_activityori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_tree-based_activityori.csv"))
+# mam_tb_massori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_tree-based_massori.csv"))
+mam_tb_funcori <- data.frame(dietori = mam_tb_dietori$ED, activityori = mam_tb_activityori$ED, massori = mam_tb_massori$ED)
+rownames(mam_tb_funcori) <- rownames(mamtraits)
+mam_tb_funcori$meanori <- rowMeans(mam_tb_funcori)
+write.csv2(mam_tb_funcori, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_funcori.csv")) # save results
+# distance-based functional originality with AV
+# mam_db_dietori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_distance-based_dietori.csv"))
+# mam_db_activityori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_distance-based_activityori.csv"))
+# mam_db_massori <- read.csv2(paste0(getwd(), "/outputs/mammals_vertlife_distance-based_massori.csv"))
+mam_db_funcori <- data.frame(dietori = mam_db_dietori$AV, activityori = mam_db_activityori$AV, massori = mam_db_massori$AV)
+rownames(mam_db_funcori) <- rownames(mamtraits)
+mam_db_funcori$meanori <- rowMeans(mam_db_funcori)
+write.csv2(mam_db_funcori, paste0(getwd(), "/outputs/mammals_vertlife_distance-based_funcori.csv")) # save results
  
 ### birds with VertLife  ----
 
@@ -176,25 +188,90 @@ birdtraits <- birdtraits[, c("Diet.Inv", "Diet.Vend", "Diet.Vect", "Diet.Vfish",
                              "ForStrat.understory", "ForStrat.midhigh", "ForStrat.canopy", 
                              "ForStrat.aerial", "PelagicSpecialist", "Nocturnal", "BodyMass.Value")] # only keep trait values 
 
-## tree-based functional originality
-# first calculate functional dissimilarity among species using the Gower's distance
-dfun_bird <- daisy(x = birdtraits , metric = "gower")
-# now make the functional tree
-birdfuntree <- hclust(as.dist(dfun_bird), method = "average")
-birdfuntree <- as.phylo(birdfuntree)
-# finally caculate tree-based functional originality
-# NB: maybe we should use several trees (eg calculated with method Ward and/or based on another distance metric) 
-# to take into account functional uncertainty
-bird_tb_funcori <- distinctTree(birdfuntree)
+
+
+## examination of diet traits (10, we remove "Diet.5Cat" which is a summary of the other diet traits) and calculation of diet originality
+# trait selection
+birddiet <- birdtraits[, c("Diet.Inv", "Diet.Vend", "Diet.Vect", "Diet.Vfish", 
+                      "Diet.Vunk", "Diet.Scav", "Diet.Fruit", "Diet.Nect", 
+                      "Diet.Seed", "Diet.PlantO")]
+birddiet[rowSums(birddiet) != 100 ,] # check if all species have diet info >> good
+
+# trait transformation : none as it is percentage (but may be recoded in categorical variables)
+# trait correlation
+corPlot(birddiet, method = "pearson") # no pair of traits show correlation > 0.7 so we keep them all
+# tree-based diet originality
+ddiet_bird <- dist.ktab(ktab.list.df(list(prep.fuzzy(birddiet, 10))), type = "F") # calculation with Gower's general coefficient of distance
+# ddiet_bird <- dsimFun(df = birddiet, vartype = "P", method = 2, type = "dissimilarity") # calculation with the Jaccard coefficient
+birddiettree <- hclust(as.dist(ddiet_bird), method = "average")
+birddiettree <- as.phylo(birddiettree)
+bird_tb_dietori <- distinctTree(birddiettree)
+write.csv2(bird_tb_dietori, paste0(getwd(), "/outputs/birds_vertlife_tree-based_dietori.csv"))
+# distance-based diet originality
+bird_db_dietori <- distinctDis(as.dist(ddiet_bird))
+write.csv2(bird_db_dietori, paste0(getwd(), "/outputs/birds_vertlife_distance-based_dietori.csv")) # save results
+
+
+## examination of activity and foraging traits representing spatio-temporal activity (9)
+birdactivity <- birdtraits[, c("ForStrat.watbelowsurf", "ForStrat.wataroundsurf", "ForStrat.ground", 
+                               "ForStrat.understory", "ForStrat.midhigh", "ForStrat.canopy", 
+                               "ForStrat.aerial", "PelagicSpecialist", "Nocturnal")]
+# trait transformation : none
+# trait correlation : not investigated as traits are binary or percentage
+# tree-based activity originality
+# birdactivity_binary <- prep.binary(birdactivity[, c("PelagicSpecialist", "Nocturnal")], 2) 
+# not sure this is right, because it is not the one or the other...plus,it generates NA
+# the alternative is to consider these traits as categorical (0 is one category and 1 the other category)
+birdactivity_binary <- birdactivity[, c("PelagicSpecialist", "Nocturnal")]
+birdactivity_binary$PelagicSpecialist <- as.factor(birdactivity_binary$PelagicSpecialist)
+birdactivity_binary$Nocturnal <- as.factor(birdactivity_binary$Nocturnal)
+birdactivity_fuzzy <- prep.fuzzy(data.frame(birdtraits[, c("ForStrat.watbelowsurf", "ForStrat.wataroundsurf", "ForStrat.ground", 
+                                                  "ForStrat.understory", "ForStrat.midhigh", "ForStrat.canopy", 
+                                                  "ForStrat.aerial")]), 7)
+dactivity_bird <- dist.ktab(ktab.list.df(list(birdactivity_binary, birdactivity_fuzzy)), type = c("N", "F")) # calculation with Gower's general coefficient of distance
+birdactivitytree <- hclust(as.dist(dactivity_bird), method = "average")
+birdactivitytree <- as.phylo(birdactivitytree)
+bird_tb_activityori <- distinctTree(birdactivitytree)
+write.csv2(bird_tb_activityori, paste0(getwd(), "/outputs/birds_vertlife_tree-based_activityori.csv"))
+
+# distance-based activity originality
+bird_db_activityori <- distinctDis(as.dist(dactivity_bird))
+write.csv2(bird_db_activityori, paste0(getwd(), "/outputs/birds_vertlife_distance-based_activityori.csv")) # save results
+
+## examination of body mass trait (1)
+birdbodymass <- data.frame(birdtraits[, c("BodyMass.Value")])
+rownames(birdbodymass) <- rownames(birdtraits)
+# trait transformation: cube root
+birdbodymass <- kader:::cuberoot(birdbodymass)
+# trait correlation : none (one trait only)
+# tree-based body mass originality
+dmass_bird <- dist.ktab(ktab.list.df(list(birdbodymass)), type = "Q")
+birdmasstree <- hclust(as.dist(dmass_bird), method = "average")
+birdmasstree <- as.phylo(birdmasstree)
+bird_tb_massori <- distinctTree(birdmasstree)
+write.csv2(bird_tb_massori, paste0(getwd(), "/outputs/birds_vertlife_tree-based_massori.csv"))
+# distance-based body mass originality
+bird_db_massori <- distinctDis(as.dist(dmass_bird))
+write.csv2(bird_db_massori, paste0(getwd(), "/outputs/birds_vertlife_distance-based_massori.csv")) # save results
+
+## calculation of a global score of functional originality
+## by taking the mean over diet originality, activity originality and mass originality
+# tree-based functional originality with ED
+# bird_tb_dietori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_tree-based_dietori.csv"))
+# bird_tb_activityori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_tree-based_activityori.csv"))
+# bird_tb_massori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_tree-based_massori.csv"))
+bird_tb_funcori <- data.frame(dietori = bird_tb_dietori$ED, activityori = bird_tb_activityori$ED, massori = bird_tb_massori$ED)
+rownames(bird_tb_funcori) <- rownames(birdtraits)
+bird_tb_funcori$meanori <- rowMeans(bird_tb_funcori)
 write.csv2(bird_tb_funcori, paste0(getwd(), "/outputs/birds_vertlife_tree-based_funcori.csv")) # save results
-
-## distance-based functional originality
-bird_db_funcori <- distinctDis(as.dist(dfun_bird))
+# distance-based functional originality with AV
+# bird_db_dietori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_distance-based_dietori.csv"))
+# bird_db_activityori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_distance-based_activityori.csv"))
+# bird_db_massori <- read.csv2(paste0(getwd(), "/outputs/birds_vertlife_distance-based_massori.csv"))
+bird_db_funcori <- data.frame(dietori = bird_db_dietori$AV, activityori = bird_db_activityori$AV, massori = bird_db_massori$AV)
+rownames(bird_db_funcori) <- rownames(birdtraits)
+bird_db_funcori$meanori <- rowMeans(bird_db_funcori)
 write.csv2(bird_db_funcori, paste0(getwd(), "/outputs/birds_vertlife_distance-based_funcori.csv")) # save results
-
-
-
-
 
 
 
