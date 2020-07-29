@@ -1,8 +1,14 @@
+#############################################################################################
+# script to build the database by merging IUCN status, originality scores and INVACOST info
+# original script by Céline Bellard
+# modifications by: Marine Robuchon, XX, 
+#############################################################################################
+
 rm(list=ls())
 library(dplyr)
 library(stringr)
 
-setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/")
+# setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
 
 ######################################
 ############# Load data ##############
@@ -11,16 +17,16 @@ setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/")
 iucn<-read.delim("./data/IUCNdata.txt", header=TRUE)
 invacost<-read.delim("./data/Invacostdata27072020.txt", header=TRUE)
 
-birdFDist<-read.csv2("./data/birds_vertlife_distance-based_funcori.csv", header=TRUE)
-birdFtree<-read.csv2("./data/birds_vertlife_tree-based_funcori.csv", header=TRUE)
-mammalFDist<-read.csv2("./data/mammals_vertlife_distance-based_funcori.csv", header=TRUE)
-mammalFtree<-read.csv2("./data/mammals_vertlife_tree-based_funcori.csv", header=TRUE)
+birdFDist<-read.csv2("./outputs/birds_vertlife_distance-based_funcori.csv", header=TRUE) # NB: I changed the path to outputs, because scores have been saved in outputs
+birdFtree<-read.csv2("./outputs/birds_vertlife_tree-based_funcori.csv", header=TRUE)
+mammalFDist<-read.csv2("./outputs/mammals_vertlife_distance-based_funcori.csv", header=TRUE)
+mammalFtree<-read.csv2("./outputs/mammals_vertlife_tree-based_funcori.csv", header=TRUE)
 
 
-birdPDist<-read.csv2("./data/birds_vertlife_distance-based_phylori.csv", header=TRUE)
-birdPtree<-read.csv2("./data/birds_vertlife_tree-based_phylori.csv", header=TRUE)
-mammalPDist<-read.csv2("./data/mammals_vertlife_distance-based_phylori.csv", header=TRUE)
-mammalPtree<-read.csv2("./data/mammals_vertlife_tree-based_phylori.csv", header=TRUE)
+birdPDist<-read.csv2("./outputs/birds_vertlife_distance-based_phylori.csv", header=TRUE)
+birdPtree<-read.csv2("./outputs/birds_vertlife_tree-based_phylori.csv", header=TRUE)
+mammalPDist<-read.csv2("./outputs/mammals_vertlife_distance-based_phylori.csv", header=TRUE)
+mammalPtree<-read.csv2("./outputs/mammals_vertlife_tree-based_phylori.csv", header=TRUE)
 
 ######################################
 ############# Format data ############
@@ -28,10 +34,10 @@ mammalPtree<-read.csv2("./data/mammals_vertlife_tree-based_phylori.csv", header=
 
 colnames(iucn)[3] <- "Species"
 
-colnames(birdFDist)[c(1,5)]<- c("Species","meanoriFdist")
-colnames(birdFtree)[c(1,5)]<- c("Species","meanoriFtree")
-colnames(mammalFDist)[c(1,5)]<- c("Species","meanoriFdist")
-colnames(mammalFtree)[c(1,5)]<- c("Species","meanoriFtree")
+colnames(birdFDist) <- c("Species", "dietoriFdist", "activityoriFdist", "massoriFdist", "meanoriFdist")
+colnames(birdFtree) <- c("Species","dietoriFtree", "activityoriFtree", "massoriFtree", "meanoriFtree")
+colnames(mammalFDist) <- c("Species","dietoriFdist", "activityoriFdist", "massoriFdist", "meanoriFdist")
+colnames(mammalFtree) <- c("Species","dietoriFtree", "activityoriFtree", "massoriFtree", "meanoriFtree")
 
 colnames(birdPDist)[1]<- "Species"
 birdPDist$Species <-str_replace_all(birdPDist$Species, "_", " ")
@@ -75,17 +81,28 @@ iucnMBOri <- rbind(iucnMOri,iucnBOri)
 
 invacost$frequence <- 1
 
-freq<-invacost %>%
+freq_cost<-invacost %>%
   group_by(Species) %>%
-  summarise(sumfreq = sum(frequence))
+  summarise(freq_cost = sum(frequence))
 
-as.data.frame(freq)
+head(as.data.frame(freq_cost))
 
+## Number of publications by species in invacost
+
+species_pub <- unique(invacost[, c("Species", "Reference_ID")])
+head(species_pub)
+species_pub$frequence <- 1
+
+freq_publi<-species_pub %>%
+  group_by(Species) %>%
+  summarise(freq_publi = sum(frequence))
+
+head(as.data.frame(freq_publi))
 
 ## Add frequency values in invacost database
 
-invacostF<-inner_join(invacost,freq)
-
+invacostF<-inner_join(invacost,freq_cost)
+invacostF <- inner_join(invacostF, freq_publi)
 
 ## Add Pres/Abs in invacost in IUCN database
 
@@ -94,16 +111,18 @@ invacostF$invacostY <- "Y"
 dataAll<-iucnMBOri %>% left_join(invacostF,by="Species")
 colnames(dataAll)
 
-invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) #849
+invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) #849 >> 963?
 invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 62 species 
 
 colnames(dataAll)
 
-dataAllF<-dataAll[,c(3:10,15:18,20:23,27,29,32,34:95)]
-dataAllFreduced<-dataAll[,c(3:10,15:18,20:23,27,29,32,34,51:67,73:75)] # Select only variables that we need to conduct the analyses
+dataAllF<-dataAll[,c(3:10,15,20:27,29,32,94:96)] # Select only variables that we need to conduct the analyses
+colnames(dataAllF)
+colnames(dataAllF)[c(18, 19)] <-  c("oriPdist", "oriPtree") # rename columns corresponding to phylogenetic originality
+dataAllF <- unique(dataAllF) # to remove duplicates due to the fact that some species can have several costs in invacost
 
-
-
+## save the database
+write.table(dataAllF,"./outputs/dataAllF.txt")
 
 
 ###  test IUCN category among IAS invacost
