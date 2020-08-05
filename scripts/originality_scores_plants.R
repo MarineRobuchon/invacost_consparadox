@@ -19,11 +19,11 @@ str(plant_tree)
 
 ## tree-based phylogenetic originality
 plant_tb_phylori <- distinctTree(plant_tree, method = "ED")
-write.csv2(plant_tb_phylori, "plants_tree-based_phylori.csv") # save results
+write.csv2(plant_tb_phylori, "./outputs/plants_tree-based_phylori.csv") # save results
 
 ## distance-based phylogenetic originality
 plant_db_phylori <- distinctDis(plant_tree, method = "AV")
-write.csv2(plant_db_phylori.med, "plants_distance-based_phylori.csv") # save results
+write.csv2(plant_db_phylori.med, "./outputs/plants_distance-based_phylori.csv") # save results
 
 
 
