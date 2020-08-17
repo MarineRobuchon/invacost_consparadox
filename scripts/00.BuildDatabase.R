@@ -7,6 +7,7 @@
 rm(list=ls())
 library(dplyr)
 library(stringr)
+library(invacost)
 
 # setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
 
@@ -14,8 +15,10 @@ library(stringr)
 ############# Load data ##############
 ######################################
 
+# NB plant data are missing for now
+
 iucn<-read.delim("./data/IUCNdata.txt", header=TRUE)
-invacost<-read.delim("./data/Invacostdata27072020.txt", header=TRUE)
+data(invacost)
 
 birdFDist<-read.csv2("./outputs/birds_vertlife_distance-based_funcori.csv", header=TRUE) # NB: I changed the path to outputs, because scores have been saved in outputs
 birdFtree<-read.csv2("./outputs/birds_vertlife_tree-based_funcori.csv", header=TRUE)
@@ -27,6 +30,9 @@ birdPDist<-read.csv2("./outputs/birds_vertlife_distance-based_phylori.csv", head
 birdPtree<-read.csv2("./outputs/birds_vertlife_tree-based_phylori.csv", header=TRUE)
 mammalPDist<-read.csv2("./outputs/mammals_vertlife_distance-based_phylori.csv", header=TRUE)
 mammalPtree<-read.csv2("./outputs/mammals_vertlife_tree-based_phylori.csv", header=TRUE)
+
+costs_d <- read.csv2("./outputs/damagecost_by_species.csv", header = TRUE)
+costs_m <- read.csv2("./outputs/managementcost_by_species.csv", header = TRUE)
 
 ######################################
 ############# Format data ############
@@ -87,6 +93,10 @@ freq_cost<-invacost %>%
 
 head(as.data.frame(freq_cost))
 
+# is it the same estimate than "Number.estimates" in costs? Check with Abutilon theophrasti (freq_cost = 5)
+costs[costs$Species=="Abutilon theophrasti" ,]
+# yes! (although I do not understand the NA values: there are some species with NA values in invacost)
+
 ## Number of publications by species in invacost
 
 species_pub <- unique(invacost[, c("Species", "Reference_ID")])
@@ -121,12 +131,21 @@ colnames(dataAllF)
 colnames(dataAllF)[c(18, 19)] <-  c("oriPdist", "oriPtree") # rename columns corresponding to phylogenetic originality
 dataAllF <- unique(dataAllF) # to remove duplicates due to the fact that some species can have several costs in invacost
 
+## Add cost values in the final database
+
+costs_d <- costs_d[, c("Species", "Average.annual.cost")] # only keep species and cost values
+colnames(costs_d)[2] <- "Average.annual.cost_damage"
+costs_m <- costs_m[, c("Species", "Average.annual.cost")]
+colnames(costs_m)[2] <- "Average.annual.cost_management"
+
+dataAllF <- dataAllF %>% left_join(costs_d, by = "Species")
+dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
+
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 75 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 82 species for which we have damage costs
+
+## MISSING: Add exotic status in the final database >> Camille & Céline?
+
 ## save the database
 write.table(dataAllF,"./outputs/dataAllF.txt")
-
-
-###  test IUCN category among IAS invacost
-table(invacostIUCN[!duplicated(invacostIUCN$Species,invacostIUCN$redlistCategory_version_2020.2),]$redlistCategory_version_2020.2)
-
-# Endangered   Least Concern Near Threatened      Vulnerable 
-# 1              49               1               2 
+write.csv2(dataAllF,"./outputs/dataAllF.csv")
