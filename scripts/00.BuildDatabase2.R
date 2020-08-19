@@ -7,6 +7,7 @@
 rm(list=ls())
 library(dplyr)
 library(stringr)
+library(cowplot)
 library(invacost)
 data(invacost)
 
@@ -113,13 +114,14 @@ invacostF$invacostY <- "Y"
 
 dataAll<-iucnMBOri %>% left_join(invacostF,by="Species")
 colnames(dataAll)
+table(invacostIUCNsp)
 
 invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) #849 >> 963?
 invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 64 species 
 
 colnames(dataAll)
 
-dataAllF<-dataAll[,c(3:10,15,20:27,29,32,94:96)] # Select only variables that we need to conduct the analyses
+dataAllF<-dataAll[,c(3:10,15,20:27,29,32,94:98)] # Select only variables that we need to conduct the analyses
 colnames(dataAllF)
 colnames(dataAllF)[c(18, 19)] <-  c("oriPdist", "oriPtree") # rename columns corresponding to phylogenetic originality
 dataAllF <- unique(dataAllF) # to remove duplicates due to the fact that some species can have several costs in invacost
@@ -138,23 +140,204 @@ colnames(dataAllF)
 head(dataAllF)
 dataAllF$freq_cost
 
-dataAllFInvacost<-filter(dataAllF, frequence ==1) #105 lignes
+dataAllFInvacost<-filter(dataAllF, invacostY == "Y") #105 lignes
 
 # Relation between originality and threat status of exotic species
 # in INVACOST and their frequency of estimation
 
-ggplot(dataAllFInvacost, aes(x=meanoriFdist, y=freq_cost)) +
-  geom_point()+  facet_grid(className ~ .) + geom_smooth(method="loess")
+#########################################################
+###############"" Figure 2 ##############################
+#########################################################
+colnames(dataAllFInvacost)
+table(dataAllFInvacost$className)
 
-dataAllFInvacost[which(is.na(dataAllFInvacost$className)),]
+dim(dataAllFInvacost) # 105 lignes 
+
+list<-which(is.na(dataAllFInvacost$className))
+dataAllFInvacost[list, "className"] <- "MAMMALIA"
+
+dataAllFInvacost[70,]
 
 
 
 
+pFdist <- ggplot(dataAllFInvacost, aes(x=meanoriFdist, y=freq_cost)) +
+  geom_point()+  facet_grid(className ~ .)+ theme_classic() +
+  ylab("Occurences of cost in INVACOST") + xlab("Funct originality (distance based metric)")
 
 
-# First we create new columns in character format to avoid factor errors in R
+pFdist1<-pFdist + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+  # stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+  # stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+  # stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
 
+
+pFori <- ggplot(dataAllFInvacost, aes(x=meanoriFtree, y=freq_cost)) +
+  geom_point()+  facet_grid(className ~ .)+ theme_classic() +
+  ylab("Occurences of cost in INVACOST") + xlab("Funct originality (tree based metric)")
+
+pFori1<- pFori + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+  # stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+  # stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+  # stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+  # #geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+
+
+
+pPdist <- ggplot(dataAllFInvacost, aes(x=oriPdist, y=freq_cost)) +
+  geom_point()+  facet_grid(className ~ .) + theme_classic() +
+  ylab("Occurences of cost in INVACOST") + xlab("Phylo originality (dist based metric)")
+
+pPdist1<- pPdist + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+ #  stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+ #  stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+ #  stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+ # # geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+
+
+pPtree <- ggplot(dataAllFInvacost, aes(x=oriPtree, y=freq_cost)) +
+  geom_point()+  facet_grid(className ~ .) + theme_classic() +
+  ylab("Occurences of cost in INVACOST") + xlab("Phylo originality (tree based metric)")
+
+pPtree1<- pPtree + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+#   stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+#   stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+#   stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+# # geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+# 
+
+
+prow<-plot_grid(pFdist1 +theme(legend.position="none"),
+                pFori1  + theme(legend.position="none"),
+                pPdist1 + theme(legend.position="none"),
+                pPtree1 + theme(legend.position="none"),
+                labels=c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+
+plot_grid(prow, rel_widths = c(3, .4))
+
+
+##################################################################
+#################### Occ. articles with cost #####################
+##################################################################
+
+pFdist <- ggplot(dataAllFInvacost, aes(x=meanoriFdist, y=freq_publi)) +
+  geom_point()+  facet_grid(className ~ .)+ theme_classic() +
+  ylab("Occurences of articles with cost in INVACOST") + xlab("Funct originality (distance based metric)")
+
+
+pFdist1<-pFdist + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+#   stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+#   stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+#   stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+# #???geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="green")
+
+
+pFori <- ggplot(dataAllFInvacost, aes(x=meanoriFtree, y=freq_publi)) +
+  geom_point()+  facet_grid(className ~ .)+ theme_classic() +
+  ylab("Occurences of articles with cost in INVACOST") + xlab("Funct originality (tree based metric)")
+
+pFori1<- pFori + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+#   stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+#   stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+#   stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+# #geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+
+
+
+pPdist <- ggplot(dataAllFInvacost, aes(x=oriPdist, y=freq_publi)) +
+  geom_point()+  facet_grid(className ~ .) + theme_classic() +
+  ylab("Occurences of articles with cost in INVACOST") + xlab("Phylo originality (dist based metric)")
+
+pPdist1<- pPdist + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+#   stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+#   stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+#   stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+# # geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+
+
+pPtree <- ggplot(dataAllFInvacost, aes(x=oriPtree, y=freq_publi)) +
+  geom_point()+  facet_grid(className ~ .) + theme_classic() +
+  ylab("Occurences of articles with cost in INVACOST") + xlab("Phylo originality (tree based metric)")
+
+pPtree1<- pPtree + stat_smooth(method = "glm", formula = y ~ log(x^2), size = 1.2, se = FALSE,colour = "gray25") 
+#   stat_smooth(method = "lm", formula = y ~ x + I(x^2),size = 1.2, se = FALSE, colour = "gray45") +
+#   stat_smooth(method = "loess", formula = y ~  x, size = 1.2, se = FALSE, colour = "gray66") +
+#   stat_smooth(method = "gam",  formula = y ~ s(x), size = 1.2, se = FALSE, colour = "gray77")
+# # geom_smooth(orientation = "y", span=0.8, size = 1.2,se=FALSE, colour="gray88")
+
+
+
+prow<-plot_grid(pFdist1 +theme(legend.position="none"),
+                pFori1  + theme(legend.position="none"),
+                pPdist1 + theme(legend.position="none"),
+                pPtree1 + theme(legend.position="none"),
+                labels=c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+
+plot_grid(prow, rel_widths = c(3, .4))
+
+
+table(dataAllFInvacost$redlistCategory_version_2020.2)
+
+p1<-ggplot(dataAllFInvacost, aes(y=freq_publi, x=as.factor(redlistCategory_version_2020.2), fill=className)) +
+  geom_boxplot(trim=FALSE)+   geom_jitter(position=position_jitter(0.2),alpha=0.3)+
+  facet_grid(className ~ .)+ theme_bw() + xlab("") + ylab("Occurences of publications")
+
+ p2<- ggplot(dataAllFInvacost, aes(y=freq_cost, x=as.factor(redlistCategory_version_2020.2), fill=className)) +
+  geom_boxplot(trim=FALSE)+   geom_jitter(position=position_jitter(0.2),alpha=0.3)+
+  facet_grid(className ~ .)+ theme_bw() + xlab("") + ylab("Occurences of costs")
+
+
+ prow<-plot_grid(p1 +theme(legend.position="none"),
+                 p2  + theme(legend.position="none"),
+                   labels=c("A", "B"), ncol = 1, nrow = 2)
+ 
+plot_grid(prow, rel_widths = c(3, .4))
+ 
+ 
+ 
+ 
+ 
+ ggplot(dataAllFInvacost, aes(y=freq_publi, x=freq_cost, fill=className)) +
+  geom_jitter(position=position_jitter(0.2),alpha=0.3)+
+   stat_smooth(method = "lm", formula = y ~ x ,size = 1.2, se = FALSE, colour = "gray84") +
+   facet_grid(className ~ .)+ theme_bw() + xlab("Occurence of cost documented") + ylab("Occurences of publications")
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+tail(test)# First we create new columns in character format to avoid factor errors in R)
 invacost$sp.list <- as.character(invacost$Species)
 invacost$genus.list <- as.character(invacost$Genus)
 
@@ -221,6 +404,7 @@ unique(species.summary$Class)
 
 species.summaryMammals<-filter(species.summary, Class== "Mammalia" ) ### 10 dernier NA
 species.summaryMammals[c(90:100),]
+
 species.summaryBirds<-filter(species.summary, Class== "Aves" ) # <32
 
 

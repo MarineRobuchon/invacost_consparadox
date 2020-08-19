@@ -68,17 +68,17 @@ iucnB<-filter(iucn, className == "AVES")
 
 ### Merge originality value and IUCN data 
 
-iucnBOri<-full_join(iucnB,birdFDist,by="Species")
-iucnBOri<-full_join(iucnBOri,birdFtree,by="Species")
-iucnBOri<-full_join(iucnBOri,birdPDist,by="Species")
-iucnBOri<-full_join(iucnBOri,birdPtree,by="Species")
+iucnBOri<-left_join(iucnB,birdFDist,by="Species")
+iucnBOri<-left_join(iucnBOri,birdFtree,by="Species")
+iucnBOri<-left_join(iucnBOri,birdPDist,by="Species")
+iucnBOri<-left_join(iucnBOri,birdPtree,by="Species")
 
 head(mammalPDist)
 
-iucnMOri<-full_join(iucnM,mammalFDist,by="Species")
-iucnMOri<-full_join(iucnMOri,mammalFtree,by="Species")
-iucnMOri<-full_join(iucnMOri,mammalPDist,by="Species")
-iucnMOri<-full_join(iucnMOri,mammalPtree,by="Species")
+iucnMOri<-left_join(iucnM,mammalFDist,by="Species")
+iucnMOri<-left_join(iucnMOri,mammalFtree,by="Species")
+iucnMOri<-left_join(iucnMOri,mammalPDist,by="Species")
+iucnMOri<-left_join(iucnMOri,mammalPtree,by="Species")
 
 iucnMBOri <- rbind(iucnMOri,iucnBOri)
 
@@ -92,10 +92,6 @@ freq_cost<-invacost %>%
   summarise(freq_cost = sum(frequence))
 
 head(as.data.frame(freq_cost))
-
-# is it the same estimate than "Number.estimates" in costs? Check with Abutilon theophrasti (freq_cost = 5)
-costs[costs$Species=="Abutilon theophrasti" ,]
-# yes! (although I do not understand the NA values: there are some species with NA values in invacost)
 
 ## Number of publications by species in invacost
 
@@ -126,7 +122,7 @@ invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 62 species
 
 colnames(dataAll)
 
-dataAllF<-dataAll[,c(3:10,15,20:27,29,32,94:96)] # Select only variables that we need to conduct the analyses
+dataAllF<-dataAll[,c(3:10,15,20:27,29,32,96:98)] # Select only variables that we need to conduct the analyses
 colnames(dataAllF)
 colnames(dataAllF)[c(18, 19)] <-  c("oriPdist", "oriPtree") # rename columns corresponding to phylogenetic originality
 dataAllF <- unique(dataAllF) # to remove duplicates due to the fact that some species can have several costs in invacost
@@ -141,8 +137,8 @@ colnames(costs_m)[2] <- "Average.annual.cost_management"
 dataAllF <- dataAllF %>% left_join(costs_d, by = "Species")
 dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
 
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 75 species for which we have damage costs
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 82 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 33 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 41 species for which we have damage costs
 
 ## MISSING: Add exotic status in the final database >> Camille & Céline?
 
