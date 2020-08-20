@@ -1,6 +1,6 @@
 #############################################################################################
 # script to build the database by merging IUCN status, originality scores and INVACOST info
-# original script by Céline Bellard
+# original script by C�line Bellard
 # modifications by: Marine Robuchon, XX, 
 #############################################################################################
 
@@ -9,7 +9,8 @@ library(dplyr)
 library(stringr)
 library(invacost)
 
-# setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
+#setwd("D:/these/Invacost/Marine/") # to personalise if needed
+ setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
 
 ######################################
 ############# Load data ##############
@@ -33,6 +34,10 @@ mammalPtree<-read.csv2("./outputs/mammals_vertlife_tree-based_phylori.csv", head
 
 costs_d <- read.csv2("./outputs/damagecost_by_species.csv", header = TRUE)
 costs_m <- read.csv2("./outputs/managementcost_by_species.csv", header = TRUE)
+
+iucnsp<-read.csv("./outputs/IUCN_exotic_mammal_bird.csv") 
+gavia<-read.csv("./outputs/GAVIA_exotic_bird.csv") 
+gisd<-read.csv2("./outputs/gisd_exotic_mammal_bird.csv") 
 
 ######################################
 ############# Format data ############
@@ -140,7 +145,25 @@ dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
 nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 33 species for which we have damage costs
 nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 41 species for which we have damage costs
 
-## MISSING: Add exotic status in the final database >> Camille & Céline?
+##Add exotic status in the final database 
+
+# Filter GAVIA - exotic bird database #527 species
+#Remove "unsuccessfull" and "unknow" categories
+newgavia <- gavia[which(gavia$StatusCat!='Unsuccessful' & gavia$StatusCat!='Unknown'),] #527 species
+##only keep one repetition per species
+head(newgavia)
+gaviasp<-unique(newgavia$Binomial)
+
+###Reunite all databasis
+Allbasis<-c(levels(iucnsp$scientificName),levels(gisd$Species), levels(factor(gaviasp))) #all exotic species found in all basis
+Exotic<-dataAllF$Species%in% Allbasis #which species are in the global database
+dataAllF<-add_column(dataAllF, Exotic, .after = "oriPtree") #add a column with TRUE = exotic species and FALSE = not an exotic species
+#Verify the number of exotic species in the global database
+trueexo<-subset(dataAllF, Exotic==TRUE) # 435 exotiques 
+Allexoticsp<-unique(trueexo[c("Species", "className")])  # 434 exotiques 
+summary(Allexoticsp$className)
+
+
 
 ## save the database
 write.table(dataAllF,"./outputs/dataAllF.txt")
