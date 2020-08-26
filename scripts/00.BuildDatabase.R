@@ -10,7 +10,7 @@ library(stringr)
 library(invacost)
 
 #setwd("D:/these/Invacost/Marine/") # to personalise if needed
- setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
+# setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
 
 ######################################
 ############# Load data ##############
@@ -35,7 +35,7 @@ mammalPtree<-read.csv2("./outputs/mammals_vertlife_tree-based_phylori.csv", head
 costs_d <- read.csv2("./outputs/damagecost_by_species.csv", header = TRUE)
 costs_m <- read.csv2("./outputs/managementcost_by_species.csv", header = TRUE)
 
-iucnsp<-read.csv("./outputs/IUCN_exotic_mammal_bird.csv") 
+iucnsp<-read.csv("./outputs/IUCN_exotic_mammal_bird.csv") # please put these 3 files in the github so we can access them
 gavia<-read.csv("./outputs/GAVIA_exotic_bird.csv") 
 gisd<-read.csv2("./outputs/gisd_exotic_mammal_bird.csv") 
 
@@ -44,6 +44,7 @@ gisd<-read.csv2("./outputs/gisd_exotic_mammal_bird.csv")
 ######################################
 
 colnames(iucn)[3] <- "Species"
+iucn <- iucn[-which(iucn$redlistCategory_version_2020.2 %in% c("Extinct", "Extinct in the Wild")),]# remove extinct species from the iucn db
 
 colnames(birdFDist) <- c("Species", "dietoriFdist", "activityoriFdist", "massoriFdist", "meanoriFdist")
 colnames(birdFtree) <- c("Species","dietoriFtree", "activityoriFtree", "massoriFtree", "meanoriFtree")
@@ -61,6 +62,9 @@ mammalPDist$Species <-str_replace_all(mammalPDist$Species, "_", " ")
 
 colnames(mammalPtree)[1]<- "Species"
 mammalPtree$Species <-str_replace_all(mammalPtree$Species, "_", " ")
+
+
+
 
 ######################################
 ############# Build all database #####
@@ -122,8 +126,8 @@ invacostF$invacostY <- "Y"
 dataAll<-iucnMBOri %>% left_join(invacostF,by="Species")
 colnames(dataAll)
 
-invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) #849 >> 963?
-invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 62 species 
+invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) # 967
+invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 55 species 
 
 colnames(dataAll)
 
@@ -144,6 +148,16 @@ dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
 
 nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 33 species for which we have damage costs
 nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 41 species for which we have damage costs
+
+# check if there are duplicates at this stage
+dupli <- dataAllF[duplicated(dataAllF$Species), "Species"]
+dataAllF[which(dataAllF$Species == dupli [1]) , ]
+dataAllF[which(dataAllF$Species == dupli [2]) , ]
+dataAllF[which(dataAllF$Species == dupli [3]) , ]
+
+# check if they already exist in the cost dbs
+costs_d[which(costs_d$Species %in% dupli),] #  Myocastor coypus and Alopochen aegyptiaca have 2 distinct damage costs
+costs_m[which(costs_m$Species %in% dupli),] # Trichosurus vulpecula has two distinct management costs
 
 ##Add exotic status in the final database 
 

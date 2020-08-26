@@ -66,9 +66,7 @@ write.csv2(species.summary, "./outputs/cost_by_species.csv")
 ## calculation of costs by species : damage vs management 
 # DAMAGE
 # extract damage costs from the expanded database
-db.over.time_damage <- db.over.time[db.over.time$Type_2=="Damage_costs" ,]
-# remove na from unique.species.id
-db.over.time_damage <- db.over.time_damage[!is.na(db.over.time_damage$unique.sp.id),]
+db.over.time_damage <- db.over.time[which(db.over.time$Type_2=="Damage_costs"), ]
 # then we prepare a data.frame in which we will store our results
 species.summary_damage <- data.frame()
 # we will cycle the loop through all unique identifiers
@@ -94,10 +92,6 @@ for(sp in unique(db.over.time_damage$unique.sp.id))
                                         Number.year.values = cur.raw$average.total.cost$number_year_values
                                        ))
 }
-# If I do not remove na from unique.sp.id, I have the following error
-# Error in if (any(costdb[, year.column] < minimum.year)) { : 
-# missing value where TRUE/FALSE needed
-# In addition: There were 17 warnings (use warnings() to see them)
 # to make the summary dataframe nicer, we can sort by cost to have the highest groups first
 species.summary_damage <- species.summary_damage[order(species.summary_damage$Cumulated.cost, decreasing = TRUE), ]
 # have a look at the first groups
@@ -107,9 +101,7 @@ write.csv2(species.summary_damage, "./outputs/damagecost_by_species.csv")
 
 # MANAGEMENT
 # extract management costs from the expanded database
-db.over.time_management <- db.over.time[db.over.time$Type_2=="Management_costs" ,]
-# remove na from unique.species.id
-db.over.time_management <- db.over.time_management[!is.na(db.over.time_management$unique.sp.id),]
+db.over.time_management <- db.over.time[which(db.over.time$Type_2=="Management_costs") ,]
 # then we prepare a data.frame in which we will store our results
 species.summary_management <- data.frame()
 # we will cycle the loop through all unique identifiers
@@ -135,10 +127,6 @@ for(sp in unique(db.over.time_management$unique.sp.id))
                                                Number.year.values = cur.raw$average.total.cost$number_year_values
                                              ))
 }
-# If I do not remove na from unique.sp.id, I have the following error
-# Error in if (any(costdb[, year.column] < minimum.year)) { : 
-#     missing value where TRUE/FALSE needed
-#   In addition: There were 27 warnings (use warnings() to see them)
 # to make the summary dataframe nicer, we can sort by cost to have the highest groups first
 species.summary_management <- species.summary_management[order(species.summary_management$Cumulated.cost, decreasing = TRUE), ]
 # have a look at the first groups
