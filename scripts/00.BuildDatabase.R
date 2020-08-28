@@ -8,6 +8,7 @@ rm(list=ls())
 library(dplyr)
 library(stringr)
 library(invacost)
+library(tibble)
 
 #setwd("D:/these/Invacost/Marine/") # to personalise if needed
 # setwd("D:/Collaboration/Invacost workshop/Phylogenie Marine/") # to personalise if needed
