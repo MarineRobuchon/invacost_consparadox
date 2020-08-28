@@ -146,18 +146,8 @@ colnames(costs_m)[2] <- "Average.annual.cost_management"
 dataAllF <- dataAllF %>% left_join(costs_d, by = "Species")
 dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
 
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 33 species for which we have damage costs
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 41 species for which we have damage costs
-
-# check if there are duplicates at this stage
-dupli <- dataAllF[duplicated(dataAllF$Species), "Species"]
-dataAllF[which(dataAllF$Species == dupli [1]) , ]
-dataAllF[which(dataAllF$Species == dupli [2]) , ]
-dataAllF[which(dataAllF$Species == dupli [3]) , ]
-
-# check if they already exist in the cost dbs
-costs_d[which(costs_d$Species %in% dupli),] #  Myocastor coypus and Alopochen aegyptiaca have 2 distinct damage costs
-costs_m[which(costs_m$Species %in% dupli),] # Trichosurus vulpecula has two distinct management costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 30 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 38 species for which we have damage costs
 
 ##Add exotic status in the final database 
 

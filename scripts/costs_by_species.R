@@ -22,6 +22,16 @@ invacost$genus.list <- as.character(invacost$Genus)
 invacost$sp.list[1:25] # so even if we create a unique identifier, it is this column we want to merge in the database
 # unique identifier
 invacost$unique.sp.id <- do.call("paste", invacost[, c("Kingdom", "Phylum", "Class", "Family", "genus.list", "sp.list")])
+# check the duplicates identified
+invacost$unique.sp.id[which(invacost$sp.list== "Myocastor coypus")] # so we have to change 60 & 64
+invacost$unique.sp.id[which(invacost$sp.list== "Myocastor coypus")][60] <- "Animalia Chordata Mammalia Myocastoridae Myocastor Myocastor coypus"
+invacost$unique.sp.id[which(invacost$sp.list== "Myocastor coypus")][64] <- "Animalia Chordata Mammalia Myocastoridae Myocastor Myocastor coypus"
+invacost$unique.sp.id[which(invacost$sp.list== "Alopochen aegyptiaca")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Alopochen aegyptiaca")][1] <- "Animalia Chordata Aves Anatidae Alopochen Alopochen aegyptiaca"
+invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")] # so we have to change 17 & 18
+invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")][17] <- "Animalia Chordata Mammalia Phalangeridae Trichosurus Trichosurus vulpecula"
+invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")][18] <- "Animalia Chordata Mammalia Phalangeridae Trichosurus Trichosurus vulpecula"
+
 # first we expand the database
 db.over.time <- expandYearlyCosts(invacost,
                                   startcolumn = "Probable_starting_year_low_margin",

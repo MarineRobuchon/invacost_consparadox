@@ -1,7 +1,7 @@
 "";"Kingdom";"Phylum";"Class";"Family";"Genus";"Species";"Average.annual.cost";"Cumulated.cost";"Number.estimates";"Number.year.values"
 "237";"Plantae";"Tracheophyta";"Magnoliopsida";"Tamaricaceae";"Tamarix";"Tamarix sp.";2125,22312633999;102010,71006432;7;26
 "85";"Animalia";"Arthropoda";"Insecta";"Noctuidae";"Helicoverpa";"Helicoverpa armigera";2046,2543070372;98220,2067377857;1;1
-"457";"Plantae";"Tracheophyta";"Magnoliopsida";"Caprifoliaceae";"Lonicera";"Lonicera japonica";1756,03031290251;84289,4550193204;1;7
+"455";"Plantae";"Tracheophyta";"Magnoliopsida";"Caprifoliaceae";"Lonicera";"Lonicera japonica";1756,03031290251;84289,4550193204;1;7
 "27";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus";"Rattus sp.";1595,85934412115;76601,2485178153;5;5
 "221";"Animalia";"Arthropoda";"Insecta";"Culicidae";"Aedes";"Aedes aegypti/Aedes albopictus";1521,61754539361;73037,6421788933;35;147
 "167";"Plantae";"Tracheophyta";"Magnoliopsida";"Myrtaceae";"Melaleuca";"Melaleuca quinquenervia";1510,36927748681;72497,7253193667;10;165
@@ -17,7 +17,7 @@
 "67";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Lymantria";"Lymantria dispar";526,814411308771;25287,091742821;13;55
 "99";"Animalia";"Arthropoda";"Insecta";"Pseudococcidae";"Phenacoccus";"Phenacoccus manihoti";507,616911171925;24365,6117362524;2;67
 "32";"Animalia";"Chordata";"Mammalia";"Muridae";"Mus/Rattus";"Mus sp./Rattus sp.";496,828683948512;23847,7768295286;1;1
-"448";"Plantae";"Tracheophyta";"Magnoliopsida";"Oleaceae";"Ligustrum";"Ligustrum spp.";432,253615483694;20748,1735432173;1;7
+"446";"Plantae";"Tracheophyta";"Magnoliopsida";"Oleaceae";"Ligustrum";"Ligustrum spp.";432,253615483694;20748,1735432173;1;7
 "92";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Ceratitis";"Ceratitis capitata";427,024638041531;20497,1826259935;11;12
 "62";"Animalia/Plantae";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";405,045290795501;19442,173958184;2;2
 "120";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Diuraphis";"Diuraphis noxia";358,134068688999;17190,4352970719;8;36
@@ -32,7 +32,7 @@
 "3";"Animalia";"Chordata";"Mammalia";"Leporidae";"Oryctolagus";"Oryctolagus cuniculus";168,391668594753;8082,80009254814;36;101
 "240";"Plantae";"Tracheophyta";"Magnoliopsida";"Onagraceae";"Ludwigia";"Ludwigia peploides/Ludwigia grandiflora";155,215422759672;7450,34029246427;8;92
 "68";"Animalia";"Arthropoda";"Insecta";"Buprestidae";"Agrilus";"Agrilus planipennis";151,385765042812;7266,51672205498;17;35
-"449";"Fungi";"Ascomycota";"Leotiomycetes";"Helotiaceae";"Gremmeniella";"Gremmeniella abietina";123,438119776566;5925,02974927516;1;1
+"447";"Fungi";"Ascomycota";"Leotiomycetes";"Helotiaceae";"Gremmeniella";"Gremmeniella abietina";123,438119776566;5925,02974927516;1;1
 "117";"Animalia";"Arthropoda";"Insecta";"Apidae";"Apis";"Apis mellifera";122,299966613279;5870,39839743741;4;4
 "4";"Animalia";"Chordata";"Mammalia";"Suidae";"Sus";"Sus scrofa";114,847316425714;5512,67118843428;54;90
 "288";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Rhagoletis";"Rhagoletis pomonella";103,997344733409;4991,87254720364;6;7
@@ -41,7 +41,7 @@
 "190";"Plantae";"Tracheophyta";"Liliopsida";"Pontederiaceae";"Eichhornia";"Eichhornia crassipes";92,5117981667734;4440,56631200512;16;41
 "249";"Animalia";"Arthropoda";"Insecta";"Coccinellidae";"Henosepilachna";"Henosepilachna vigintioctomaculata";89,9920177935922;4319,61685409242;1;1
 "279";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Premnotrypes";"Premnotrypes sp.";84,0322941105946;4033,55011730854;1;2
-"458";"Plantae";"Tracheophyta";"Magnoliopsida";"Euphorbiaceae";"Triadica";"Triadica sebifera";82,31888706638;3951,30657918624;1;7
+"456";"Plantae";"Tracheophyta";"Magnoliopsida";"Euphorbiaceae";"Triadica";"Triadica sebifera";82,31888706638;3951,30657918624;1;7
 "161";"Animalia";"Mollusca";"Bivalvia";"Dreissenidae";"Dreissena";"Dreissena polymorpha/Dreissena bugensis";74,2601365663051;3564,48655518265;9;43
 "199";"Fungi";"Basidiomycota";"Pucciniomycetes";"Pucciniaceae";"Puccinia";"Puccinia recondita";74,2358126622443;3563,31900778773;1;21
 "93";"Animalia";"Arthropoda";"Arachnida";"Ixodidae";"Rhipicephalus";"Rhipicephalus microplus";73,8873126137162;3546,59100545838;1;1
@@ -49,7 +49,7 @@
 "36";"Animalia";"Mollusca";"Gastropoda";"Ampullariidae";"Pomacea";"Pomacea canaliculata";71,8407422333325;3448,35562719996;6;47
 "183";"Plantae";"Tracheophyta";"Magnoliopsida";"Orobanchaceae";"Orobanche";"Orobanche spp.";68,9332546149411;3308,79622151717;1;1
 "109";"Animalia";"Arthropoda";"Insecta";"Anthomyiidae";"Stomoxys";"Stomoxys calcitrans";66,4289808497501;3188,59108078801;1;1
-"447";"Animalia";"Arthropoda";"Arachnida";"Ixodidae";"Amblyomma";"Amblyomma variegatum";66,3327185695911;3183,97049134037;1;1
+"445";"Animalia";"Arthropoda";"Arachnida";"Ixodidae";"Amblyomma";"Amblyomma variegatum";66,3327185695911;3183,97049134037;1;1
 "121";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Aphis";"Aphis glycines";64,8865040148242;3114,55219271156;1;1
 "76";"Animalia";"Arthropoda";"Insecta";"Calliphoridae";"Cochliomyia";"Cochliomyia hominivorax";64,1371255381525;3078,58202583132;7;7
 "90";"Animalia";"Arthropoda";"Insecta";"Rhinotermitidae";"Coptotermes";"Coptotermes formosanus";62,9914007171081;3023,58723442119;4;4
@@ -78,12 +78,12 @@
 "206";"Animalia";"Nematoda";"Secernentea";"Hoplolaimidae/Tylenchulidae";"Radopholus/Tylenchulus";"Radopholus similis/Tylenchulus semipenetrans";43,55167676185;2090,4804845688;1;16
 "283";"Viruses";NA;NA;"Secoviridae";"Comovirus";"Andean potato mottle comovirus";42,668282375446;2048,07755402141;1;2
 "268";"Animalia";"Arthropoda";"Insecta";"Cerambycidae";"Monochamus";"Monochamus saltuarius";41,9903684276592;2015,53768452764;1;1
-"445";"Animalia";"Arthropoda";"Arachnida";"Ixodidae";"Boophilus";NA;41,5175446025295;1992,84214092141;1;1
+"443";"Animalia";"Arthropoda";"Arachnida";"Ixodidae";"Boophilus";NA;41,5175446025295;1992,84214092141;1;1
 "18";"Animalia";"Chordata";"Mammalia";"Canidae";"Canis";"Canis lupus";38,8636606729658;1865,45571230236;8;8
 "254";"Animalia";"Arthropoda";"Insecta";"Cerambycidae";"Monochamus";"Monochamus urussovii";38,762117554343;1860,58164260846;3;3
-"446";"Fungi";"Basidiomycota";"Pucciniomycetes";"Cronartiaceae";"Cronartium";"Cronartium ribicola";35,9878263949017;1727,41566695528;1;1
+"444";"Fungi";"Basidiomycota";"Pucciniomycetes";"Cronartiaceae";"Cronartium";"Cronartium ribicola";35,9878263949017;1727,41566695528;1;1
 "290";"Animalia";"Arthropoda";"Insecta";"Diaspididae";"Diaspidiotus";"Diaspidiotus perniciosus";35,9606047967733;1726,10903024512;1;2
-"461";"Viruses";NA;NA;NA;NA;"Maize lethal necrosis";34,2897975772515;1645,91028370807;10;30
+"459";"Viruses";NA;NA;NA;NA;"Maize lethal necrosis";34,2897975772515;1645,91028370807;10;30
 "75";"Animalia";"Arthropoda";"Insecta";"Tortricidae";"Cydia";"Cydia pomonella";33,8880865861027;1626,62815613293;7;7
 "145";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Hypera";"Hypera postica";33,3389877329546;1600,27141118182;2;2
 "191";"Animalia";"Arthropoda";"Insecta";"Crambidae";"Ostrinia";"Ostrinia nubilalis";32,5575899656432;1562,76431835087;1;1
@@ -91,7 +91,7 @@
 "292";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Enterobacteriaceae";"Erwinia";"Erwinia amylovora";31,1161709899541;1493,5762075178;1;2
 "253";"Animalia";"Arthropoda";"Insecta";"Cerambycidae";"Monochamus";"Monochamus impluviatus";30,9923637375634;1487,63345940304;3;3
 "202";"Animalia";"Chordata";"Cephalaspidomorphi";"Petromyzontidae";"Petromyzon";"Petromyzon marinus";30,7496325422872;1475,98236202978;2;2
-"444";"Animalia";"Chordata";"Osteichthyes";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";29,6553890018068;1423,45867208672;1;1
+"442";"Animalia";"Chordata";"Osteichthyes";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";29,6553890018068;1423,45867208672;1;1
 "58";"Animalia";"Chordata";"Aves";"Columbidae";"Columba";"Columba sp.";28,7637659128086;1380,66076381481;1;1
 "350";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Dendroctonus";"Dendroctonus valens";28,6928016604954;1377,25447970378;2;2
 "230";"Plantae";"Tracheophyta";"Magnoliopsida";"Arecaceae";"Elaeis";"Elaeis guineensis";28,2450877411363;1355,76421157454;18;18
@@ -99,65 +99,65 @@
 "274";"Fungi";"Basidiomycota";"Exobasidiomycetes";"Tilletiaceae";"Tilletia";"Tilletia indica";26,0854128059495;1252,09981468558;1;2
 "17";"Animalia";"Chordata";"Mammalia";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";25,8263689700309;1239,66571056148;13;30
 "232";"Plantae";"Tracheophyta";"Magnoliopsida";"Poaceae";"Cenchrus";"Cenchrus clandestinus";24,8522150866982;1192,90632416152;18;18
-"399";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea solstitialis";24,4623794490442;1174,19421355412;17;71
+"397";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea solstitialis";24,4623794490442;1174,19421355412;17;71
 "147";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Anastrepha/Ceratitis";"Anastrepha ludens/Ceratitis capitata";22,7908468761798;1093,96065005663;1;1
 "273";"Fungi";"Ascomycota";"Sordariomycetes";"Diaporthaceae";"Phomopsis";"Phomopsis helianthi";22,7315740166132;1091,11555279743;1;2
 "101";"Animalia";"Arthropoda";"Insecta";"Adelgidae";"Adelges";"Adelges piceae";22,6420250536042;1086,817202573;1;1
 "84";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Diabrotica";"Diabrotica virgifera";22,5542188535609;1082,60250497092;24;40
 "278";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Epitrix";"Epitrix tuberis";21,2409789991303;1019,56699195826;1;2
-"392";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Chondrilla";"Chondrilla juncea";20,7049713510107;993,838624848514;10;10
+"391";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Chondrilla";"Chondrilla juncea";20,7049713510107;993,838624848514;10;10
 "289";"Animalia";"Arthropoda";"Insecta";"Tortricidae";"Grapholita";"Grapholita molesta";20,4956814903889;983,792711538669;1;2
-"442";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Cirsium";"Cirsium arvense";20,2917704624316;974,004982196717;1;2
+"440";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Cirsium";"Cirsium arvense";20,2917704624316;974,004982196717;1;2
 "72";"Animalia";"Arthropoda";"Insecta";"Gelechiidae";"Tuta";"Tuta absoluta";19,6592465937344;943,64383649925;20;36
 "285";"Viruses";NA;NA;"Bromoviridae";"Ilarvirus";"Potato yellowing virus";19,0050864729061;912,244150699493;1;2
 "309";"Plantae";"Tracheophyta";"Dicotyledonae";"Solanaceae";"Solanum";"Solanum elaeagnifolium";19,0050864729061;912,244150699493;1;2
-"393";"Plantae";"Tracheophyta";"Magnoliopsida";"Rosaceae";"Rubus";"Rubus armeniacus";18,2839552205308;877,629850585478;13;13
+"392";"Plantae";"Tracheophyta";"Magnoliopsida";"Rosaceae";"Rubus";"Rubus armeniacus";18,2839552205308;877,629850585478;13;13
 "359";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Cytisus";"Cytisus scoparius";17,7125865183443;850,204152880528;14;14
-"443";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera";"Bactrocera oleae";17,5368197885758;841,767349851638;1;1
+"441";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera";"Bactrocera oleae";17,5368197885758;841,767349851638;1;1
 "219";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Pueraria";"Pueraria sp.";17,3041874529368;830,600997740967;2;2
 "265";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Diabrotica";"Diabrotica undecimpunctata";17,2885905424565;829,852346037914;3;3
-"459";"Plantae";"Tracheophyta";"Magnoliopsida";"Mimosaceae";"Prosopis";"Prosopis spp.";17,2051688927216;825,848106850637;1;1
-"430";"Plantae";"Tracheophyta";"Magnoliopsida";"Melastomataceae";"Miconia";"Miconia calvescens";16,5433692942111;794,081726122131;5;5
+"457";"Plantae";"Tracheophyta";"Magnoliopsida";"Mimosaceae";"Prosopis";"Prosopis spp.";17,2051688927216;825,848106850637;1;1
+"428";"Plantae";"Tracheophyta";"Magnoliopsida";"Melastomataceae";"Miconia";"Miconia calvescens";16,5433692942111;794,081726122131;5;5
 "247";"Animalia";"Arthropoda";"Insecta";"Elateridae";"Melanotus";"Melanotus communis";16,3544884250291;785,015444401396;1;1
 "88";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Anthonomus";"Anthonomus grandis";15,4522961416091;741,710214797237;5;5
-"463";"Animalia";"Arthropoda";"Insecta";"Agromyzidae";"Liriomyza";NA;14,886527388346;714,553314640606;6;18
+"461";"Animalia";"Arthropoda";"Insecta";"Agromyzidae";"Liriomyza";NA;14,886527388346;714,553314640606;6;18
 "231";"Plantae";"Tracheophyta";"Pteridopsida";"Dennstaedtiaceae";"Pteridium";"Pteridium aquilinum";14,2421669988407;683,624015944354;17;17
 "135";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera/Bactrocera/Ceratitis";"Bactrocera cucurbitae/Bactrocera dorsalis/Ceratitis capitata";12,4818661433589;599,129574881226;2;2
 "142";"Animalia";"Arthropoda";"Insecta";"Agromyzidae";"Liriomyza";"Liriomyza spp.";12,1979166666667;585,5;8;8
 "261";"Animalia";"Arthropoda";"Insecta";"Blissidae";"Blissus";"Blissus leucopterus";11,2413242334666;539,583563206398;1;1
 "200";"Animalia";"Arthropoda";"Insecta";"Gelechiidae";"Pectinophora";"Pectinophora gossypiella";11,1495120541295;535,176578598214;1;19
-"441";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea spp.";11,0695805883187;531,339868239296;1;1
+"439";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea spp.";11,0695805883187;531,339868239296;1;1
 "255";"Animalia";"Arthropoda";"Insecta";"Tortricidae";"Grapholita";"Grapholita prunivora";10,8364673092097;520,150430842063;2;2
 "203";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera/Ceratitis";"Bactrocera cucurbitae/Bactrocera dorsalis/Ceratitis capitata";10,7288424490434;514,984437554083;1;1
 "271";"Animalia";"Arthropoda";"Insecta";"Dermestidae";"Trogoderma";"Trogoderma granarium";10,6204894995652;509,783495979128;1;2
 "1";"Animalia";"Chordata";"Mammalia";"Canidae";"Vulpes";"Vulpes vulpes";10,4690955281845;502,516585352857;8;8
 "229";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Ulex";"Ulex europaeus";10,3620837348838;497,380019274423;6;6
-"438";"Plantae";"Tracheophyta";"Magnoliopsida";"Boraginaceae";"Echium";"Echium plantagineum";10,0635856529179;483,052111340062;2;2
-"427";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Xanthomonadaceae";"Xylella";"Xylella fastidiosa";9,34347366345511;448,486735845845;5;5
-"436";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Carthamus";"Carthamus lanatus";9,27256650374019;445,083192179529;2;2
+"436";"Plantae";"Tracheophyta";"Magnoliopsida";"Boraginaceae";"Echium";"Echium plantagineum";10,0635856529179;483,052111340062;2;2
+"425";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Xanthomonadaceae";"Xylella";"Xylella fastidiosa";9,34347366345511;448,486735845845;5;5
+"434";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Carthamus";"Carthamus lanatus";9,27256650374019;445,083192179529;2;2
 "284";"Viruses";NA;NA;"Flexiviridae";"Andesvirus";"Potato virus T";8,94357010489699;429,291365035055;1;2
 "353";"Animalia";"Arthropoda";"Insecta";"Brachyceridae";"Lissorhoptrus";"Lissorhoptrus brevirostris";8,79196247887817;422,014198986152;2;55
 "258";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Zygogramma";"Zygogramma exclamationis";8,71202628093664;418,177261484959;1;1
 "152";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Diverse/Unspecified";"Diverse/Unspecified";8,65209372646841;415,300498870483;1;1
-"437";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Pueraria";"Pueraria lobata";8,25334308984069;396,160468312353;2;2
-"440";"Animalia";"Arthropoda";"Insecta";"Formicidae";"Diverse/Unspecified";"Diverse/Unspecified";7,94570627534389;381,393901216507;1;1
+"435";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Pueraria";"Pueraria lobata";8,25334308984069;396,160468312353;2;2
+"438";"Animalia";"Arthropoda";"Insecta";"Formicidae";"Diverse/Unspecified";"Diverse/Unspecified";7,94570627534389;381,393901216507;1;1
 "106";"Animalia";"Arthropoda";"Insecta";"Pseudococcidae";"Maconellicoccus";"Maconellicoccus hirsutus";7,87903271803318;378,193570465593;6;27
 "96";"Animalia";"Arthropoda";"Insecta";"Hesperiidae";"Erionota";"Erionota thrax";7,8402210912448;376,33061237975;2;56
 "60";"Animalia";"Chordata";"Aves";"Columbidae";"Columba";"Columba livia";7,78688435382157;373,770448983435;1;1
 "29";"Animalia";"Chordata";"Mammalia";"Cricetidae";"Ondatra";"Ondatra zibethicus";7,62091085296652;365,803720942393;8;9
-"462";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Parthenium";"Parthenium hysterophorus";7,41429781543614;355,886295140935;8;24
-"434";"Animalia";"Chordata";"Hyperoartia";"Petromyzontidae";"Petromyzon";"Petromyzon marinus";7,28734874274038;349,792739651538;1;1
+"460";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Parthenium";"Parthenium hysterophorus";7,41429781543614;355,886295140935;8;24
+"432";"Animalia";"Chordata";"Hyperoartia";"Petromyzontidae";"Petromyzon";"Petromyzon marinus";7,28734874274038;349,792739651538;1;1
 "381";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea affinis";6,67202896581822;320,257390359275;5;5
 "344";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Red tide";6,3821985813468;306,345531904647;1;3
 "187";"Plantae";"Tracheophyta";"Magnoliopsida";"Ranunculaceae";"Ranunculus";"Ranunculus acris";6,29984300817806;302,392464392547;7;13
 "201";"Animalia";"Arthropoda";"Arachnida";"Tarsonemidae/Varroidae";"Acarapis/Varroa";"Acarapis woodi/Varroa jacobsoni";5,99937791919071;287,970140121154;1;1
-"422";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus";"Diverse/Unspecified";5,93437525400311;284,850012192149;2;2
+"420";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus";"Diverse/Unspecified";5,93437525400311;284,850012192149;2;2
 "151";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Listronotus";"Listronotus bonariensis";5,92657352733413;284,475529312038;3;15
 "275";"Fungi";"Ascomycota";"Sordariomycetes";"Diaporthaceae";"Stenocarpella";"Stenocarpella maydis/Stenocarpella macrospora";5,77605569274597;277,250673251807;1;2
 "300";"Animalia";"Arthropoda";"Insecta";"Agromyzidae";"Liriomyza";"Liriomyza trifolii";5,58492138850482;268,076226648231;2;24
-"460";"Plantae";"Tracheophyta";"Magnoliopsida";"Tamaricaceae";"Tamarix";"Diverse/Unspecified";5,54486960164641;266,153740879028;1;1
+"458";"Plantae";"Tracheophyta";"Magnoliopsida";"Tamaricaceae";"Tamarix";"Diverse/Unspecified";5,54486960164641;266,153740879028;1;1
 "102";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Ceutorhynchus";"Ceutorhynchus obstrictus";5,42720431779004;260,505807253922;1;1
-"431";"Fungi";"Chytridiomycota";"Chytridiomycetes";"Synchytriaceae";"Synchytrium";"Synchytrium endobioticum";5,38768125726364;258,608700348655;2;2
+"429";"Fungi";"Chytridiomycota";"Chytridiomycetes";"Synchytriaceae";"Synchytrium";"Synchytrium endobioticum";5,38768125726364;258,608700348655;2;2
 "110";"Animalia";"Arthropoda";"Insecta";"Lymantriidae";"Teia";"Teia anartoides";5,3165847971257;255,196070262033;4;53
 "276";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Enterobacteriaceae";"Pantoea";"Pantoea stewartii subsp. stewartii";5,26366365548625;252,65585546334;1;2
 "59";"Animalia";"Chordata";"Aves";"Passeridae";"Diverse/Unspecified";"Diverse/Unspecified";5,22977562051065;251,029229784511;1;1
@@ -165,11 +165,11 @@
 "171";"Chromista";"Haptophyta";"Prymnesiophyceae";"Chrysochromulinaceae";"Prymnesium";"Prymnesium polylepis";5,1277205976698;246,13058868815;1;9
 "119";"Animalia";"Arthropoda";"Insecta";"Thripidae";"Frankliniella";"Frankliniella occidentalis";5,04159510021768;241,996564810449;2;12
 "38";"Animalia";"Arthropoda";"Arachnida";"Penthaleidae";"Halotydeus";"Halotydeus destructor";5,03776982702158;241,812951697036;1;1
-"398";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea stoebe";4,9605625;238,107;8;8
+"396";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea stoebe";4,9605625;238,107;8;8
 "192";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea diffusa";4,93823380917552;237,035222840425;18;18
 "82";"Animalia";"Arthropoda";"Insecta";"Coccinellidae";"Harmonia";"Harmonia axyridis";4,81305216330028;231,026503838414;1;1
 "14";"Animalia";"Chordata";"Mammalia";"Canidae";"Canis/Vulpes";"Canis lupus spp./Vulpes vulpes";4,81079140572396;230,91798747475;8;21
-"439";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Setaria";"Setaria helvola";4,61688089189753;221,610282811081;1;1
+"437";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Setaria";"Setaria helvola";4,61688089189753;221,610282811081;1;1
 "50";"Animalia";"Chordata";"Aves";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";4,55321647442924;218,554390772603;8;15
 "111";"Animalia";"Arthropoda";"Insecta";"Cerambycidae";"Tetropium";"Tetropium fuscum";4,54999623856511;218,399819451125;1;1
 "348";"Fungi";"Ascomycota";"Sordariomycetes";"Nectriaceae";"Fusarium";"Fusarium oxysporum cubense";4,33497196739172;208,078654434802;3;36
@@ -177,12 +177,12 @@
 "225";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Euwallacea";"Euwallacea sp.";4,19594924965299;201,405563983343;1;1
 "349";"Animalia";"Arthropoda";"Insecta";"Diaspididae";"Hemiberlesia";"Hemiberlesia pitysophila";4,0853174665399;196,095238393915;1;1
 "112";"Animalia";"Arthropoda";"Insecta";"Notodontidae";"Thaumetopoea";"Thaumetopoea pityocampa";4,05270496510832;194,529838325199;1;5
-"425";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Lymantria";"Lymantria disparasiatica/Lymantria dispar";4,04085416666667;193,961;3;3
+"423";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Lymantria";"Lymantria disparasiatica/Lymantria dispar";4,04085416666667;193,961;3;3
 "175";"Animalia";"Mollusca";"Bivalvia";"Teredinidae";"Teredo";"Teredo navalis";3,92902283408376;188,59309603602;3;3
 "209";"Plantae";"Tracheophyta";"Magnoliopsida";"Lythraceae";"Lythrum";"Lythrum salicaria";3,88438903831277;186,450673839013;14;14
 "313";"Fungi";"Ascomycota";"Sordariomycetes";"Ophiostomataceae";"Ophiostoma";"Ophiostoma ulmi";3,67556023592632;176,426891324463;4;4
 "352";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Sporobolus";"Sporobolus anglicus/Sporobolus alterniflorus";3,61190785538844;173,371577058645;2;2
-"387";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Senecio";"Senecio jacobaea";3,5989479875555;172,749503402664;7;25
+"386";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Senecio";"Senecio jacobaea";3,5989479875555;172,749503402664;7;25
 "343";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Sporobolus";"Sporobolus alterniflorus";3,5537838213325;170,58162342396;9;9
 "166";"Animalia";"Arthropoda";"Malacostraca";"Astacidae";"Pacifastacus";"Pacifastacus leniusculus";3,44661105111521;165,43733045353;3;3
 "257";"Animalia";"Arthropoda";"Insecta";"Gelechiidae";"Symmetrischema";"Symmetrischema tangolias";3,40949364001043;163,655694720501;1;1
@@ -191,7 +191,7 @@
 "218";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera";"Bactrocera papayae";3,31663592847956;159,198524567019;1;1
 "339";"Animalia";"Arthropoda";"Insecta";"Margarodidae";"Matsucoccus";"Matsucoccus matsumurae";3,27162969831969;157,038225519345;2;6
 "317";"Fungi";"Basidiomycota";"Ustilaginomycetes";"Tilletiaceae";"Tilletia";"Tilletia indica";3,1967480728883;153,443907498638;1;1
-"400";"Plantae";"Tracheophyta";"Magnoliopsida";"Brassicaceae";"Lepidium";"Lepidium draba";3,19225737676977;153,228354084949;4;4
+"398";"Plantae";"Tracheophyta";"Magnoliopsida";"Brassicaceae";"Lepidium";"Lepidium draba";3,19225737676977;153,228354084949;4;4
 "6";"Animalia";"Chordata";"Mammalia";"Muridae";"Mus";"Mus musculus";2,97816003515642;142,951681687508;5;5
 "66";"Animalia";"Arthropoda";"Insecta";"Adelgidae";"Adelges";"Adelges tsugae";2,92679312180401;140,486069846593;4;14
 "20";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus";"Rattus norvegicus";2,89496856521502;138,958491130321;4;4
@@ -204,15 +204,15 @@
 "291";"Animalia";"Arthropoda";"Insecta";"Phylloxeridae";"Daktulosphaira";"Daktulosphaira vitifoliae";2,4222169034096;116,266411363661;1;2
 "299";"Fungi";"Oomycota";"Peronosporea";"Peronosporaceae";"Phytophthora";"Phytophthora fragariae";2,4222169034096;116,266411363661;1;2
 "330";"Animalia";"Arthropoda";"Insecta";"Delphacidae";"Nilaparvata";"Nilaparvata lugens";2,35841187801891;113,203770144908;1;1
-"386";"Chromista";"Oomycota";"Oomycetes";"Peronosporaceae";"Phytophthora";"Phytophthora ramorum";2,30758785471261;110,764217026205;21;168
+"385";"Chromista";"Oomycota";"Oomycetes";"Peronosporaceae";"Phytophthora";"Phytophthora ramorum";2,30758785471261;110,764217026205;21;168
 "89";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Bactrocera";"Bactrocera philippinensis";2,30297238855988;110,542674650874;1;20
 "325";"Animalia";"Chordata";"Mammalia";"Viverridae";"Paguma";"Paguma larvata";2,2830529840946;109,586543236541;18;35
 "310";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Eragrostis";"Eragrostis plana";2,27984689653743;109,432651033797;1;11
-"469";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Ambrosia/Artemisia/Cyclachaena";"Ambrosia trifida/Artemisia annua/Cyclachaena xanthiifolia";2,26321046005837;108,634102082802;1;7
+"467";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Ambrosia/Artemisia/Cyclachaena";"Ambrosia trifida/Artemisia annua/Cyclachaena xanthiifolia";2,26321046005837;108,634102082802;1;7
 "316";"Viruses";"Negarnaviricota";"Ellioviricetes";"Peribunyaviridae";"Tospovirus";"Tomato spotted wilt virus";2,25016446416503;108,007894279921;1;1
 "15";"Animalia";"Chordata";"Mammalia";"Phalangeridae";"Trichosurus";"Trichosurus vulpecula";2,14453864969365;102,937855185295;3;3
 "366";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Spartina";"Spartina spp.";2,05657416461656;98,7155599015951;4;4
-"467";"Viruses";"Diverse/Unspecified";"Diverse/Unspecified";"Retroviridae";"Lentivirus";"Human immunodeficiency virus";2,00332651820806;96,159672873987;1;1
+"465";"Viruses";"Diverse/Unspecified";"Diverse/Unspecified";"Retroviridae";"Lentivirus";"Human immunodeficiency virus";2,00332651820806;96,159672873987;1;1
 "298";"Viruses";NA;NA;"Potyviridae";"Potyvirus";"Plum  pox  potyvirus";1,95640596044622;93,9074861014184;1;2
 "79";"Animalia";"Arthropoda";"Insecta";"Calliphoridae";"Chrysomya";"Chrysomya bezziana";1,92439868215518;92,3711367434484;1;1
 "215";"Plantae";"Tracheophyta";"Magnoliopsida";"Amaranthaceae";"Alternanthera";"Alternanthera philoxeroides";1,90733171383315;91,5519222639912;2;4
@@ -220,8 +220,8 @@
 "80";"Animalia";"Arthropoda";"Insecta";"Tephritidae";"Rhagoletis";"Rhagoletis completa";1,82054135115832;87,3859848555995;1;1
 "222";"Animalia";"Arthropoda";"Insecta";"Culicidae";"Aedes";"Aedes albopictus";1,76529992881602;84,7343965831688;6;6
 "136";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Orgyia";"Orgyia thyellina";1,75439882115159;84,2111434152763;1;1
-"391";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea x moncktonii";1,70741666666667;81,956;8;8
-"426";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Lymantria";"Lymantria dispar asiatica/Lymantria dispar";1,62239583333333;77,875;2;2
+"390";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea x moncktonii";1,70741666666667;81,956;8;8
+"424";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Lymantria";"Lymantria dispar asiatica/Lymantria dispar";1,62239583333333;77,875;2;2
 "262";"Animalia";"Arthropoda";"Insecta";"Thripidae";"Frankliniella";"Frankliniella schultzei";1,61117462235789;77,3363818731789;1;1
 "164";"Chromista";"Oomycota";"Peronosporea";"Leptolegniaceae";"Aphanomyces";"Aphanomyces astaci";1,55847676143368;74,8068845488166;2;7
 "5";"Animalia";"Chordata";"Mammalia";"Canidae";"Canis";"Canis lupus spp.";1,53125818114426;73,5003926949243;5;13
@@ -237,25 +237,25 @@
 "7";"Animalia";"Chordata";"Mammalia";"Bovidae";"Capra";"Capra hircus";1,27487818805469;61,1941530266253;7;7
 "216";"Plantae";"Tracheophyta";"Magnoliopsida";"Mimosaceae";"Prosopis";"Prosopis sp.";1,24555933961182;59,7868483013673;1;6
 "140";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Hyphantria";"Hyphantria cunea";1,17455752304141;56,3787611059876;5;8
-"429";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Hieracium";"Diverse/Unspecified";1,15318144528221;55,3527093735463;1;1
-"428";"Animalia";"Arthropoda";"Malacostraca";"Portunidae";"Carcinus";"Carcinus maenas";1,14814766791227;55,1110880597889;1;1
+"427";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Hieracium";"Diverse/Unspecified";1,15318144528221;55,3527093735463;1;1
+"426";"Animalia";"Arthropoda";"Malacostraca";"Portunidae";"Carcinus";"Carcinus maenas";1,14814766791227;55,1110880597889;1;1
 "294";"Bacteria";"Proteobacteria";"Betaproteobacteria";"Burkholderiales";"Xylophilus";"Xylophilus ampelinus";1,12539923819954;54,0191634335778;1;2
 "245";"Animalia";"Arthropoda";"Insecta";"Gelechiidae";"Keiferia";"Keiferia lycopersicella";1,12413242334666;53,9583563206398;1;1
 "319";"Fungi";"Ascomycota";"Sordariomycetes";"Ceratocystidaceae";"Ceratocystis";"Ceratocystis platani";1,09555548759307;52,5866634044675;1;1
 "189";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Nassella";"Nassella trichotoma";1,09316307381713;52,4718275432223;1;1
 "158";"Animalia";"Arthropoda";"Maxillopoda";"Balanidae";"Balanus";"Balanus improvisus";1,08846558623891;52,2463481394677;1;1
 "169";"Animalia";"Nematoda";"Secernentea";"Anguillicolidae";"Anguillicoloides";"Anguillicoloides crassus";1,07732725267352;51,7117081283287;1;1
-"468";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus/Mus";"Rattus norvegicus/Mus musculus";1,07633738381873;51,6641944232989;1;1
-"394";"Plantae";"Tracheophyta";"Magnoliopsida";"Plantaginaceae";"Linaria";"Linaria dalmatica";1,07093636862445;51,4049456939738;4;4
+"466";"Animalia";"Chordata";"Mammalia";"Muridae";"Rattus/Mus";"Rattus norvegicus/Mus musculus";1,07633738381873;51,6641944232989;1;1
+"393";"Plantae";"Tracheophyta";"Magnoliopsida";"Plantaginaceae";"Linaria";"Linaria dalmatica";1,07093636862445;51,4049456939738;4;4
 "242";"Animalia";"Arthropoda";"Insecta";"Gracillariidae";"Phyllonorycter";"Phyllonorycter issikii";1,06888033430592;51,306256046684;1;1
 "211";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Bromus";"Bromus tectorum";1,03445922493535;49,6540427968968;5;9
 "163";"Animalia";"Arthropoda";"Malacostraca";"Pseudothelphusidae";"Eriocheir";"Eriocheir sinensis";1,02375849425329;49,1404077241577;1;36
 "357";"Animalia";"Chordata";"Ascidiacea";"Styelidae";"Styela";"Styela clava";0,949471112542962;45,5746134020622;2;2
 "182";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Mikania";"Mikania micrantha";0,937526129267685;45,0012542048489;2;4
-"424";"Plantae";"Tracheophyta";"Magnoliopsida";"Apiaceae";"Hydrocotyle";"Hydrocotyle ranunculoides";0,921558410050669;44,2348036824321;1;1
+"422";"Plantae";"Tracheophyta";"Magnoliopsida";"Apiaceae";"Hydrocotyle";"Hydrocotyle ranunculoides";0,921558410050669;44,2348036824321;1;1
 "16";"Animalia";"Chordata";"Mammalia";"Sciuridae";"Sciurus";"Sciurus carolinensis";0,921483831606737;44,2312239171234;5;31
 "35";"Animalia";"Mollusca";"Gastropoda";"Arionidae";"Arion";"Arion vulgaris";0,901895358272524;43,2909771970811;1;1
-"389";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea moncktonii";0,821691047915704;39,4411702999538;4;4
+"388";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea moncktonii";0,821691047915704;39,4411702999538;4;4
 "272";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Callosobruchus";"Callosobruchus sp.";0,81610077207185;39,1728370594488;1;2
 "320";"Animalia";"Arthropoda";"Insecta";"Thripidae";"Thrips";"Thrips palmi";0,810711060818875;38,914130919306;1;1
 "39";"Animalia";"Nematoda";"Secernentea";"Heteroderidae";"Heterodera";"Heterodera avenae";0,728169457492084;34,95213395962;1;1
@@ -264,10 +264,10 @@
 "293";"Bacteria";NA;"Mollicutes";"Acholeplasmataceae";NA;"Candidatus sp.";0,704306145760638;33,8066949965106;1;2
 "134";"Animalia";"Arthropoda";"Insecta";"Pyralidae";"Elasmopalpus";"Elasmopalpus lignosella";0,70106898834098;33,651311440367;2;14
 "295";"Viruses";"Picornavirales";NA;"Secoviridae";"Cheravirus";"Cherry  rasp  leaf  cheravirus";0,665178026551713;31,9285452744822;1;2
-"421";"Animalia";"Arthropoda";"Malacostraca";"Carcinidae";"Carcinus";"Carcinus maenas";0,651151799312863;31,2552863670174;1;1
+"419";"Animalia";"Arthropoda";"Malacostraca";"Carcinidae";"Carcinus";"Carcinus maenas";0,651151799312863;31,2552863670174;1;1
 "143";"Plantae";"Tracheophyta";"Pinopsida";"Pinaceae";"Abies/Picea/Pseudotsuga/Tsuga";"Pseudotsuga menziesii";0,631869809764145;30,329750868679;1;28
 "340";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Eupatorium";"Eupatorium adenophorum";0,615537518362149;29,5458008813832;2;2
-"419";"Plantae";"Tracheophyta";"Liliopsida";"Hydrocharitaceae";"Hydrilla";"Hydrilla verticillata";0,614692690938707;29,5052491650579;2;2
+"417";"Plantae";"Tracheophyta";"Liliopsida";"Hydrocharitaceae";"Hydrilla";"Hydrilla verticillata";0,614692690938707;29,5052491650579;2;2
 "48";"Animalia";"Chordata";"Aves";"Ploceidae";"Ploceus";"Ploceus melanocephalus";0,589796880012836;28,3102502406161;1;1
 "172";"Chromista";"Ochrophyta";"Raphidophyceae";"Chattonellaceae";"Chattonella";"Diverse/Unspecified";0,5148552892611;24,7130538845328;1;9
 "256";"Animalia";"Arthropoda";"Insecta";"Noctuidae";"Helicoverpa";"Helicoverpa zea";0,507451152426396;24,357655316467;1;1
@@ -278,17 +278,17 @@
 "210";"Plantae";"Tracheophyta";"Magnoliopsida";"Solanaceae";"Solanum";"Solanum viarum";0,471719047594298;22,6425142845263;2;2
 "176";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Artemisia";"Artemisia vulgaris";0,465189233993933;22,3290832317088;2;2
 "103";"Plantae";"Tracheophyta";"Insecta";"Aphididae";"Cinara";"Cupressus cupressivora";0,462236138432062;22,187334644739;1;1
-"413";"Animalia";"Arthropoda";"Insecta";"Blattidae/Ectobiidae";"Blatta/Blatella";"Blatta orientalis/Blatella germanica";0,458822426801614;22,0234764864775;2;2
+"411";"Animalia";"Arthropoda";"Insecta";"Blattidae/Ectobiidae";"Blatta/Blatella";"Blatta orientalis/Blatella germanica";0,458822426801614;22,0234764864775;2;2
 "227";"Animalia";"Arthropoda";"Insecta";"Vespidae";"Vespula";"Vespula germanica";0,457956158051104;21,981895586453;4;4
 "212";"Animalia";"Ctenophora";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";0,444530927743405;21,3374845316834;1;1
 "297";"Viruses";"Picornavirales";NA;"Secoviridae";"Nepovirus";"Peach  rosette  mosaic  nepovirus";0,435999042613728;20,927954045459;1;2
-"471";"Plantae";"Tracheophyta";"Liliopsida";"Pontederiaceae";"Eichhornia";"Eichhornia sp.";0,395050831441336;18,9624399091841;1;1
+"469";"Plantae";"Tracheophyta";"Liliopsida";"Pontederiaceae";"Eichhornia";"Eichhornia sp.";0,395050831441336;18,9624399091841;1;1
 "139";"Animalia";"Arthropoda";"Insecta";"Noctuidae";"Uraba";"Uraba lugens";0,394751011058724;18,9480485308188;1;4
 "205";"Plantae";"Tracheophyta";"Liliopsida";"Hydrocharitaceae";"Hydrilla";"Hydrilla sp.";0,388854256802232;18,6650043265071;1;1
 "296";"Viruses";NA;NA;"Avsunviroidae";NA;"Peach latent mosaic viroid";0,372648754370708;17,887140209794;1;2
-"420";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Xanthomonadaceae";"Xanthomonas";"Xanthomonas axonopodis pv. citri";0,369070486834995;17,7153833680797;1;1
+"418";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Xanthomonadaceae";"Xanthomonas";"Xanthomonas axonopodis pv. citri";0,369070486834995;17,7153833680797;1;1
 "346";"Animalia";"Arthropoda";"Arachnida";"Tetranychidae";"Oligonychus";"Oligonychus metasequoia";0,362917031443668;17,4200175092961;1;1
-"418";"Animalia";"Chordata";"Mammalia";"Cervidae";"Dama/Cervus/Muntiacus/Hydropotes";"Dama dama/Cervus nippon/Muntiacus reevesi/Hydropotes inermis";0,344776542948944;16,5492740615493;1;1
+"416";"Animalia";"Chordata";"Mammalia";"Cervidae";"Dama/Cervus/Muntiacus/Hydropotes";"Dama dama/Cervus nippon/Muntiacus reevesi/Hydropotes inermis";0,344776542948944;16,5492740615493;1;1
 "37";"Animalia";"Platyhelminthes";"Rhabditophora";"Geoplanidae";"Arthurdendyus";"Arthurdendyus triangulatus";0,342697760388882;16,4494924986664;1;1
 "118";"Animalia";"Arthropoda";"Insecta";"Cicadellidae";"Balclutha";"Balclutha rubrostriatus";0,337583780930084;16,204021484644;1;2
 "11";"Animalia";"Chordata";"Mammalia";"Canidae";"Canis";"Canis lupus dingo";0,335375719569656;16,0980345393435;2;2
@@ -299,20 +299,20 @@
 "46";"Animalia";"Chordata";"Aves";"Psittacidae";"Psittacula";"Psittacula krameri";0,300634879635677;14,4304742225125;7;10
 "311";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Cinara";"Cinara spp.";0,297459364674006;14,2780495043523;1;3
 "114";"Animalia";"Arthropoda";"Insecta";"Dynastidae";"Papuana";"Papuana uninodis";0,291675834800178;14,0004400704086;1;4
-"408";"Plantae";"Chlorophyta";"Ulvophyceae";"Codiaceae";"Codium";"Codium fragile";0,288936637679015;13,8689586085927;2;2
-"416";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea calcitrapa";0,28772420745033;13,8107619576158;2;2
+"406";"Plantae";"Chlorophyta";"Ulvophyceae";"Codiaceae";"Codium";"Codium fragile";0,288936637679015;13,8689586085927;2;2
+"414";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea calcitrapa";0,28772420745033;13,8107619576158;2;2
 "236";"Animalia";"Mollusca";"Bivalvia";"Corbiculidae";"Corbicula";"Corbicula fluminea";0,278854819749217;13,3850313479624;1;1
 "228";"Plantae";"Tracheophyta";"Magnoliopsida";"Rosaceae";"Rubus";"Rubus ulmifolius/Rubus constrictus";0,225296341752686;10,8142244041289;3;3
-"384";"Animalia";"Arthropoda";"Insecta";"Drosophilidae";"Drosophila";"Drosophila suzukii";0,214521721804638;10,2970426466226;3;4
+"383";"Animalia";"Arthropoda";"Insecta";"Drosophilidae";"Drosophila";"Drosophila suzukii";0,214521721804638;10,2970426466226;3;4
 "315";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Fallopia";"Fallopia spp.";0,187914114341179;9,0198774883766;1;1
 "301";"Fungi";"Ascomycota";"Dothideomycetes";"Didymellaceae";"Stagonosporopsis";"Stagonosporopsis ligulicola";0,186324377185354;8,94357010489699;1;2
 "302";"Fungi";"Basidiomycota";"Pucciniomycetes";"Pucciniaceae";"Puccinia";"Puccinia horiana";0,186324377185354;8,94357010489699;1;2
 "87";"Animalia";"Arthropoda";"Insecta";"Thripidae";"Scirtothrips";"Scirtothrips perseae";0,179883907134768;8,63442754246889;1;1
 "250";"Animalia";"Arthropoda";"Insecta";"Cynipidae";"Dryocosmus";"Dryocosmus kuriphilus";0,168619863501999;8,09375344809597;1;1
 "179";"Chromista";"Ochrophyta";"Bacillariophyceae";"Gomphonemataceae";"Didymosphenia";"Didymosphenia geminata";0,167545298692761;8,04217433725255;1;1
-"415";"Plantae";"Tracheophyta";"Liliopsida";"Hydrocharitaceae";"Elodea/Lagarosiphon";"Elodea spp./Lagarosiphon spp.";0,16322407202635;7,83475545726479;1;1
-"383";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Polygonum";"Diverse/Unspecified";0,1595625;7,659;5;5
-"397";"Animalia";"Mollusca";"Gastropoda";"Calyptraeidae";"Crepidula";"Crepidula porcellana";0,14583109092175;6,99989236424398;2;2
+"413";"Plantae";"Tracheophyta";"Liliopsida";"Hydrocharitaceae";"Elodea/Lagarosiphon";"Elodea spp./Lagarosiphon spp.";0,16322407202635;7,83475545726479;1;1
+"382";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Polygonum";"Diverse/Unspecified";0,1595625;7,659;5;5
+"395";"Animalia";"Mollusca";"Gastropoda";"Calyptraeidae";"Crepidula";"Crepidula porcellana";0,14583109092175;6,99989236424398;2;2
 "280";"Animalia";"Arthropoda";"Insecta";"Gelechiidae";"Phthorimaea";"Phthorimaea operculella";0,141606526660869;6,79711327972171;1;2
 "52";"Animalia";"Chordata";"Aves";"Anatidae";"Branta";"Branta canadensis";0,137140917607332;6,58276404515193;3;4
 "13";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus";"Cervus elaphus";0,134937276230664;6,47698925907189;2;2
@@ -320,38 +320,37 @@
 "149";"Animalia";"Arthropoda";"Insecta";"Bostrichidae";"Prostephanus";"Prostephanus truncatus";0,130914677617559;6,28390452564282;3;3
 "30";"Animalia";"Chordata";"Mammalia";"Equidae";"Equus";"Equus asinus/Equus caballus";0,130744390512766;6,27573074461278;1;1
 "104";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Elatobium";"Elatobium abietinum";0,129160896469772;6,19972303054907;1;1
-"414";"Plantae";"Tracheophyta";"Magnoliopsida";"Brassicaceae";"Pilosella";"Pilosella sp.";0,124476996403591;5,97489582737236;1;1
-"411";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea virgata";0,121130645777249;5,81427099730797;2;2
+"412";"Plantae";"Tracheophyta";"Magnoliopsida";"Brassicaceae";"Pilosella";"Pilosella sp.";0,124476996403591;5,97489582737236;1;1
+"409";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea virgata";0,121130645777249;5,81427099730797;2;2
 "55";"Animalia";"Chordata";"Aves";"Anatidae";"Alopochen/Branta";"Alopochen aegyptiaca/Branta canadensis";0,120034996374899;5,76167982599516;2;2
 "137";"Animalia";"Arthropoda";"Insecta";"Erebidae";"Orgyia";"Orgyia pseudotsugata";0,117336428093474;5,63214854848674;1;1
 "374";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Onopordum";"Onopordum acanthium";0,113924195312352;5,46836137499292;4;4
-"472";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Pilosella";"Pilosella officinarum";0,113282948065116;5,43758150712559;1;1
+"470";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Pilosella";"Pilosella officinarum";0,113282948065116;5,43758150712559;1;1
 "380";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Reynoutria";"Reynoutria japonica";0,111825719388263;5,36763453063665;5;5
-"423";"Chromista";"Ochrophyta";"Dictyochophyaceae";"Florenciellaceae";"Pseudochattonella";"Pseudochattonella verruculosa";0,105043094418135;5,04206853207048;1;1
+"421";"Chromista";"Ochrophyta";"Dictyochophyaceae";"Florenciellaceae";"Pseudochattonella";"Pseudochattonella verruculosa";0,105043094418135;5,04206853207048;1;1
 "56";"Animalia";"Chordata";"Aves";"Phasianidae";"Phasianus";"Phasianus colchicus";0,10374407335166;4,9797155208797;6;10
 "321";"Plantae";"Tracheophyta";"Magnoliopsida";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";0,103247577811385;4,95588373494648;9;27
 "165";"Animalia";"Arthropoda";"Malacostraca";"Cambaridae";"Procambarus";"Procambarus clarkii";0,101444666094394;4,86934397253092;3;3
 "122";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Acanthotomicus";"Acanthotomicus sp.";0,0958333333333333;4,6;1;1
 "47";"Animalia";"Chordata";"Aves";"Psittacidae";"Myiopsitta";"Myiopsitta monachus";0,0947005498701493;4,54562639376717;2;7
-"395";"Animalia";"Chordata";"Mammalia";"Echimyidae";"Myocaster";"Myocastor coypus";0,091;4,368;2;2
-"401";"Animalia";"Chordata";"Mammalia";"Cervidae";"Diverse/Unspecified";"Diverse/Unspecified";0,0856766705759008;4,11248018764324;2;2
+"399";"Animalia";"Chordata";"Mammalia";"Cervidae";"Diverse/Unspecified";"Diverse/Unspecified";0,0856766705759008;4,11248018764324;2;2
 "314";"Plantae";"Tracheophyta";"Magnoliopsida";"Apiaceae";"Heracleum";"Heracleum mantegazzianum";0,0839036554677413;4,02737546245158;3;3
-"412";"Animalia";"Chordata";"Mammalia";"Cervidae";"Dama/Cervus/Muntiacus";"Dama dama/Cervus nippon/Muntiacus reevesi";0,077362127210866;3,71338210612157;1;1
+"410";"Animalia";"Chordata";"Mammalia";"Cervidae";"Dama/Cervus/Muntiacus";"Dama dama/Cervus nippon/Muntiacus reevesi";0,077362127210866;3,71338210612157;1;1
 "95";"Animalia";"Arthropoda";"Insecta";"Culicidae";"Aedes";"Aedes albopictus/Aedes japonicus";0,0772473709723143;3,70787380667109;2;44
 "248";"Animalia";"Arthropoda";"Insecta";"Tortricidae";"Choristoneura";"Choristoneura fumiferana";0,073563870784013;3,53106579763262;1;1
-"403";"Plantae";"Tracheophyta";"Magnoliopsida";"Lamiaceae";"Salvia";"Salvia aethiopis";0,068861637775682;3,30535861323274;2;2
-"409";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Reynoutria/Koenigia/Persicaria";"Reynoutria sachalinensis/Koenigia polystachya/Persicaria acuminata/Reynoutria bohemica";0,0651458333333333;3,127;2;2
-"410";"Animalia";"Chordata";"Actinopterygii";"Tetraodontidae";"Lagocephalus";"Lagocephalus sceleratus";0,0648262206656595;3,11165859195166;1;1
-"470";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus";"Cervus nippon";0,0628681636660539;3,01767185597059;1;1
+"401";"Plantae";"Tracheophyta";"Magnoliopsida";"Lamiaceae";"Salvia";"Salvia aethiopis";0,068861637775682;3,30535861323274;2;2
+"407";"Plantae";"Tracheophyta";"Magnoliopsida";"Polygonaceae";"Reynoutria/Koenigia/Persicaria";"Reynoutria sachalinensis/Koenigia polystachya/Persicaria acuminata/Reynoutria bohemica";0,0651458333333333;3,127;2;2
+"408";"Animalia";"Chordata";"Actinopterygii";"Tetraodontidae";"Lagocephalus";"Lagocephalus sceleratus";0,0648262206656595;3,11165859195166;1;1
+"468";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus";"Cervus nippon";0,0628681636660539;3,01767185597059;1;1
 "12";"Animalia";"Chordata";"Mammalia";"Cercopithecidae";"Erythrocebus/Macaca";"Erythrocebus patas/Macaca mulatta";0,0605917071579712;2,90840194358262;2;10
 "108";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Rhopalosiphum";"Rhopalosiphum padi";0,0600282385448338;2,88135545015202;1;1
 "98";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Diaprepes";"Diaprepes sp.";0,0593107780036136;2,84691734417345;1;3
 "24";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus/Dama/Muntiacus";"Cervus nippon/Dama dama/Muntiacus reevesi";0,0554585144726687;2,6620086946881;1;1
 "113";"Animalia";"Arthropoda";"Insecta";"Termitidae";"Nasutitermes";"Nasutitermes corniger";0,0543591556212014;2,60923946981767;1;3
 "22";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus/Hydropotes/Muntiacus";"Cervus nippon/Hydropotes inermis";0,0533328544372033;2,55997701298576;1;1
-"406";"Plantae";"Tracheophyta";"Magnoliopsida/Polypodiopsida/Liliopsida";"Polygonaceae/Salviniaceae/Crassulaceae/Apiaceae/Hydrocharitaceae/Haloragaceae/Balsaminaceae/Apiaceae";"Reynoutria/Azolla/Crassula/Hydrocotyle/Elodea/Lagarosiphon/Myriophyllum/Impatiens/Heracleum";"Reynoutria japonica/Azolla filiculoides/Crassula helmsii/Hydrocotyle ranunculoides/Elodea canadensis/Elodea nuttallii/Lagarosiphon major/Myriophyllum aquaticum/Impatiens glandulifera/Heracleum mantegazzianum";0,0493974414193115;2,37107718812695;1;1
-"396";"Plantae";"Tracheophyta";"Polypodiopsida";"Salviniaceae";"Salvinia";"Salvinia molesta";0,0476985334675925;2,28952960644444;4;100
-"405";"Animalia";"Arthropoda/Chordata";"Malacostraca/Actinopterygii";"Varunidae/Astacidae/Cyprinidae";"Eriocheir/Pacifastacus/Pseudorasbora";"Eriocheir sinensis/Pacifastacus leniusculus/Pseudorasbora parva";0,0463101284703858;2,22288616657852;1;1
+"404";"Plantae";"Tracheophyta";"Magnoliopsida/Polypodiopsida/Liliopsida";"Polygonaceae/Salviniaceae/Crassulaceae/Apiaceae/Hydrocharitaceae/Haloragaceae/Balsaminaceae/Apiaceae";"Reynoutria/Azolla/Crassula/Hydrocotyle/Elodea/Lagarosiphon/Myriophyllum/Impatiens/Heracleum";"Reynoutria japonica/Azolla filiculoides/Crassula helmsii/Hydrocotyle ranunculoides/Elodea canadensis/Elodea nuttallii/Lagarosiphon major/Myriophyllum aquaticum/Impatiens glandulifera/Heracleum mantegazzianum";0,0493974414193115;2,37107718812695;1;1
+"394";"Plantae";"Tracheophyta";"Polypodiopsida";"Salviniaceae";"Salvinia";"Salvinia molesta";0,0476985334675925;2,28952960644444;4;100
+"403";"Animalia";"Arthropoda/Chordata";"Malacostraca/Actinopterygii";"Varunidae/Astacidae/Cyprinidae";"Eriocheir/Pacifastacus/Pseudorasbora";"Eriocheir sinensis/Pacifastacus leniusculus/Pseudorasbora parva";0,0463101284703858;2,22288616657852;1;1
 "185";"Plantae";"Tracheophyta";"Magnoliopsida";"Cactaceae";"Diverse/Unspecified";"Diverse/Unspecified";0,0435868510144049;2,09216884869144;1;1
 "331";"Animalia";"Chordata";"Actinopterygii";"Centrarchidae";"Micropterus/Lepomis";"Micropterus salmoides/Micropterus dolomieu/Lepomis macrochirus";0,0431759446118275;2,07244534136772;2;4
 "243";"Animalia";"Arthropoda";"Insecta";"Crambidae";"Cydalima";"Cydalima perspectalis";0,0421549658754999;2,02343836202399;2;2
@@ -363,13 +362,13 @@
 "312";"Plantae";"Tracheophyta";"Magnoliopsida";"Rosaceae";"Prunus";"Prunus serotina";0,0375828228682358;1,80397549767532;1;1
 "45";"Animalia";"Chordata";"Reptilia";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";0,0363787698301294;1,74618095184621;1;8
 "159";"Animalia";"Mollusca";"Bivalvia";"Ostreidae";"Magallana";"Magallana gigas";0,0337090612028154;1,61803493773514;1;1
-"407";"Animalia";"Chordata";"Ascidiacea";"Cionidae";"Ciona";"Ciona intestinalis";0,0291926297099414;1,40124622607719;1;1
-"402";"Fungi";"Ascomycota";"Dothideomycetes";"Mycosphaerellaceae";"Dothistroma";"Dothistroma septosporum";0,0273568994384225;1,31313117304428;1;1
+"405";"Animalia";"Chordata";"Ascidiacea";"Cionidae";"Ciona";"Ciona intestinalis";0,0291926297099414;1,40124622607719;1;1
+"400";"Fungi";"Ascomycota";"Dothideomycetes";"Mycosphaerellaceae";"Dothistroma";"Dothistroma septosporum";0,0273568994384225;1,31313117304428;1;1
 "105";"Animalia";"Arthropoda";"Insecta";"Pyralidae";"Ephestia";"Ephestia kuehniella";0,0244377624927723;1,17301259965307;1;1
 "335";"Plantae";"Tracheophyta";"Liliopsida";"Araceae";"Pistia";"Pistia stratiotes";0,0229647230122941;1,10230670459012;1;1
 "19";"Animalia";"Chordata";"Mammalia";"Cervidae";"Cervus";"Diverse/Unspecified";0,019072028381353;0,915457362304946;4;8
+"323";"Animalia";"Chordata";"Aves";"Anatidae";"Alopochen/Branta";"Alopochen aegyptiaca";0,0145800495614023;0,699842378947311;2;9
 "329";"Animalia";"Chordata";"Aves";"Pycnonotidae";"Pycnonotus";"Pycnonotus sinensis";0,0133172547033182;0,639228225759273;5;9
-"323";"Animalia";"Chordata";"Aves";"Anatidae";"Alopochen/Branta";"Alopochen aegyptiaca";0,0132800902288284;0,637444330983763;1;8
 "57";"Animalia";"Chordata";"Aves";"Pycnonotidae";"Pycnonotus";"Pycnonotus cafer/Pycnonotus jocosus";0,0123581397889218;0,593190709868246;1;1
 "328";"Animalia";"Chordata";"Mammalia";"Cervidae";"Muntiacus";"Muntiacus reevesi";0,0121065871690095;0,581116184112458;13;25
 "356";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Zea";"Zea mays";0,0113956608925716;0,546991722843437;1;2
@@ -378,22 +377,21 @@
 "26";"Animalia";"Chordata";"Mammalia";"Bovidae/Suidae";"Capra/Sus";"Capra hircus/Sus scrofa";0,00894012399631432;0,429125951823087;1;1
 "264";"Bacteria";"Actinobacteria";"Actinobacteria";"Microbacteriaceae";NA;"Clavibacter michiganensis subsp. sepedonicum";0,00812472672812955;0,389986882950218;1;1
 "337";"Animalia";"Chordata";"Reptilia";"Dactyloidae";"Anolis";"Anolis carolinensis";0,0069032050067015;0,331353840321672;4;5
-"466";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Aeromonadaceae";"Aeromonas";"Aeromonas salmonicida";0,00686658618066174;0,329596136671764;1;1
+"464";"Bacteria";"Proteobacteria";"Gammaproteobacteria";"Aeromonadaceae";"Aeromonas";"Aeromonas salmonicida";0,00686658618066174;0,329596136671764;1;1
 "332";"Animalia";"Mollusca";"Gastropoda";"Achatinidae";"Achatina";"Achatina fulica";0,00677910376234695;0,325396980592653;2;2
-"404";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Sporobolus";"Sporobolus pyramidalis/Sporobolus fertilis";0,00491068806812514;0,235713027270007;1;10
-"388";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Dendroctonus";"Dendroctonus micans";0,00473462529434285;0,227262014128457;1;1
+"402";"Plantae";"Tracheophyta";"Liliopsida";"Poaceae";"Sporobolus";"Sporobolus pyramidalis/Sporobolus fertilis";0,00491068806812514;0,235713027270007;1;10
+"387";"Animalia";"Arthropoda";"Insecta";"Curculionidae";"Dendroctonus";"Dendroctonus micans";0,00473462529434285;0,227262014128457;1;1
 "8";"Animalia";"Chordata";"Mammalia";"Camelidae";"Camelus";"Camelus dromedarius";0,00417544303194671;0,200421265533442;1;1
 "378";"Animalia";"Arthropoda";"Malacostraca";"Gammaridae";"Dikerogammarus";"Dikerogammarus villosus";0,00372564687604063;0,17883105004995;1;6
 "160";"Animalia";"Arthropoda";"Branchiopoda";"Cercopagidae";"Cercopagis";"Cercopagis pengoi";0,00305046452623455;0,146422297259258;1;3
 "107";"Animalia";"Arthropoda";"Insecta";"Aphididae";"Nasonovia";"Nasonovia ribisnigri";0,00262604364158536;0,126050094796097;1;1
 "42";"Animalia";"Chordata";"Amphibia/Reptilia";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";0,00227100992488269;0,109008476394369;2;2
 "97";"Animalia";"Arthropoda";"Insecta";"Gelechiidae/Noctuidae";"Helicoverpa/Tuta";"Helicoverpa armigera/Tuta absoluta";0,00163998552556074;0,0787193052269158;1;1
-"465";"Plantae";"Tracheophyta";"Magnoliopsida";"Haloragaceae";"Myriophyllum";"Myriophyllum heterophyllum";0,00150308272335316;0,0721479707209516;1;1
+"463";"Plantae";"Tracheophyta";"Magnoliopsida";"Haloragaceae";"Myriophyllum";"Myriophyllum heterophyllum";0,00150308272335316;0,0721479707209516;1;1
 "338";"Animalia";"Arthropoda";"Insecta";"Vespidae";"Vespa";"Vespa velutina";0,00142398004548378;0,0683510421832216;1;2
-"382";"Animalia";"Chordata";"Aves";"Anatidae";"Alopochen";"Alopochen aegyptiaca";0,00129995933257393;0,0623980479635485;1;1
-"385";"Animalia";"Cnidaria";"Scyphozoa";"Rhizostomatidae";"Rhopilema";"Rhopilema nomadica";0,0012314552102286;0,0591098500909729;1;1
+"384";"Animalia";"Cnidaria";"Scyphozoa";"Rhizostomatidae";"Rhopilema";"Rhopilema nomadica";0,0012314552102286;0,0591098500909729;1;1
 "53";"Animalia";"Chordata";"Aves";"Anatidae";"Cygnus";"Cygnus olor";0,000916094267437968;0,0439725248370225;1;1
-"390";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Lespedeza";"Lespedeza cuneata";0,000598696544083604;0,028737434116013;1;3
+"389";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Lespedeza";"Lespedeza cuneata";0,000598696544083604;0,028737434116013;1;3
 "377";"Chromista";"Ochrophyta";"Phaeophyceae";"Sargassaceae";"Sargassum";"Sargassum muticum";0,000542795623778224;0,0260541899413547;1;1
 "362";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Centaurea";"Centaurea affinis/Centaurea stoebe";0,00052843009500304;0,0253646445601459;3;3
 "233";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Diverse/Unspecified";"Limnoperna fortunei/Corbicula fluminea/Ficopomatus enigmaticus";0,000443304607946483;0,0212786211814312;2;2
@@ -403,7 +401,7 @@
 "375";"Animalia";"Chordata";"Aves";"Psittacidae";"Psittacula/Myiopsitta";"Psittacula krameri/Myiopsitta monachus";0,000361863749185483;0,0173694599609032;1;1
 "244";"Animalia";"Arthropoda";"Insecta";"Cerambycidae";"Monochamus";"Monochamus scutellatus";0,000309737265200611;0,0148673887296293;1;1
 "126";"Animalia";"Arthropoda";"Insecta";"Cossidae";"Zeuzera";"Zeuzera pyrina";8,4027585134541e-05;0,00403332408645797;2;2
-"464";"Plantae";"Tracheophyta";"Magnoliopsida";"Cactaceae";"Opuntia";"Opuntia stricta";5,50062884262157e-05;0,00264030184445835;1;1
+"462";"Plantae";"Tracheophyta";"Magnoliopsida";"Cactaceae";"Opuntia";"Opuntia stricta";5,50062884262157e-05;0,00264030184445835;1;1
 "124";"Animalia";"Arthropoda";"Insecta";"Formicidae";"Oecophylla";"Oecophylla longinoda";4,05328874077025e-05;0,00194557859556972;1;1
 "123";"Animalia";"Arthropoda";"Insecta";"Formicidae";"Crematogaster";"Crematogaster sp.";3,29369604761803e-05;0,00158097410285665;1;1
 "376";"Plantae";"Tracheophyta";"Magnoliopsida";"Bignoniaceae";"Spathodea";"Spathodea campanulata";2,93098953004033e-05;0,00140687497441936;1;6
@@ -434,8 +432,8 @@
 "270";"Animalia";"Arthropoda";"Insecta";"Chrysomelidae";"Zabrotes";"Zabrotes subfasciatus";0;0;0;0
 "324";"Animalia";"Arthropoda";"Malacostraca";"Cambaridae";"Procambarus";"Procambarus acutus/Procambarus zonangulus";0;0;0;0
 "367";"Animalia";"Arthropoda";"Malacostraca";"Portunidae";"Portunus";"Portunus pelagicus";0;0;0;0
-"417";"Animalia";"Arthropoda";"Malacostraca";"Mysidae";"Mysis";"Mysis relicta";0;0;0;0
-"10";"Animalia";"Chordata";"Mammalia";"Myocastoridae";"Myocastor";"Myocastor coypus";NA;NA;39;133
+"415";"Animalia";"Arthropoda";"Malacostraca";"Mysidae";"Mysis";"Mysis relicta";0;0;0;0
+"10";"Animalia";"Chordata";"Mammalia";"Myocastoridae";"Myocastor";"Myocastor coypus";NA;NA;41;135
 "31";"Animalia";"Chordata";"Mammalia";"Herpestidae";"Herpestes";"Herpestes javanicus";NA;NA;14;23
 "33";"Animalia";"Arthropoda";"Arachnida";"Varroidae";"Varroa";"Varroa destructor";NA;NA;6;34
 "34";"Animalia";"Nematoda";"Secernentea";"Aphelenchidae";"Bursaphelenchus";"Bursaphelenchus mucronatus";NA;NA;22;202
@@ -461,13 +459,13 @@
 "241";"Animalia";"Arthropoda";"Insecta";"Noctuidae";"Spodoptera";"Spodoptera frugiperda";NA;NA;2;2
 "358";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Carduus";"Carduus nutan";NA;NA;2;2
 "379";"Animalia";"Arthropoda";"Insecta";"Dryophthoridae";"Rhynchophorus";"Rhynchophorus ferrugineus";NA;NA;6;6
-"432";"Animalia";"Chordata";"Actinopterygii";"Cyprinidae";"Mylopharyngodon";"Mylopharyngodon piceu";NA;NA;1;1
-"433";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Prosopis";"Prosopis juliflora";NA;NA;1;1
-"435";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Acacia";"Acacia paradoxa";NA;NA;1;1
-"450";"Plantae";"Tracheophyta";"Magnoliopsida";"Solanaceae";"Solanum";"Solanum elaeagnifolium";NA;NA;1;1
-"451";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Helianthus";"Helianthus ciliaris";NA;NA;1;1
-"452";"Plantae";"Tracheophyta";"Magnoliopsida";"Convolvulaceae";"Ipomoea";"Ipomoea hederacea";NA;NA;1;1
-"453";"Plantae";"Tracheophyta";"Magnoliopsida";"Convolvulaceae";"Ipomoea";"Ipomoea lacunosa";NA;NA;1;1
-"454";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Iva";"Iva axillaris";NA;NA;1;1
-"455";"Plantae";"Tracheophyta";"Magnoliopsida";"Solanaceae";"Solanum";"Solanum carolinense";NA;NA;1;1
-"456";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Bidens";"Bidens pilosa";NA;NA;1;1
+"430";"Animalia";"Chordata";"Actinopterygii";"Cyprinidae";"Mylopharyngodon";"Mylopharyngodon piceu";NA;NA;1;1
+"431";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Prosopis";"Prosopis juliflora";NA;NA;1;1
+"433";"Plantae";"Tracheophyta";"Magnoliopsida";"Fabaceae";"Acacia";"Acacia paradoxa";NA;NA;1;1
+"448";"Plantae";"Tracheophyta";"Magnoliopsida";"Solanaceae";"Solanum";"Solanum elaeagnifolium";NA;NA;1;1
+"449";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Helianthus";"Helianthus ciliaris";NA;NA;1;1
+"450";"Plantae";"Tracheophyta";"Magnoliopsida";"Convolvulaceae";"Ipomoea";"Ipomoea hederacea";NA;NA;1;1
+"451";"Plantae";"Tracheophyta";"Magnoliopsida";"Convolvulaceae";"Ipomoea";"Ipomoea lacunosa";NA;NA;1;1
+"452";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Iva";"Iva axillaris";NA;NA;1;1
+"453";"Plantae";"Tracheophyta";"Magnoliopsida";"Solanaceae";"Solanum";"Solanum carolinense";NA;NA;1;1
+"454";"Plantae";"Tracheophyta";"Magnoliopsida";"Asteraceae";"Bidens";"Bidens pilosa";NA;NA;1;1
