@@ -267,7 +267,8 @@ res.aov <- aov(freq_publi ~ redlistCategory_version_2020.2, data = mammals)
 # Summary of the analysis
 summary(res.aov)
 
-
+#### End of the script ####
+###########################
 
 
 
