@@ -1,5 +1,6 @@
 #############################################################################################
 # script to build the database by merging IUCN status, originality scores and INVACOST info
+# for birds and mammals
 # original script by Céline Bellard
 # modifications by: Marine Robuchon, Camille Bernery, 
 #############################################################################################
