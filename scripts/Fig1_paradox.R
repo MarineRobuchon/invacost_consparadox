@@ -5,17 +5,25 @@ library(plyr)
 library(ggplot2)
 library(MASS)
 library(scales)
+library(forcats)
 
-setwd("./Invacost/Marine")
+setwd("./outputs")
 
 ######################################
 ############# Load data ##############
 ######################################
 
 dataall<-read.table("./dataAllF.txt")
-iucnsp<-read.csv("./IUCN_exotic_mammal_bird.csv") ##from IUCN red list (bird + mammals) #314 of the databse in our global base
-gavia<-read.csv("./GAVIA/GAVIA_exotic_bird.csv") #only birds, from there : https://www.nature.com/articles/sdata201741#Tab2  #527 species of the database in our global base
-gisd<-read.csv("./gisd_exotic_mammal_bird.csv", sep=";") #from gisd (mammals+birds) #86 of the databse in our global base
+iucnsp<-read.csv("./IUCN_exotic_mammal_bird.csv") ##from IUCN red list (bird + mammals) 
+gavia<-read.csv("./GAVIA_exotic_bird.csv") #only birds, from there : https://www.nature.com/articles/sdata201741#Tab2
+gisd<-read.csv("./gisd_exotic_mammal_bird.csv", sep=";") #from gisd (mammals+birds) 
+seebensdata<-read.csv("D:/these/Review/GASFRD_v1.2.csv")
+
+#####KEEP ONLY mammals from the seebens database####
+#Remove "casual" and "unknow" categories
+seebensMA<-subset(seebensdata, Class=="Mammalia" & !PresentStatus=="casual" & !PresentStatus=="")
+table(seebensMA$PresentStatus)
+seebens<-unique(seebensMA$Taxon)
 
 ##### Filter GAVIA - exotic bird database #######527 species
 #Remove "unsuccessfull" and "unknow" categories
@@ -24,23 +32,32 @@ newgavia <- gavia[which(gavia$StatusCat!='Unsuccessful' & gavia$StatusCat!='Unkn
 gaviasp<-unique(newgavia$Binomial)
 
 ###Reunite all databasis
-Allbasis<-c(levels(iucnsp$scientificName),levels(gisd$Species), levels(factor(gaviasp))) #all exotic species found in all basis
-Exotic<-dataall$Species%in% Allbasis #which species are in the global database
-dataall<-add_column(dataall, Exotic, .after = "oriPtree") #add a column with TRUE = exotic species and FALSE = not an exotic species
+Allbasis<-c(levels(factor(iucnsp$scientificName)),levels(factor(gisd$Species)), levels(factor(gaviasp)), seebens) #all exotic species found in all basis
+Exotic2<- dataall$Species %in% Allbasis #which species are in the global database
+dataall<-add_column(dataall, Exotic2, .after = "oriPtree") #add a column with TRUE = exotic species and FALSE = not an exotic species
 #Verify the number of exotic species in the global database
-trueexo<-subset(dataall, Exotic==TRUE)
+trueexo<-subset(dataall, Exotic2==TRUE)
+falseexo<-subset(dataall, Exotic2==F)
 Allexoticsp<-unique(trueexo[c("Species", "className")])  
-summary(Allexoticsp$className)
-
-##3 repetitions
-
+table(Allexoticsp$className)
 
 ########FIGURE 1######
 
+# #verify wich species are not considered exotic but in invacost:
+# ExoticInvacost<-filter(Exotic, invacostY == "Y") 
+# Invacostobs<-filter(dataall, invacostY == "Y")
+# invnotindata<-!Invacostobs$Species %in% ExoticInvacost$Species #find the name of the not exotic but in invacost species
+# Invacostobs[invnotindata==TRUE,1]
+# #==> "Atelerix albiventris"   "Phascolarctos cinereus" "Aquila chrysaetos"
 
-Exotic<-filter(dataall, Exotic==TRUE)
+Exotic<-filter(dataall, Exotic2==TRUE)
 Exoticmammals<-filter(Exotic, className=="MAMMALIA")
+notexoinvacostM<-subset(dataall, Species=="Phascolarctos cinereus"|Species=="Atelerix albiventris")
+Exoticmammals<-rbind(Exoticmammals, notexoinvacostM)
+
 Exoticbirds<-filter(Exotic, className=="AVES")
+notexoinvacost<-subset(dataall, Species=="Aquila chrysaetos")
+Exoticbirds<-rbind(Exoticbirds, notexoinvacost)
 
 ####MEAN AND MEDIAN FOR EACH ORIGINALITY
 
@@ -55,29 +72,88 @@ Exomammalnotinvacost<-anti_join(Exoticmammals, Exomammalinvacost)
 #FUNCTIONAL
 #in invacost
 #bird
-mean(Exobirdinvacost$meanoriFtree, na.rm = T)#0.01274159 #20 values
-median(Exobirdinvacost$meanoriFtree, na.rm = T) #0.003368483 #20 values
+mean(Exobirdinvacost$meanoriFtree, na.rm = T)
+median(Exobirdinvacost$meanoriFtree, na.rm = T) 
 
 #mammal
-mean(Exomammalinvacost$meanoriFtree, na.rm = T) #0.006678582 #32 values
-median(Exomammalinvacost$meanoriFtree, na.rm = T) #0.001581809 #32 values
+mean(Exomammalinvacost$meanoriFtree, na.rm = T)
+median(Exomammalinvacost$meanoriFtree, na.rm = T)
 
 #not in invacost
-#bird
-mean(Exobirdnotinvacost$meanoriFtree, na.rm = T)#0.009675377 
-median(Exobirdnotinvacost$meanoriFtree, na.rm = T) #0.003834404 
+
+mean(Exobirdnotinvacost$meanoriFtree, na.rm = T) 
+median(Exobirdnotinvacost$meanoriFtree, na.rm = T) 
 
 #mammal
-mean(Exomammalnotinvacost$meanoriFtree, na.rm = T) #0.007610121
-median(Exomammalnotinvacost$meanoriFtree, na.rm = T) #0.001509373
+mean(Exomammalnotinvacost$meanoriFtree, na.rm = T)
+median(Exomammalnotinvacost$meanoriFtree, na.rm = T)
 
-#verify wich species are not considered exotic but in invacost:
-ExoticInvacost<-filter(Exotic, invacostY == "Y") #52 obs of exotic speces in invacost
-Invacostobs<-filter(dataall, invacostY == "Y")#58 obs invacost sp in the global database
-invnotindata<-!Invacostobs$Species %in% ExoticInvacost$Species #find the name of the not exotic but in invacost species
-Invacostobs[invnotindata==TRUE,1]
-#==> [1] Callosciurus erythraeus Hystrix brachyura      
-#[3] Sciurus niger           Atelerix albiventris   
+
+#phylo
+#in invacost
+#bird
+mean(Exobirdinvacost$oriPtree, na.rm = T)
+median(Exobirdinvacost$oriPtree, na.rm = T)
+
+#mammal
+mean(Exomammalinvacost$oriPtree, na.rm = T)
+median(Exomammalinvacost$oriPtree, na.rm = T)
+
+#not in invacost
+
+mean(Exobirdnotinvacost$oriPtree, na.rm = T)
+median(Exobirdnotinvacost$oriPtree, na.rm = T) 
+
+#mammal
+mean(Exomammalnotinvacost$oriPtree, na.rm = T)
+median(Exomammalnotinvacost$oriPtree, na.rm = T)
+
+####TESTS DE COMPARAISON DE MOYENNES####
+
+library(ggpubr)
+#BIRDS
+##FUNCTIONAL ORI
+#Normality test for each modality
+shapiro.test(Exobirdinvacost$meanoriFtree)
+ggqqplot(Exobirdinvacost$meanoriFtree)
+shapiro.test(Exobirdnotinvacost$meanoriFtree)
+ggqqplot(Exobirdnotinvacost$meanoriFtree)
+#####PAS NORMALES --> Test U de mann whitney
+birdsFUNC<-wilcox.test(Exobirdinvacost$meanoriFtree, 
+                           Exobirdnotinvacost$meanoriFtree)
+birdsFUNC  #pas de différences
+
+##PHYLO ORI
+shapiro.test(Exobirdinvacost$oriPtree)
+ggqqplot(Exobirdinvacost$oriPtree)
+shapiro.test(Exobirdnotinvacost$oriPtree)
+ggqqplot(Exobirdnotinvacost$oriPtree)
+#####PAS NORMALES --> Test U de mann whitney
+birdsPHYLO<-wilcox.test(Exobirdinvacost$oriPtree, 
+                           Exobirdnotinvacost$oriPtree)
+birdsPHYLO  #Pas de différences entre les deux groupes
+
+#MammalS
+##FUNCTIONAL ORI
+#Normality test for each modality
+shapiro.test(Exomammalinvacost$meanoriFtree) ##invacostY=Y
+ggqqplot(Exomammalinvacost$meanoriFtree)
+shapiro.test(Exomammalnotinvacost$meanoriFtree)
+ggqqplot(Exomammalnotinvacost$meanoriFtree)
+#####PAS NORMALES --> Test U de mann whitney
+mammalsFUNC<-wilcox.test(Exomammalinvacost$meanoriFtree, 
+                       Exomammalnotinvacost$meanoriFtree)
+mammalsFUNC  #pas de différences
+
+##PHYLO ORI
+shapiro.test(Exomammalinvacost$oriPtree)
+ggqqplot(Exomammalinvacost$oriPtree)
+shapiro.test(Exomammalnotinvacost$oriPtree)
+ggqqplot(Exomammalnotinvacost$oriPtree)
+#####PAS NORMALES --> Test U de mann whitney
+mammalsPHYLO<-wilcox.test(Exomammalinvacost$oriPtree, 
+                        Exomammalnotinvacost$oriPtree)
+mammalsPHYLO  #Pas de différences entre les deux groupes
 
 #Tree
 ftreebirds <- ggplot(Exoticbirds, aes(x=log(meanoriFtree), y=invacostY)) + 
@@ -88,9 +164,7 @@ ftreebirds <- ggplot(Exoticbirds, aes(x=log(meanoriFtree), y=invacostY)) +
   ggtitle("BIRDS" ) +
   theme_bw()+  theme(plot.title = element_text(size=11))+
   coord_flip()
-
-ftreebirds ##42 species have no Funct. originality value.
-
+ftreebirds
 
 ftreemammals <- ggplot(Exoticmammals, aes(x=log(meanoriFtree), y=invacostY)) + 
   geom_jitter(shape=16, size=1, color="grey", position=position_jitter(0))+
@@ -101,8 +175,9 @@ ftreemammals <- ggplot(Exoticmammals, aes(x=log(meanoriFtree), y=invacostY)) +
   theme_bw()+  theme(plot.title = element_text(size=11))+
   coord_flip()
 
-ftreemammals ##8 species have no Funct. originality value.
+ftreemammals
 
+library(cowplot)
 f<-plot_grid(ftreemammals + theme(legend.position="none"),
                 ftreebirds + theme(legend.position="none"), labels=c("C","D"), ncol = 2, nrow = 1)
 
@@ -120,7 +195,7 @@ ptreebirds <- ggplot(Exoticbirds, aes(x=log(oriPtree), y=invacostY)) +
   theme(plot.title = element_text(size=11))+
   coord_flip()
 
-ptreebirds ##42 species have no Phylo. originality value.
+ptreebirds
 
 
 ptreemammals <- ggplot(Exoticmammals, aes(x=log(oriPtree), y=invacostY)) + 
@@ -144,38 +219,66 @@ plot_grid(p, rel_widths = c(3, .4))
 ######threat status####
 ##Birds
 #count the number of species per threat
+Exoticbirds$invacostY[is.na(Exoticbirds$invacostY)]<-"N"
 Nb<-rep(1, length(Exoticbirds[,1]))
 Exoticbirds$Nb<-Nb
 threatbird<-ddply(Exoticbirds, c("redlistCategory_version_2020.2", "invacostY"), summarise, Number=sum(Nb))
 
+#####Compare several mean
+# resaovbird<-aov(Number~invacostY,data=threatbird)
+# summary(resaovbird)
+# plot(resaovbird)
+# ###Les conditions d'égalité des variances et de distribution normale des résidus du modèle ne sont pas respectés
+# ##test de kruskal wallis
+# kruskal.test(Number~invacostY,data=threatbird) ###il ne semble pas avoir assez de données pour tester cet aspect
 
-threatbirds <- ggplot(threatbird, aes(x=reorder(redlistCategory_version_2020.2, -Number), fill=invacostY, y=Number)) + 
+threatbirds <- threatbird %>% # Reorder following a precise order
+  mutate(redlistCategory_version_2020.2 = fct_relevel(redlistCategory_version_2020.2, 
+                             "Least Concern","Near Threatened","Vulnerable",  
+                             "Endangered", "Critically Endangered")) %>%
+  ggplot(aes(x=redlistCategory_version_2020.2, fill=invacostY, y=Number)) + 
   geom_jitter(shape=16, size=1, color="black", position=position_jitter(0))+
   geom_bar(position = "dodge", stat="identity") +
-  labs(y="Number of species")+
   ggtitle("THREAT- BIRDS" ) +
   theme_bw()+
-  theme(axis.text.x = element_text(angle = 40, hjust=1), axis.title = element_blank())+
+  theme(axis.text.x = element_text(angle = 40, hjust=1), axis.title.x = element_blank())+
   guides(fill=guide_legend(title="Presence in InvaCost"))+
-  scale_fill_discrete(labels=c("Yes","No"))
+  labs(y="Number of species")+
+  scale_fill_manual(values=c("black","grey"))
+  #scale_fill_discrete(labels=c("Yes","No"))
 threatbirds
-
 
 ##mammals
 #count the number of species per threat
+Exoticmammals$invacostY[is.na(Exoticmammals$invacostY)]<-"N"
 Nb2<-rep(1, length(Exoticmammals[,1]))
 Exoticmammals$Nb<-Nb2
 threatmammal<-ddply(Exoticmammals, c("redlistCategory_version_2020.2", "invacostY"), summarise, Number=sum(Nb))
 
-threatmammals <- ggplot(threatmammal, aes(x=reorder(redlistCategory_version_2020.2, -Number), fill=invacostY, y=Number)) + 
+#subset(Exoticmammals,redlistCategory_version_2020.2=="Near Threatened"& invacostY=="Y" )
+
+##ANOVA TEST
+# resaovmammal<-aov(Number~invacostY,data=threatmammal)
+# summary(resaovmammal)
+# plot(resaovmammal)
+# ###Les conditions d'égalité des variances et de distribution normale des résidus du modèle d$ne sont pas respectés
+# ##test de kruskal wallis
+# kruskal.test(Number~invacostY,data=threatmammal)
+
+threatmammals <- threatmammal%>% # Reorder following a precise order
+  mutate(redlistCategory_version_2020.2 = fct_relevel(redlistCategory_version_2020.2, 
+                                                      "Least Concern","Near Threatened","Vulnerable",  
+                                                      "Endangered", "Critically Endangered")) %>%
+  ggplot(aes(x=redlistCategory_version_2020.2, fill=invacostY, y=Number)) + 
   geom_jitter(shape=16, size=1, color="grey", position=position_jitter(0))+
   geom_bar(position = "dodge", stat="identity") +
   theme_bw()+
-  theme(axis.text.x = element_text(angle = 40, hjust=1), axis.title = element_blank())+
+  theme(axis.text.x = element_text(angle = 40, hjust=1), axis.title.x = element_blank())+
   labs(y="Number of species")+
   ggtitle("THREAT- MAMMALS" ) +
   guides(fill=guide_legend(title="Presence in InvaCost"))+
-  scale_fill_discrete(labels=c("Yes","No"))
+  scale_fill_manual(values=c("black","grey"))
+  #scale_fill_discrete(labels=c("Yes","No"))
 
 threatmammals
 
@@ -193,20 +296,10 @@ plot_grid(f, rel_widths = c(3, .4))
 plot_grid(t, rel_widths = c(3, .4))
 dev.off()
 
-jpeg("./Figure1.jpeg", res=600)
-plot_grid(p, rel_widths = c(3, .4))
-plot_grid(f, rel_widths = c(3, .4))
-plot_grid(t, rel_widths = c(3, .4))
-dev.off()
-
-jpeg("./Figure1all.jpeg", width=7, height=12, units="in", res=300)
+jpeg("./Figure1.jpeg", width=7, height=12, units="in", res=300)
 plot_grid(ptreebirds,ptreemammals, ftreebirds, ftreemammals, threatmammals + theme(legend.position="none") ,
           threatbirds+ theme(legend.position="none"), rel_widths = c(2, 2), ncol = 2, nrow = 3, labels = c("A","B","C","D","E","F"))
 dev.off()
 
 plot_grid(threatmammals + theme(legend.position="none") ,
           threatbirds+ theme(legend.position="bottom"), ncol = 1, nrow = 2)
-
-
-
-
