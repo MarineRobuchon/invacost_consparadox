@@ -6,13 +6,14 @@ library(ggplot2)
 library(MASS)
 library(scales)
 
-#setwd("./Invacost/Marine")
+setwd("./outputs")
 
 ######################################
 ############# Load data ##############
 ######################################
 
-dataAllFInvacost<-read.csv2("./dataAllFInvacost.csv")
+dataAllF<-read.csv2("./dataAllF.csv")
+dataAllFInvacost<-filter(dataAllF, invacostY=="Y")
 invmammals<-filter(dataAllFInvacost, className=="MAMMALIA")
 invbirds<-filter(dataAllFInvacost, className=="AVES")
 
