@@ -5,8 +5,12 @@
 
 ## Load packages
 library(dplyr)
+library(invacost)
 
 ## Load and prepare data
+
+# invacost
+data(invacost)
 
 # phylogenetic originality, threat status, exotic status and presence in InvACOST
 scores_plants_phylo <- read.csv2(paste0(getwd(), "/data/plants_tree-based_phylo_IUCN_and_GLONAF.csv")) 
@@ -17,11 +21,15 @@ scores_plants_phylo$invacostY <- as.factor(scores_plants_phylo$invacostY)
 scores_plants_phylo$redlistCategory_version_2020.2 <- as.factor(scores_plants_phylo$redlistCategory_version_2020.2)
 scores_plants_phylo$Exotic <- as.factor(scores_plants_phylo$Exotic)
 levels(scores_plants_phylo$invacostY) <- "Y"
-levels(scores_plants_phylo$redlistCategory_version_2020.2) <- c(NA, "Critically Endangered", "Endangered", 
-                                                                "Extinct in the Wild", "Extinct", "Vulnerable")
+levels(scores_plants_phylo$redlistCategory_version_2020.2) <- c(NA, "Critically Endangered", "Data Deficient", "Endangered", 
+                                                                "Extinct in the Wild", "Extinct", "Least Concern",
+                                                                "LR", "Near Threatened", "Vulnerable")
 levels(scores_plants_phylo$Exotic) <- c("FALSE", "TRUE")
 
-# here we will need to remove extinct and extinct in the wild species
+scores_plants_phylo[which(scores_plants_phylo$redlistCategory_version_2020.2=="LR") ,]
+
+# remove extinct and extinct in the wild species
+scores_plants_phylo <- scores_plants_phylo[-which(scores_plants_phylo$redlistCategory_version_2020.2 %in% c("Extinct in the Wild", "Extinct")) ,]
 
 # functional originality scores
 scores_plants_functio <-  read.csv2(paste0(getwd(), "/outputs/oriplantsmiss.csv"), sep = " ", dec = ".", row.names = NULL)
@@ -38,20 +46,39 @@ colnames(costs_m)[2] <- "Average.annual.cost_management"
 
 ## Merge data by Species
 scores_plants <- left_join(scores_plants_phylo, scores_plants_functio, by = "Species")
-
 scores_plants <- scores_plants %>% left_join(costs_d, by = "Species")
 scores_plants <- scores_plants %>% left_join(costs_m, by = "Species")
 
-length(unique(scores_plants$Species))
-length(scores_plants$Species)
+## Calculate occurrence by species and  number of publication by species
+# occurences in invacost 
+invacost$frequence <- 1
 
-dup_plants <- scores_plants$Species[which(duplicated(scores_plants$Species))] ## Need to check these duplicates in the script "costs_by_species"
-dup_score_plants <- scores_plants[which(scores_plants$Species%in%dup_plants),]
-  
+freq_cost<-invacost %>%
+  group_by(Species) %>%
+  summarise(freq_cost = sum(frequence))
 
-## Also need to calculate occurrence by species and  number of publication by species
-## (lines 97-117 of 00.BuildDatabase.R), and then merge them with the previous dataset
-## But I cannot do it because invacost does not exist yet in R version 4.0.2...
+head(as.data.frame(freq_cost))
+
+# number of publications by species in invacost
+species_pub <- unique(invacost[, c("Species", "Reference_ID")])
+head(species_pub)
+species_pub$frequence <- 1
+
+freq_publi<-species_pub %>%
+  group_by(Species) %>%
+  summarise(freq_publi = sum(frequence))
+
+head(as.data.frame(freq_publi))
+
+# add frequency values in invacost database
+invacostF <- inner_join(invacost,freq_cost)
+invacostF <- inner_join(invacostF, freq_publi)
+colnames(invacostF)
+invacostF <- unique(invacostF[, c("Species", "freq_cost", "freq_publi")])
+
+# add these frequency values to scores_plants
+scores_plants <- left_join(scores_plants, invacostF, by = "Species")
+colnames(scores_plants)
 
 ## save the database for plants (careful , this is not the final version)
 write.csv2(scores_plants, paste0(getwd(), "/outputs/data_plants.csv"))

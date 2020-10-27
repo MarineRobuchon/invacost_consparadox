@@ -31,6 +31,41 @@ invacost$unique.sp.id[which(invacost$sp.list== "Alopochen aegyptiaca")][1] <- "A
 invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")] # so we have to change 17 & 18
 invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")][17] <- "Animalia Chordata Mammalia Phalangeridae Trichosurus Trichosurus vulpecula"
 invacost$unique.sp.id[which(invacost$sp.list== "Trichosurus vulpecula")][18] <- "Animalia Chordata Mammalia Phalangeridae Trichosurus Trichosurus vulpecula"
+invacost$unique.sp.id[which(invacost$sp.list== "Quercus rubra")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Quercus rubra")][1] <- "Plantae Tracheophyta Magnoliopsida Fagaceae Quercus Quercus rubra"
+invacost$unique.sp.id[which(invacost$sp.list== "Pelargonium capitatum")] # so we have to change 2
+invacost$unique.sp.id[which(invacost$sp.list== "Pelargonium capitatum")][2] <- "Plantae Tracheophyta Magnoliopsida Geraniaceae Pelargonium Pelargonium capitatum"
+invacost$unique.sp.id[which(invacost$sp.list== "Cryptostegia grandiflora")] # so we have to change 10
+invacost$unique.sp.id[which(invacost$sp.list== "Cryptostegia grandiflora")][10] <- "Plantae Tracheophyta Magnoliopsida Apocynaceae Cryptostegia Cryptostegia grandiflora" 
+invacost$unique.sp.id[which(invacost$sp.list== "Solanum elaeagnifolium")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Solanum elaeagnifolium")][1] <- "Plantae Tracheophyta Magnoliopsida Solanaceae Solanum Solanum elaeagnifolium"
+invacost$unique.sp.id[which(invacost$sp.list== "Solanum carolinense")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Solanum carolinense")][1] <- "Plantae Tracheophyta Magnoliopsida Solanaceae Solanum Solanum carolinense"
+invacost$unique.sp.id[which(invacost$sp.list== "Ipomoea hederacea")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Ipomoea hederacea")][1] <- "Plantae Tracheophyta Magnoliopsida Convolvulaceae Ipomoea Ipomoea hederacea"
+invacost$unique.sp.id[which(invacost$sp.list== "Ipomoea lacunosa")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Ipomoea lacunosa")][1] <- "Plantae Tracheophyta Magnoliopsida Convolvulaceae Ipomoea Ipomoea lacunosa"
+invacost$unique.sp.id[which(invacost$sp.list== "Helianthus ciliaris")] # so we have to change 2
+invacost$unique.sp.id[which(invacost$sp.list== "Helianthus ciliaris")][2] <-  "Plantae Tracheophyta Dicotyledonae Asteraceae Helianthus Helianthus ciliaris"
+invacost$unique.sp.id[which(invacost$sp.list== "Bidens pilosa")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Bidens pilosa")][1] <- "Plantae Tracheophyta Magnoliopsida Asteraceae Bidens Bidens pilosa"
+invacost$unique.sp.id[which(invacost$sp.list== "Pilosella officinarum")] # so we have to change 1
+invacost$unique.sp.id[which(invacost$sp.list== "Pilosella officinarum")][1] <- "Plantae Tracheophyta Magnoliopsida Asteraceae Pilosella Pilosella officinarum"
+invacost$unique.sp.id[which(invacost$sp.list== "Arctotheca calendula")] # so we have to change 5
+invacost$unique.sp.id[which(invacost$sp.list== "Arctotheca calendula")][5] <- "Plantae Tracheophyta Magnoliopsida Asteraceae Arctotheca Arctotheca calendula"
+invacost$unique.sp.id[which(invacost$sp.list== "Heracleum mantegazzianum")] # so we have to change 3
+invacost$unique.sp.id[which(invacost$sp.list== "Heracleum mantegazzianum")][3] <- "Plantae Tracheophyta Magnoliopsida Apiaceae Heracleum Heracleum mantegazzianum"
+invacost$unique.sp.id[which(invacost$sp.list== "Phragmites australis")] # so we have to change 38
+invacost$unique.sp.id[which(invacost$sp.list== "Phragmites australis")][38] <- "Plantae Tracheophyta Liliopsida Poaceae Phragmites Phragmites australis"
+invacost$unique.sp.id[which(invacost$sp.list== "Arundo donax")] # so we have to change 181 & 182
+invacost$unique.sp.id[which(invacost$sp.list== "Arundo donax")][181] <- "Plantae Tracheophyta Liliopsida Poaceae Arundo Arundo donax"
+invacost$unique.sp.id[which(invacost$sp.list== "Arundo donax")][182] <- "Plantae Tracheophyta Liliopsida Poaceae Arundo Arundo donax"
+invacost$unique.sp.id[which(invacost$sp.list== "Cenchrus pilosus")] # so we have to change 2
+invacost$unique.sp.id[which(invacost$sp.list== "Cenchrus pilosus")][2] <- "Plantae Tracheophyta Liliopsida Poaceae Cenchrus Cenchrus pilosus"
+invacost$unique.sp.id[which(invacost$sp.list== "Agave sisalana")] # so we have to change 5
+invacost$unique.sp.id[which(invacost$sp.list== "Agave sisalana")][5] <- "Plantae Tracheophyta Liliopsida Asparagaceae Agave Agave sisalana"
+invacost$unique.sp.id[which(invacost$sp.list== "Agave americana")] # so we have to change 118
+invacost$unique.sp.id[which(invacost$sp.list== "Agave americana")][118] <- "Plantae Tracheophyta Liliopsida Asparagaceae Agave Agave americana"
 
 # first we expand the database
 db.over.time <- expandYearlyCosts(invacost,
