@@ -5,6 +5,7 @@ library(plyr)
 library(ggplot2)
 library(MASS)
 library(scales)
+library(cowplot)
 
 setwd("./outputs")
 
@@ -96,7 +97,7 @@ MANphylBIRD<-ggplot(invbirds, aes(x=log(Average.annual.cost_management+1), y=log
   stat_smooth(method = "lm", formula = y ~  x, size = .9, se = TRUE, colour = "black")
 
 jpeg("./Figure3.jpeg", width=7, height=12, units="in", res=300)
-plot_grid(DAMfuncMAM,DAMfuncBIRD, DAMphylMAM, DAMphylBIRD, MANfuncMAM,MANfuncBIRD,MANphylMAM,MANphylBIRD + theme(legend.position="none") ,
+plot_grid(DAMphylMAM, DAMphylBIRD, MANphylMAM,MANphylBIRD, DAMfuncMAM,DAMfuncBIRD, MANfuncMAM,MANfuncBIRD + theme(legend.position="none") ,
           rel_widths = c(2, 2), ncol = 2, nrow = 4, labels = c("A","B","C","D","E","F", "G", "H"))
 dev.off()
 
