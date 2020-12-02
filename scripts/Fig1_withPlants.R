@@ -1,3 +1,9 @@
+#############################################################################################
+# script to plot Figure 1
+# original script by Camille Bernery
+# modifications by: Marine Robuchon, Vanessa Rezende
+#############################################################################################
+
 library(dplyr)
 library(stringr)
 library(tibble)
@@ -9,12 +15,11 @@ library(forcats)
 library(ggpubr)
 library(cowplot)
 
-
 ############# Load data ##############
 
 dataall <- read.table(paste0(getwd(), "/outputs/dataAllF.txt")) # database for birds and mammals
 head(dataall)
-dataplants <- read.csv2(paste0(getwd(), "/outputs/data_plants.csv")) # database for birds and mammals
+dataplants <- read.csv2(paste0(getwd(), "/outputs/data_plants.csv")) # database for plants
 head(dataplants)
 str(dataplants$invacostY)
 dataplants$invacostY[which(is.na(dataplants$invacostY))] <- "N"
