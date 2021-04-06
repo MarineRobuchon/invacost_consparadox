@@ -18,15 +18,16 @@ scores_plants_phylo <- read.csv2(paste0(getwd(), "/data/plants_tree-based_phylo_
 levels(factor(scores_plants_phylo$threatened)) # so the info on NT and LC is not here? need to fix this
 scores_plants_phylo <- scores_plants_phylo[, c("name_with_space", "ED", "INVACOST", "threatened", "alien")]
 colnames(scores_plants_phylo) <- c("Species", "oriPtree", "invacostY", "redlistCategory_version_2020.2", "Exotic")
+scores_plants_phylo$invacostY <- NA # update presence in Invacost with the last version of Invacost
+scores_plants_phylo$invacostY[scores_plants_phylo$Species%in%invacost$Species] <- "Y"
 scores_plants_phylo$invacostY <- as.factor(scores_plants_phylo$invacostY)
+levels(scores_plants_phylo$invacostY)
 scores_plants_phylo$redlistCategory_version_2020.2 <- as.factor(scores_plants_phylo$redlistCategory_version_2020.2)
 scores_plants_phylo$Exotic <- as.factor(scores_plants_phylo$Exotic)
-levels(scores_plants_phylo$invacostY) <- "Y"
 levels(scores_plants_phylo$redlistCategory_version_2020.2) <- c(NA, "Critically Endangered", "Data Deficient", "Endangered", 
                                                                 "Extinct in the Wild", "Extinct", "Least Concern",
                                                                 "LR", "Near Threatened", "Vulnerable")
 levels(scores_plants_phylo$Exotic) <- c("FALSE", "TRUE")
-
 scores_plants_phylo[which(scores_plants_phylo$redlistCategory_version_2020.2=="LR") ,]
 
 # remove extinct and extinct in the wild species

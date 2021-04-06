@@ -353,3 +353,103 @@ ggarrange(A_mammals + rremove("x.title"), B_mammals + rremove("x.title"), C_bird
           ncol = 2, nrow = 3 , heights = c(1, 1, 1), common.legend = TRUE, legend = "bottom", align = "hv")
 dev.copy(png, file = paste0(getwd(), "/outputs/clean_fig3.png"), res = 600, height = 7, width = 6.85, units = "in")
 dev.off()
+
+### Presence in InvaCost and costs of the threatened and most original species ----
+## identification of the threatened and most original species by taxon ----
+threatened <- data_all[which(data_all$redlistCategory_version_2020.2%in%c("Near Threatened", "Vulnerable", 
+                                                                          "Endangered", "Critically Endangered")),]
+threatened_mammals <- threatened[which(threatened$className=="MAMMALIA") ,]
+threatened_birds <- threatened[which(threatened$className=="AVES") ,]
+threatened_plants <- threatened[which(threatened$className == "PLANTS"),]
+
+TOP25PO_mammals <- mammals[which(mammals$oriPtree > summary(mammals$oriPtree)[5]),]
+TOP25PO_birds <- birds[which(birds$oriPtree > summary(birds$oriPtree)[5]),]
+TOP25PO_plants <- plants[which(plants$oriPtree > summary(plants$oriPtree)[5]),]
+
+TOP25FO_mammals <- mammals[which(mammals$meanoriFtree > summary(mammals$meanoriFtree)[5]),]
+TOP25FO_birds <- birds[which(birds$meanoriFtree > summary(birds$meanoriFtree)[5]),]
+TOP25FO_plants <- plants[which(plants$meanoriFtree > summary(plants$meanoriFtree)[5]),]
+
+## presence in InvaCost and costs of the threatened species ----
+threatened_mammals_inv <- threatened_mammals[which(threatened_mammals$invacostY=="Y"),]
+threatened_mammals_inv[order(threatened_mammals_inv$redlistCategory_version_2020.2, decreasing = TRUE),] 
+# 6 species of mammals are threatened and in InvaCost
+# Oryctolagus cuniculus, EN, damage cost =  162.6236, management cost = 6.302057172
+# Ammotragus lervia, VU, no damage cost, management cost = 0.002325734 
+# Phascolarctos cinereus, VU, no damage cost, management cost =  0.007811451
+# Rangifer tarandus, VU, no damage cost, management cost = 0.002031749
+# Rusa timorensis, VU, no damage cost, management cost = 0.153711065
+# Hemitragus jemlahicus, NT, no damage cost, maanagement cost = 0.447442081
+
+threatened_birds_inv <- threatened_birds[which(threatened_birds$invacostY=="Y"),]
+threatened_birds_inv # 0 species of birds are threatened and in InvaCost
+
+threatened_plants_inv <- threatened_plants[which(threatened_plants$invacostY=="Y"),]
+threatened_plants_inv[order(threatened_plants_inv$redlistCategory_version_2020.2, decreasing = TRUE),]# 2 species of plants are threatened and in InvaCost 
+# 2 species of plants are threatened and in InvaCost
+# Kalanchoe daigremontiana, EN, no damage cost, management cost =  4.470462e-05
+# Citharexylum gentryi, VU, no damage cost, management cost = 1.359312e-02  
+
+threatened_inv <- rbind(threatened_mammals_inv[order(threatened_mammals_inv$redlistCategory_version_2020.2, decreasing = TRUE),], 
+                        threatened_plants_inv[order(threatened_plants_inv$redlistCategory_version_2020.2, decreasing = TRUE),])
+colnames(threatened_inv)
+table1 <- threatened_inv[c("Species", "className", "redlistCategory_version_2020.2", "Average.annual.cost_damage", "Average.annual.cost_management")]
+colnames(table1) <- c("Species", "Class", "Red List Category", "Damage cost", "Management cost")
+write.csv2(table1, paste0(getwd(), "/outputs/table1.csv"))
+ 
+## presence in InvaCost and costs of the TOP25 PO species ----
+TOP25PO_mammals_inv <- TOP25PO_mammals[which(TOP25PO_mammals$invacostY=="Y"),]
+TOP25PO_mammals_inv[order(TOP25PO_mammals_inv$oriPtree, decreasing = TRUE),]
+# 9 species of mammals belonging to the TOP25 PO are also in InvaCost
+# Phascolarctos cinereus, TOP 10 PO, no damage cost, management cost = 7.811451e-03
+# Trichosurus vulpecula, TOP 348 PO, damage cost = 2.144539, management cost = 4.532871e+00
+# Glis glis, TOP 623 PO, no damage cost, no management cost (but one publication and 2 cost evaluations - check why no annual cost)
+# Hystrix brachyura, TOP 631 PO, no damage cost, management cost = 8.661140e-03
+# Atelerix albiventris, TOP 699 PO, no damage cost, management cost = 2.999742e-05
+# Nyctereutes procyonoides, TOP 1053 PO, no damage cost, management cost =  1.484021e-01
+# Sus scrofa, TOP 1243 PO, damage cost = 114.832852, management cost = 1.494243e+00
+# Rattus exulans, TOP 1252 PO, no damage cost, management cost = 1.545045e-02
+# Myocastor coypus, TOP 1307 PO, damage cost = 126.268702, management cost = 1.510786e+00
+
+TOP25PO_birds_inv <- TOP25PO_birds[which(TOP25PO_birds$invacostY=="Y"),]
+TOP25PO_birds_inv[order(TOP25PO_birds_inv$oriPtree, decreasing = TRUE),]
+# 2 species of birds belonging to the TOP25 PO are also in InvaCost
+# Threskiornis aethiopicus, TOP PO 571, no damage cost, management cost = 0.00210740 
+# Aquila chrysaetos, TOP PO 1909, no damage cost, management cost =  0.07180562
+
+TOP25PO_plants_inv <- TOP25PO_plants[which(TOP25PO_plants$invacostY=="Y"),]
+TOP25PO_plants_inv[order(TOP25PO_plants_inv$oriPtree, decreasing = TRUE),]
+# 62 species of birds belonging to the TOP25 PO are also in InvaCost
+
+TOP25PO_inv <- rbind(TOP25PO_mammals_inv[order(TOP25PO_mammals_inv$oriPtree, decreasing = TRUE),],
+                     TOP25PO_birds_inv[order(TOP25PO_birds_inv$oriPtree, decreasing = TRUE),],
+                     TOP25PO_plants_inv[order(TOP25PO_plants_inv$oriPtree, decreasing = TRUE),])
+
+colnames(TOP25PO_inv)
+
+table2 <- TOP25PO_inv[c("Species", "className", "oriPtree", "rank_oriPtree", "Average.annual.cost_damage", "Average.annual.cost_management")]
+colnames(table2) <- c("Species", "Class", "Phylogenetic originality score", "Phylogenetic originality rank", "Damage cost", "Management cost")
+write.csv2(table2, paste0(getwd(), "/outputs/table2.csv"))
+
+## presence in InvaCost and costs of the TOP25 FO species ----
+TOP25FO_mammals_inv <- TOP25FO_mammals[which(TOP25FO_mammals$invacostY=="Y"),]
+TOP25FO_mammals_inv[order(TOP25FO_mammals_inv$meanoriFtree, decreasing = TRUE),]
+# 12 species of mammals belonging to the TOP25 FO are also in InvaCost
+
+TOP25FO_birds_inv <- TOP25FO_birds[which(TOP25FO_birds$invacostY=="Y"),]
+TOP25FO_birds_inv[order(TOP25FO_birds_inv$meanoriFtree, decreasing = TRUE),]
+# 10 species of birds belonging to the TOP25 FO are also in InvaCost
+
+TOP25FO_plants_inv <- TOP25FO_plants[which(TOP25FO_plants$invacostY=="Y"),]
+TOP25FO_plants_inv[order(TOP25FO_plants_inv$meanoriFtree, decreasing = TRUE),]
+# 17 species of plants belonging to the TOP25 FO are also in InvaCost
+
+TOP25FO_inv <- rbind(TOP25FO_mammals_inv[order(TOP25FO_mammals_inv$meanoriFtree, decreasing = TRUE),],
+                     TOP25FO_birds_inv[order(TOP25FO_birds_inv$meanoriFtree, decreasing = TRUE),],
+                     TOP25FO_plants_inv[order(TOP25FO_plants_inv$meanoriFtree, decreasing = TRUE),])
+
+colnames(TOP25FO_inv)
+
+table3 <- TOP25FO_inv[c("Species", "className", "meanoriFtree", "rank_meanoriFtree", "Average.annual.cost_damage", "Average.annual.cost_management")]
+colnames(table3) <- c("Species", "Class", "Functional originality score", "Functional originality rank", "Damage cost", "Management cost")
+write.csv2(table3, paste0(getwd(), "/outputs/table3.csv"))
