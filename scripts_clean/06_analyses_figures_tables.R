@@ -140,9 +140,9 @@ A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(Species2, oriPtree),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/5425")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/5425"), y = oriPtree + 0.4), size = 2, color = "black") +
   coord_flip()
 A_mammals
 
@@ -159,9 +159,9 @@ C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(Species2, oriPtree), 
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/8095")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/8095"), y = oriPtree + 0.6), size = 2, color = "black") +
   coord_flip()
 C_birds
 
@@ -178,9 +178,10 @@ E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, oriPtree)
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/356184")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/356184"), y = oriPtree + 0.15 * max(oriPtree)), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, max(top5_plant_damage$oriPtree) + 0.2 * max(top5_plant_damage$oriPtree))) +
   coord_flip()
 E_plants
 
@@ -194,9 +195,9 @@ B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(Species2, oriPtr
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/5425")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/5425"), y = oriPtree + 0.4), size = 2, color = "black") +
   coord_flip()
 B_mammals
 
@@ -209,24 +210,25 @@ D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(Species2, oriPtre
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/8095")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/8095"), y = oriPtree + 0.6), size = 2, color = "black") +
   coord_flip()
 D_birds
 
 top5_plant_management <- merge(top5_plant_management, plants)
 
-F_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
+F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   ggtitle("F PLANTS") + geom_bar(stat="identity") + theme_minimal() + 
   labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
-  geom_text(aes(label = paste0(rank_oriPtree, "\n/356184")), position = position_stack(vjust = 0.5), size = 2, color = "white") +
+  geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_text(aes(label = paste0(rank_oriPtree, "\n/356184"), y = oriPtree + 0.15 * max(oriPtree)), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, max(top5_plant_management$oriPtree) + 0.3 * max(top5_plant_management$oriPtree))) +
   coord_flip()
 F_plants
 
@@ -251,8 +253,8 @@ A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(Species2, meanoriFtr
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/4798"), y = meanoriFtree + 0.0005), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.006)) +
   coord_flip()
@@ -270,8 +272,8 @@ C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(Species2, meanoriFtre
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/8095"), y = meanoriFtree + 0.005), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.05)) +
   coord_flip()
@@ -289,8 +291,8 @@ E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, meanoriFt
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/212530"), y = meanoriFtree + 0.05), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.5)) +
   coord_flip()
@@ -306,8 +308,8 @@ B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(Species2, meanor
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(mammals$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/4798"), y = meanoriFtree + 0.002), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.02)) +
   coord_flip()
@@ -323,8 +325,8 @@ D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(Species2, meanori
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(birds$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/8095"), y = meanoriFtree + 0.005), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.05)) +
   coord_flip()
@@ -340,8 +342,8 @@ F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(Species2, meano
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
         axis.title.y = element_text(size = 9, face = "bold")) + 
-  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[3]), color= "red", size = 0.5) +
-  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[5]), color= "red", size = 0.5, linetype = "twodash") +
+  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_hline(aes(yintercept = summary(plants$meanoriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
   geom_text(aes(label = paste0(rank_meanoriFtree, "\n/212530"), y = meanoriFtree + 0.04), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.45)) +
   coord_flip()
