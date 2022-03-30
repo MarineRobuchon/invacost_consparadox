@@ -7,11 +7,17 @@
 ## Load packages
 library(dplyr)
 library(invacost)
+library(readxl)
 
 ## Load and prepare data
 
 # invacost
-data(invacost)
+invacost <- as.data.frame(read_xlsx("./data/InvaCost_database_v4.1.xlsx",
+                                    na = c("NA", "#N/A", "#DIV/0!", "#VALEUR!", 
+                                           "Unspecified", "Unknown",
+                                           "unspecified"),
+                                    guess_max = 10000)) # load version 4.1 of InvaCost
+
 
 # phylogenetic originality, threat status, exotic status and presence in InvACOST
 scores_plants_phylo <- read.csv2(paste0(getwd(), "/data/plants_tree-based_phylo_IUCN_and_GLONAF.csv")) 

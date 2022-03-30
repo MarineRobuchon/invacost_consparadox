@@ -38,17 +38,30 @@ str(data_all)
 ## Describe the database
 # damage costs by taxon
 damage <- data_all[-which(is.na(data_all$Average.annual.cost_damage)),]
-nrow(damage[which(damage$className=="MAMMALIA"),]) # 20
-nrow(damage[which(damage$className=="AVES"),]) # 12
-nrow(damage[which(damage$className=="PLANTS"),]) # 64
-nrow(damage) # 96
+nrow(damage[which(damage$className=="MAMMALIA"),]) # 21
+nrow(damage[which(damage$className=="AVES"),]) # 13
+nrow(damage[which(damage$className=="PLANTS"),]) # 112
+nrow(damage) # 146
+length(unique(damage$Species)) # 146, so no duplicate
 
 # management costs by taxon
 management <- data_all[-which(is.na(data_all$Average.annual.cost_management)),]
-nrow(management[which(management$className=="MAMMALIA"),]) # 32
+nrow(management[which(management$className=="MAMMALIA"),]) # 36
 nrow(management[which(management$className=="AVES"),]) # 15
-nrow(management[which(management$className=="PLANTS"),]) # 228
-nrow(management) # 275
+nrow(management[which(management$className=="PLANTS"),]) # 287
+nrow(management) # 338
+length(unique(management$Species)) # 338, so no duplicate
+
+# number of cost entries by taxon (damage + management) : 39 + 20 + 323 = 382
+length(unique(c(damage$Species[which(damage$className=="MAMMALIA")], management$Species[which(management$className=="MAMMALIA")]))) # 39 
+length(unique(c(damage$Species[which(damage$className=="AVES")], management$Species[which(management$className=="AVES")]))) # 20
+length(unique(c(damage$Species[which(damage$className=="PLANTS")], management$Species[which(management$className=="PLANTS")]))) # 323
+
+# number of species in InvaCost
+nrow(data_all[which(data_all$invacostY=="Y"),]) # 397
+nrow(data_all[which(data_all$invacostY=="Y" & data_all$className=="MAMMALIA"),]) # 44
+nrow(data_all[which(data_all$invacostY=="Y" & data_all$className=="AVES"),]) # 20
+nrow(data_all[which(data_all$invacostY=="Y" & data_all$className=="PLANTS"),]) # 333
 
 # threat status by taxon
 threat <- data_all[-which(is.na(data_all$redlistCategory_version_2020.2)),]
@@ -59,7 +72,7 @@ nrow(threat) # 32815
 
 # phylogenetic originality by taxon
 PO <- data_all[-which(is.na(data_all$oriPtree)),]
-nrow(PO[which(PO$className=="MAMMALIA"),]) # 5424
+nrow(PO[which(PO$className=="MAMMALIA"),]) # 5425
 nrow(PO[which(PO$className=="AVES"),]) # 8095
 nrow(PO[which(PO$className=="PLANTS"),]) # 356184
 nrow(PO) # 369704

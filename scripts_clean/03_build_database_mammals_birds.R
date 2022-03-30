@@ -10,13 +10,20 @@ library(dplyr)
 library(stringr)
 library(invacost)
 library(tibble)
+library(readxl)
 
 ######################################
 ############# Load data ##############
 ######################################
 
 iucn<-read.delim("./data/IUCNdata.txt", header=TRUE)
-data(invacost)
+
+
+invacost <- as.data.frame(read_xlsx("./data/InvaCost_database_v4.1.xlsx",
+                                    na = c("NA", "#N/A", "#DIV/0!", "#VALEUR!", 
+                                           "Unspecified", "Unknown",
+                                           "unspecified"),
+                                    guess_max = 10000)) # load version 4.1 of InvaCost
 
 birdFDist<-read.csv2("./outputs/birds_vertlife_distance-based_funcori.csv", header=TRUE) 
 birdFtree<-read.csv2("./outputs/birds_vertlife_tree-based_funcori.csv", header=TRUE)
@@ -121,28 +128,34 @@ invacostF$invacostY <- "Y"
 dataAll<-iucnMBOri %>% left_join(invacostF,by="Species")
 colnames(dataAll)
 
-invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) # 967
-invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 55 species 
+invacostIUCN<-(dataAll[which(dataAll$invacostY == "Y"),]) # 1176
+invacostIUCNsp<-as.data.frame(unique(invacostIUCN$Species)) # 64 species 
 
 colnames(dataAll)
 
-dataAllF<-dataAll[,c(3:10,15,20:27,29,32,98:100)] # Select only variables that we need to conduct the analyses
+dataAllF<-dataAll[,c(3:10,15,20:27,29,32,99:102)] # Select only variables that we need to conduct the analyses
 colnames(dataAllF)
 colnames(dataAllF)[c(18, 19)] <-  c("oriPdist", "oriPtree") # rename columns corresponding to phylogenetic originality
-dataAllF <- unique(dataAllF) # to remove duplicates due to the fact that some species can have several costs in invacost
+dataAllF <- unique(dataAllF) 
 
 ## Add cost values in the final database
+## But before, remove entries for subspecies
+## Canis lupus (because they correspond to the dog subspecies, not the wild grey wolf)
 
 costs_d <- costs_d[, c("Species", "Average.annual.cost")] # only keep species and cost values
 colnames(costs_d)[2] <- "Average.annual.cost_damage"
+costs_d <- costs_d[-which(costs_d$Species=="Canis lupus"),]
+
+
 costs_m <- costs_m[, c("Species", "Average.annual.cost")]
 colnames(costs_m)[2] <- "Average.annual.cost_management"
+costs_m <- costs_m[-which(costs_m$Species=="Canis lupus"),]
 
 dataAllF <- dataAllF %>% left_join(costs_d, by = "Species")
 dataAllF <- dataAllF %>% left_join(costs_m, by = "Species")
 
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 47 species for which we have damage costs
-nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 64 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_damage)) ,]) # 34 species for which we have damage costs
+nrow(dataAllF[which(!is.na(dataAllF$Average.annual.cost_management)) ,]) # 51 species for which we have damage costs
 
 ##Add exotic status in the final database 
 
