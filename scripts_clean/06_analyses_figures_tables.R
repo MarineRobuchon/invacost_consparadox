@@ -63,7 +63,7 @@ top5_plant_management <- head(plant_management[order(plant_management$Average.an
 A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(Species2, Average.annual.cost_damage), y = Average.annual.cost_damage, fill = redlistCategory_version_2020.2)) + 
   ggtitle("A  MAMMALS") + geom_bar(stat="identity") + theme_minimal() + 
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) + 
-  labs(fill = "Red List Category", x = "DAMAGE\nTOP 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "DAMAGE\ntop 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -74,7 +74,7 @@ A_mammals
 C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(Species2, Average.annual.cost_damage), y = Average.annual.cost_damage, fill = redlistCategory_version_2020.2)) + 
   ggtitle("B  BIRDS") + geom_bar(stat="identity") + theme_minimal() + 
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) +
-  labs(fill = "Red List Category", x = "DAMAGE\nTOP 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "DAMAGE\ntop 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -85,7 +85,7 @@ C_birds
 E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, Average.annual.cost_damage), y = Average.annual.cost_damage, fill = redlistCategory_version_2020.2)) + 
   ggtitle("C PLANTS") + geom_bar(stat="identity") + theme_minimal() + 
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) +
-  labs(fill = "Red List Category", x = "DAMAGE\nTOP 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "DAMAGE\ntop 5 costliest species", y = "Average annual damage cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -98,7 +98,7 @@ B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(Species2, Averag
   #ggtitle("B  MAMMALS") + 
   geom_bar(stat="identity") + theme_minimal() + 
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) +
-  labs(fill = "Red List Category", x = "MANAGEMENT\nTOP 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "MANAGEMENT\ntop 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -110,7 +110,7 @@ D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(Species2, Average
   #ggtitle("D  BIRDS") + 
   geom_bar(stat="identity") + theme_minimal() +
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) +
-  labs(fill = "Red List Category", x = "MANAGEMENT\nTOP 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "MANAGEMENT\ntop 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -122,7 +122,7 @@ F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(Species2, Avera
   #ggtitle("F PLANTS") + 
   geom_bar(stat="identity") + theme_minimal() + 
   scale_fill_manual(limits = c("Not assessed", "Least Concern", "Endangered"), values = c("darkgrey", "green4","orange2")) + 
-  labs(fill = "Red List Category", x = "MANAGEMENT\nTOP 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
+  labs(fill = "Red List Category", x = "MANAGEMENT\ntop 5 costliest species", y = "Average annual management cost\n (2017 million US$)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -147,7 +147,7 @@ top5_mam_damage <- merge(top5_mam_damage, mammals)
 
 A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   ggtitle("A  MAMMALS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -166,7 +166,7 @@ top5_bird_damage <- merge(top5_bird_damage, birds)
 
 C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   ggtitle("B  BIRDS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -185,7 +185,7 @@ top5_plant_damage <- merge(top5_plant_damage, plants)
 
 E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   ggtitle("C PLANTS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -203,7 +203,7 @@ top5_mam_management <- merge(top5_mam_management, mammals)
 B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   #ggtitle("B  MAMMALS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -219,7 +219,7 @@ top5_bird_management <- merge(top5_bird_management, birds)
 D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   #ggtitle("D  BIRDS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -235,7 +235,7 @@ top5_plant_management <- merge(top5_plant_management, plants)
 F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(Species2, oriPtree), y = oriPtree)) + 
   #ggtitle("F PLANTS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Phylogenetic originality (Ma)") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Phylogenetic originality (Ma)") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -263,7 +263,7 @@ top5_mam_damage <- merge(top5_mam_damage, mammals)
 
 A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   ggtitle("A  MAMMALS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -282,7 +282,7 @@ top5_bird_damage <- merge(top5_bird_damage, birds)
 
 C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   ggtitle("B  BIRDS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -301,7 +301,7 @@ top5_plant_damage <- merge(top5_plant_damage, plants)
 
 E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   ggtitle("C  PLANTS") + geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "DAMAGE\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "DAMAGE\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -319,7 +319,7 @@ top5_mam_management <- merge(top5_mam_management, mammals)
 B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   #ggtitle("B  MAMMALS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -337,7 +337,7 @@ top5_bird_management <- merge(top5_bird_management, birds)
 D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   #ggtitle("D  BIRDS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -355,7 +355,7 @@ top5_plant_management <- merge(top5_plant_management, plants)
 F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(Species2, meanoriFtree), y = meanoriFtree)) + 
   #ggtitle("F  PLANTS") + 
   geom_bar(stat="identity") + theme_minimal() + 
-  labs(x = "MANAGEMENT\nTOP 5 costliest species", y = "Functional originality") + 
+  labs(x = "MANAGEMENT\ntop 5 costliest species", y = "Functional originality") + 
   theme(legend.title = element_text(color = "black", size = 7),legend.text = element_text(color = "black", size = 7),
         plot.title = element_text(color="black", size = 9), axis.text.y = element_text(face="bold.italic", size = 7),
         axis.text.x = element_text(face = "bold", color = "black", size = 9), axis.title.x = element_text(size = 9, face = "bold"), 
@@ -772,4 +772,5 @@ dev.off()
   
   
   
+
 
