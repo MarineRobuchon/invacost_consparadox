@@ -9,7 +9,6 @@
 
 ## load packages & data
 library(invacost)
-# data(invacost) # on 26/01/2022 13123 obs of 65 variables
 
 # load version 4.1 of InvaCost
 library(readxl)
@@ -17,17 +16,21 @@ invacost <- as.data.frame(read_xlsx("./data/InvaCost_database_v4.1.xlsx",
                                     na = c("NA", "#N/A", "#DIV/0!", "#VALEUR!", 
                                            "Unspecified", "Unknown",
                                            "unspecified"),
-                                    guess_max = 10000))
+                                    guess_max = 10000)) # 13553 observations of 66 variables
 
-colninvacost$Applicable_year <- as.numeric(invacost$Applicable_year)
+invacost$Applicable_year <- as.numeric(invacost$Applicable_year)
 invacost$Publication_year <- as.numeric(invacost$Publication_year)
 invacost$Probable_starting_year <- as.numeric(invacost$Probable_starting_year)
 invacost$Probable_ending_year <- as.numeric(invacost$Probable_ending_year)
 invacost$Probable_starting_year_adjusted <- as.numeric(invacost$Probable_starting_year_adjusted)
 invacost$Probable_ending_year_adjusted <- as.numeric(invacost$Probable_ending_year_adjusted)
 
+## remove potential costs and unreliable sources
+invacost <- invacost[invacost$Acquisition_method!= "Extrapolation" ,] # 11056 observations left after this step
+invacost <- invacost[invacost$Method_reliability!= "Low" ,] # 10067 observations left after this step
+
 ## filter subspecies
-invacost <- invacost[is.na(invacost$Subspecies),]
+invacost <- invacost[is.na(invacost$Subspecies),] # 9958 observations after this step
 
 ## filter mix of species: none, we apply the calculation of costs to all unique values of invacost$Species
 ## this will calculate by species for some, and by other units than species for others
@@ -66,14 +69,11 @@ canislupus <- invacost[which(invacost$sp.list=="Canis lupus"),]
 equusferus <- invacost[which(invacost$sp.list=="Equus ferus"),]
 # this is the species, not the subspecies, so we keep it
 
-
 ## first remove entries without cost in "Cost estimate per year 2017 exchange rate"
 ## and those with no information on starting and ending years
-colnames(invacost)
 invacost_sub <- invacost[-which(is.na(invacost$Cost_estimate_per_year_2017_USD_exchange_rate)),]
 invacost_sub <- invacost_sub[-which(is.na(invacost_sub$Probable_starting_year_adjusted)), ]
-invacost_sub <- invacost_sub[-which(is.na(invacost_sub$Probable_ending_year_adjusted)), ]
-
+invacost_sub <- invacost_sub[-which(is.na(invacost_sub$Probable_ending_year_adjusted)), ] # 9824 observations after this step
 
 
 ## second we expand the database
