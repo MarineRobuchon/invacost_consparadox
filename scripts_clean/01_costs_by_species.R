@@ -69,7 +69,7 @@ canislupus <- invacost[which(invacost$sp.list=="Canis lupus"),]
 equusferus <- invacost[which(invacost$sp.list=="Equus ferus"),]
 # this is the species, not the subspecies, so we keep it
 
-## first remove entries without cost in "Cost estimate per year 2017 exchange rate"
+## remove entries without cost in "Cost estimate per year 2017 exchange rate"
 ## and those with no information on starting and ending years
 invacost_sub <- invacost[-which(is.na(invacost$Cost_estimate_per_year_2017_USD_exchange_rate)),]
 invacost_sub <- invacost_sub[-which(is.na(invacost_sub$Probable_starting_year_adjusted)), ]
@@ -81,7 +81,7 @@ db.over.time <- expandYearlyCosts(invacost_sub,
                                   startcolumn = "Probable_starting_year_adjusted",
                                   endcolumn = "Probable_ending_year_adjusted")
 
-## third, remove entries for which impact year is before 1960 
+## remove entries for which impact year is before 1960 
 ## this is to avoid the mistake
 ## Erreur dans summarizeCosts(cur.db) : 
 ##  maximum.year is lower than minimum.year.
