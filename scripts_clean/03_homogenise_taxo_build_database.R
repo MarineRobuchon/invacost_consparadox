@@ -22,7 +22,7 @@ library(dplyr)
 
 ### load data ----
 ## IUCN
-iucn <- read.csv("./data/RL_2022-1/simple_summary.csv", header = TRUE, sep = ",") # iucn global assessments for mammals, birds and plants (dowloaded on 22/10/2022)
+iucn <- read.csv("./data/RL_2022-1/simple_summary.csv", header = TRUE, sep = ",") # iucn global assessments for mammals, birds and plants (downloaded on 22/10/2022)
 
 ## originality (= distinctiveness) scores
 mammalPtree <- read.csv2("./outputs/mammals_vertlife_tree-based_phylori.csv", header = TRUE)
@@ -71,35 +71,35 @@ unique(all_raw$length_parsed_binomial) # they all have 2 words
 
 # names in column parsed_binomial form the unified species names
 
-## split the unified species names by taxon
+### step 1.5 of taxonomic homogenisation: split the unified species names by taxon ----
 unique(all_raw$taxon)
 # mammals (= "MAMMALIA" + "Mammalia")
 mammals_unified <- all_raw[which(all_raw$taxon %in% c("MAMMALIA", "Mammalia")),]
 mammals_unified$taxon <- "MAMMALS"
 length(unique(mammals_unified$parsed_binomial)) # 6738 unique parsed binomial names
 
-
-
 # birds (= "AVES" + "Aves")
 
 # plants (= "PLANTS" + "Magnoliopsida" + "Liliopsida" + "Pinopsida")
 
-## match to their reference databases
-# mammals
-head(mammals) # the taxonomic reference for mammals
+### step 2 of taxonomic homogenisation: match taxonomic databases ----
+## mammals
+data(mammals) # the taxonomic reference for mammals
+head(mammals) 
 mammals_unified$mammals_match <- mammals_unified$parsed_binomial %in% mammals$canonical_sciname
 length(unique(mammals_unified$parsed_binomial[which(mammals_unified$mammals_match == TRUE)])) # among which 5933 match the taxonomic reference for mammals
-
+length(unique(mammals_unified$parsed_binomial[which(mammals_unified$mammals_match == FALSE)])) # and 805 do not match the taxonomic reference for mammals
 mammals_unified$mammals_name <- mammals_unified$parsed_binomial
-mammals_unified <- merge(mammals_unified, mammals[c("canonical_sciname", "notes")], by.x = "mammals_name", by.y = "canonical_sciname")
+mammals_unified <- merge(mammals_unified, mammals[c("canonical_sciname", "notes")], by.x = "mammals_name", by.y = "canonical_sciname", all.x = TRUE)
 mammals_unified$mammals_name[which(mammals_unified$mammals_match == FALSE)] <- NA
 
 colnames(mammals_unified)
 mammals_unified <- mammals_unified %>% select(source, taxon, raw_name, parsed_binomial, length_parsed_binomial, mammals_match, mammals_name, notes)
 
+# we now need to (i) for names matching the reference database, check synonmys to identify the name to be used
+# and (ii) for names not matching the reference database, retrieve the the name to be used with gnr_resolve from taxize
 
 
-#merge(mammals_unified, mammals[c("canonical_sciname", "notes")], by)
 
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
 
