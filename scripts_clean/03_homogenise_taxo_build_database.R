@@ -11,7 +11,9 @@
 # install.packages("devtools")
 # devtools::install_github('idiv-biodiversity/LCVP')
 # devtools::install_github('https://github.com/mawiramawira/mammals')
+# install.packages("rgnparser")
 # rgnparser::install_gnparser()
+
 library(rgnparser)
 library(taxize)
 library(mammals)

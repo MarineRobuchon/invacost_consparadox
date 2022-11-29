@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 
-# Specific to repository consmampd
+# Specific to this repository
 /data/*
 /script_drafts/*
 *.Rproj
