@@ -9,7 +9,7 @@
 # install.packages("remotes")
 # remotes::install_github("idiv-biodiversity/lcplants")
 # install.packages("devtools")
-# devtools::install_github('idiv-biodiversity/LCVP')
+ devtools::install_github('idiv-biodiversity/LCVP')
 # devtools::install_github('https://github.com/mawiramawira/mammals')
 # install.packages("rgnparser")
 # rgnparser::install_gnparser()
@@ -19,6 +19,7 @@ library(taxize)
 library(mammals)
 library (rebird)
 library(lcvplants)
+library(LCVP)
 library(stringr)
 library(dplyr)
 
@@ -78,11 +79,17 @@ unique(all_raw$taxon)
 # mammals (= "MAMMALIA" + "Mammalia")
 mammals_unified <- all_raw[which(all_raw$taxon %in% c("MAMMALIA", "Mammalia")),]
 mammals_unified$taxon <- "MAMMALS"
-length(unique(mammals_unified$parsed_binomial)) # 6738 unique parsed binomial names
+length(unique(mammals_unified$parsed_binomial)) # 6 738 unique parsed binomial names
 
 # birds (= "AVES" + "Aves")
+birds_unified <- all_raw[which(all_raw$taxon %in% c("AVES", "Aves")),]
+birds_unified$taxon <- "BIRDS"
+length(unique(birds_unified$parsed_binomial)) # 13 148 unique parsed binomial names
 
 # plants (= "PLANTS" + "Magnoliopsida" + "Liliopsida" + "Pinopsida")
+plants_unified <- all_raw[which(all_raw$taxon %in% c("PLANTS", "Magnoliopsida", "Liliopsida", "Pinopsida")),]
+plants_unified$taxon <- "PLANTS"
+length(unique(plants_unified$parsed_binomial)) # 389 918 unique parsed binomial names
 
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
 ## mammals
@@ -100,10 +107,75 @@ mammals_unified <- mammals_unified %>% select(source, taxon, raw_name, parsed_bi
 
 # we now need to (i) for names matching the reference database, check synonmys to identify the name to be used
 # and (ii) for names not matching the reference database, retrieve the the name to be used with gnr_resolve from taxize
+# let's start with (i)
+grep("syn", unique(mammals_unified$notes), value = TRUE)
+out <- gnr_datasources()
+grep("mam", out$title, value = TRUE)
+
+## birds
+birds <- unique(birds_unified %>%
+ pull(parsed_binomial)) # the 13 148 unique parsed names for birds
+
+new_tax <- ebirdtaxonomy()
+
+ebird <- sapply(birds, function(x) tryCatch(rebird::species_code(x),
+                               error = function(e) NA))
+
+birds <- tibble(parsed = birds,
+                code = ebird) %>%
+  left_join(rebird:::tax %>%
+              filter(speciesCode %in% ebird) %>%
+              transmute(code = speciesCode, ebird = sciName)) %>%
+  select(-code)
+
+write.csv2(birds, "outputs/birds_taxmatch_ebird.csv")
+
+## plants
+plants <- unique(plants_unified %>% 
+  pull(parsed_binomial)) # the 389 918 unique parsed names for plants
+
+data(tab_lcvp)
+str(tab_lcvp)
+
+eplants <- sapply(plants[1:5], function(x) unlist(lcvp_search(x)[9],
+                                                  error = function(e) NA)) # returns id of accepted taxon
+eplants
+
+testplants <- tibble(parsed = plants[1:5],
+                     accepted_id = eplants) %>%
+  left_join(tab_lcvp %>%
+              filter(globalId.of.Output.Taxon %in% eplants) %>%
+              transmute(accepted_id = globalId.of.Output.Taxon, eplants = gn_parse_tidy(Output.Taxon)$canonicalsimple)) %>%  
+  distinct_all()  %>%
+  select(-accepted_id)
+
+# HERE§§§§ ajouter na for not matching, change eplants by lcvp
+
+
+gn_parse_tidy(testplants$eplants)$canonicalsimple
+
+
+parsed_all_raw <- gn_parse_tidy (all_raw$raw_name) # parse name
+all_raw$parsed_binomial <- word(parsed_all_raw$canonicalsimple, 1, 2)
 
 
 
-### step 2 of taxonomic homogenisation: match taxonomic databases ----
+
+lcvp <- LCVP(plants)
+lcvp %>%
+  tibble() %>%
+  transmute(parsed = Submitted_Name,
+            lcvp = LCVP_Accepted_Taxon) %>%
+  distinct_all() %>%
+  right_join(tibble(parsed = unique(plants))) %>%
+  distinct_all() %>%
+  arrange(parsed, lcvp) %>%
+  group_by(parsed) %>%
+  slice(1) %>%
+  ungroup() %>%
+  write.csv2("outputs/plants_taxmatch_lcvp.csv")
+
+
 
 
 
