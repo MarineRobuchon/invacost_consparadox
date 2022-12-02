@@ -9,7 +9,7 @@
 # install.packages("remotes")
 # remotes::install_github("idiv-biodiversity/lcplants")
 # install.packages("devtools")
- devtools::install_github('idiv-biodiversity/LCVP')
+# devtools::install_github('idiv-biodiversity/LCVP')
 # devtools::install_github('https://github.com/mawiramawira/mammals')
 # install.packages("rgnparser")
 # rgnparser::install_gnparser()
@@ -22,6 +22,7 @@ library(lcvplants)
 library(LCVP)
 library(stringr)
 library(dplyr)
+library(parallel)
 
 ### load data ----
 ## IUCN
@@ -137,43 +138,28 @@ plants <- unique(plants_unified %>%
 data(tab_lcvp)
 str(tab_lcvp)
 
-eplants <- sapply(plants[1:5], function(x) unlist(lcvp_search(x)[9],
-                                                  error = function(e) NA)) # returns id of accepted taxon
-eplants
+# parallelisation for plants as they are a lot of names to match
+cl <- makeCluster(4)
+lcvp <- parSapply(
+  cl,
+  plants, 
+  function(x) unlist(lcvplants::lcvp_search(x)[9])) # returns id of accepted taxon
 
-testplants <- tibble(parsed = plants[1:5],
-                     accepted_id = eplants) %>%
+lcvp[which(lcvp=="NULL")] <- NA # assign NA for unmatched names
+lcvp <- unlist(lcvp) # unlist for future matching
+
+plants <- tibble(parsed = plants,
+                     accepted_id = lcvp) %>%
   left_join(tab_lcvp %>%
-              filter(globalId.of.Output.Taxon %in% eplants) %>%
-              transmute(accepted_id = globalId.of.Output.Taxon, eplants = gn_parse_tidy(Output.Taxon)$canonicalsimple)) %>%  
+              filter(globalId.of.Output.Taxon %in% lcvp) %>%
+              transmute(accepted_id = globalId.of.Output.Taxon, lcvp = gn_parse_tidy(Output.Taxon)$canonicalsimple)) %>%  
   distinct_all()  %>%
   select(-accepted_id)
 
-# HERE§§§§ ajouter na for not matching, change eplants by lcvp
+write.csv2(plants, "outputs/plants_taxmatch_lcvp.csv")
 
+stopCluster(cl)
 
-gn_parse_tidy(testplants$eplants)$canonicalsimple
-
-
-parsed_all_raw <- gn_parse_tidy (all_raw$raw_name) # parse name
-all_raw$parsed_binomial <- word(parsed_all_raw$canonicalsimple, 1, 2)
-
-
-
-
-lcvp <- LCVP(plants)
-lcvp %>%
-  tibble() %>%
-  transmute(parsed = Submitted_Name,
-            lcvp = LCVP_Accepted_Taxon) %>%
-  distinct_all() %>%
-  right_join(tibble(parsed = unique(plants))) %>%
-  distinct_all() %>%
-  arrange(parsed, lcvp) %>%
-  group_by(parsed) %>%
-  slice(1) %>%
-  ungroup() %>%
-  write.csv2("outputs/plants_taxmatch_lcvp.csv")
 
 
 
