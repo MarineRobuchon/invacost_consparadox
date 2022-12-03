@@ -94,25 +94,49 @@ length(unique(plants_unified$parsed_binomial)) # 389 918 unique parsed binomial 
 
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
 ## mammals
-data(mammals) # the taxonomic reference for mammals
-head(mammals) 
-mammals_unified$mammals_match <- mammals_unified$parsed_binomial %in% mammals$canonical_sciname
-length(unique(mammals_unified$parsed_binomial[which(mammals_unified$mammals_match == TRUE)])) # among which 5933 match the taxonomic reference for mammals
-length(unique(mammals_unified$parsed_binomial[which(mammals_unified$mammals_match == FALSE)])) # and 805 do not match the taxonomic reference for mammals
-mammals_unified$mammals_name <- mammals_unified$parsed_binomial
-mammals_unified <- merge(mammals_unified, mammals[c("canonical_sciname", "notes")], by.x = "mammals_name", by.y = "canonical_sciname", all.x = TRUE)
-mammals_unified$mammals_name[which(mammals_unified$mammals_match == FALSE)] <- NA
-
-colnames(mammals_unified)
-mammals_unified <- mammals_unified %>% select(source, taxon, raw_name, parsed_binomial, length_parsed_binomial, mammals_match, mammals_name, notes)
-
-# we now need to (i) for names matching the reference database, check synonmys to identify the name to be used
-# and (ii) for names not matching the reference database, retrieve the the name to be used with gnr_resolve from taxize
-# let's start with (i)
-grep("syn", unique(mammals_unified$notes), value = TRUE)
+# we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms1&
 out <- gnr_datasources()
-grep("mam", out$title, value = TRUE)
+mamout <- out[grep("ammal", out$title),] 
+mamout[2,c("description", "title", "id")]
+# Ref database: Mammal Diversity Database. 2021. www.mammaldiversity.org. American Society of Mammalogists. Accessed 2021-01-28. ASM Mammal Diversity Database
 
+mammals <- unique(mammals_unified %>% 
+                   pull(parsed_binomial)) # the 6738 names to match
+
+mdd <- sapply(mammals, 
+              function(x) gnr_resolve(x, data_source_ids = 184, canonical = TRUE, best_match_only = TRUE)$matched_name2) # match the accepted names of Mammal Diversity Database
+
+length(mdd[which(mdd=="NULL")]) # 805 unmatched names that we will try to retrieve from ITIS
+
+# tsn
+# 
+# testitis <- itis_acceptname(get_tsn(c("Mesocapromys nanus", "Physeter catodon", "Spilogale aquaticus")))
+# 
+# testnotfound <- get_tsn("Spilogale aquaticus")
+# 
+# testnotfound
+
+itis <- data.frame(mammals = names(mdd[which(mdd=="NULL")]), tsn = NA)
+itis$tsn <- get_tsn(itis$mammals) # get tsn
+itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
+itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
+itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
+colnames(itis)[1] <- "parsed"
+colnames(itis)[3] <- "mdd_itis"
+
+
+# itis <- itis_acceptname(get_tsn(names(mdd[which(mdd=="NULL")])))
+# itis$mammals <- names(mdd[which(mdd=="NULL")])
+
+mdd[which(mdd=="NULL")] <- NA
+mdd <- unlist(mdd)
+
+mammals <- tibble(parsed = mammals, mdd_itis = mdd)
+mammals <- mammals[-which(is.na(mammals$mdd_itis)),]
+mammals <- rbind(mammals, itis[, c(1, 3)])
+
+write.csv2(mammals, "outputs/mammals_taxmatch_mdditis.csv")
+                       
 ## birds
 birds <- unique(birds_unified %>%
  pull(parsed_binomial)) # the 13 148 unique parsed names for birds
