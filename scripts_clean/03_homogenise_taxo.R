@@ -96,6 +96,8 @@ length(unique(plants_unified$parsed_binomial)) # 389 918 unique parsed binomial 
 taxa_unified <- rbind(mammals_unified, birds_unified, plants_unified)
 taxa_unified <- unique(taxa_unified[, c("taxon", "raw_name", "parsed_binomial")])
 colnames(taxa_unified)[3] <- "parsed"
+length(unique(taxa_unified$raw_name))
+length(unique(taxa_unified$parsed))
 write.csv2(taxa_unified, "outputs/taxa_rawandparsednames.csv")
 
 
