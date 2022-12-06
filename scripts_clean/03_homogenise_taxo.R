@@ -92,6 +92,13 @@ plants_unified <- all_raw[which(all_raw$taxon %in% c("PLANTS", "Magnoliopsida", 
 plants_unified$taxon <- "PLANTS"
 length(unique(plants_unified$parsed_binomial)) # 389 918 unique parsed binomial names
 
+# save the table of both raw and parsed binomial to be used for matching when building the final database
+taxa_unified <- rbind(mammals_unified, birds_unified, plants_unified)
+taxa_unified <- unique(taxa_unified[, c("taxon", "raw_name", "parsed_binomial")])
+colnames(taxa_unified)[3] <- "parsed"
+write.csv2(taxa_unified, "outputs/taxa_rawandparsednames.csv")
+
+
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
 ## mammals
 # we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms1&
@@ -108,14 +115,6 @@ mdd <- sapply(mammals,
 
 length(mdd[which(mdd=="NULL")]) # 805 unmatched names that we will try to retrieve from ITIS
 
-# tsn
-# 
-# testitis <- itis_acceptname(get_tsn(c("Mesocapromys nanus", "Physeter catodon", "Spilogale aquaticus")))
-# 
-# testnotfound <- get_tsn("Spilogale aquaticus")
-# 
-# testnotfound
-
 itis <- data.frame(mammals = names(mdd[which(mdd=="NULL")]), tsn = NA)
 itis$tsn <- get_tsn(itis$mammals) # get tsn
 itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
@@ -124,9 +123,6 @@ itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2
 colnames(itis)[1] <- "parsed"
 colnames(itis)[3] <- "mdd_itis"
 
-
-# itis <- itis_acceptname(get_tsn(names(mdd[which(mdd=="NULL")])))
-# itis$mammals <- names(mdd[which(mdd=="NULL")])
 
 mdd[which(mdd=="NULL")] <- NA
 mdd <- unlist(mdd)
@@ -141,10 +137,10 @@ write.csv2(mammals, "outputs/mammals_taxmatch_mdditis.csv")
 birds <- unique(birds_unified %>%
  pull(parsed_binomial)) # the 13 148 unique parsed names for birds
 
-new_tax <- ebirdtaxonomy()
+new_tax <- ebirdtaxonomy() # taxonomy ebird V2022
 
 ebird <- sapply(birds, function(x) tryCatch(rebird::species_code(x),
-                               error = function(e) NA))
+                               error = function(e) NA)) # package rebird version 1.3.0
 
 birds <- tibble(parsed = birds,
                 code = ebird) %>%
@@ -159,7 +155,7 @@ write.csv2(birds, "outputs/birds_taxmatch_ebird.csv")
 plants <- unique(plants_unified %>% 
   pull(parsed_binomial)) # the 389 918 unique parsed names for plants
 
-data(tab_lcvp)
+data(tab_lcvp) # LCVP 3.0.1
 str(tab_lcvp)
 
 # parallelisation for plants as they are a lot of names to match
@@ -167,7 +163,7 @@ cl <- makeCluster(4)
 lcvp <- parSapply(
   cl,
   plants, 
-  function(x) unlist(lcvplants::lcvp_search(x)[9])) # returns id of accepted taxon
+  function(x) unlist(lcvplants::lcvp_search(x)[9])) # returns id of accepted taxon/ using package lcvplants 2.1.0
 
 lcvp[which(lcvp=="NULL")] <- NA # assign NA for unmatched names
 lcvp <- unlist(lcvp) # unlist for future matching
