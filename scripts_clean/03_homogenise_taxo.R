@@ -103,7 +103,7 @@ write.csv2(taxa_unified, "outputs/taxa_rawandparsednames.csv")
 
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
 ## mammals
-# we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms1&
+# we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms
 out <- gnr_datasources()
 mamout <- out[grep("ammal", out$title),] 
 mamout[2,c("description", "title", "id")]
@@ -133,7 +133,13 @@ mammals <- tibble(parsed = mammals, mdd_itis = mdd)
 mammals <- mammals[-which(is.na(mammals$mdd_itis)),]
 mammals <- rbind(mammals, itis[, c(1, 3)])
 
-write.csv2(mammals, "outputs/mammals_taxmatch_mdditis.csv")
+# check that there are 2 words into mdd_itis, NA if not
+mammals$length_mdd_itis <- lengths(strsplit(mammals$mdd_itis, " "))
+unique(mammals$length_mdd_itis) # some do not have 2 words 
+mammals$mdd_itis[which(mammals$length_mdd_itis==1)] <- NA
+
+# save the taxonomic reference table for mammals
+write.csv2(mammals[, 1:2], "outputs/mammals_taxmatch_mdditis.csv")
                        
 ## birds
 birds <- unique(birds_unified %>%
@@ -142,7 +148,7 @@ birds <- unique(birds_unified %>%
 new_tax <- ebirdtaxonomy() # taxonomy ebird V2022
 
 ebird <- sapply(birds, function(x) tryCatch(rebird::species_code(x),
-                               error = function(e) NA)) # package rebird version 1.3.0
+                               error = function(e) NA)) # match the code name of the species using package rebird version 1.3.0
 
 birds <- tibble(parsed = birds,
                 code = ebird) %>%
@@ -151,7 +157,30 @@ birds <- tibble(parsed = birds,
               transmute(code = speciesCode, ebird = sciName)) %>%
   select(-code)
 
-write.csv2(birds, "outputs/birds_taxmatch_ebird.csv")
+nrow(birds[which(is.na(birds$ebird)),]) # the 2953 names for which we do not have any match that we will try to retrieve from ITIS
+
+
+itis <- data.frame(birds = birds$parsed[which(is.na(birds$ebird))], tsn = NA)
+itis$tsn <- get_tsn(itis$birds) # get tsn
+
+
+itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
+itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
+itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
+colnames(itis)[1] <- "parsed"
+colnames(itis)[3] <- "ebird_itis"
+
+colnames(birds)[2] <- "ebird_itis"
+birds <- birds[-which(is.na(birds$ebird_itis)),]
+birds <- rbind(birds, itis[, c(1, 3)])
+
+# check that there are 2 words into ebird_itis, NA if not
+birds$length_ebird_itis <- lengths(strsplit(birds$ebird_itis, " "))
+unique(birds$length_ebird_itis) # some do not have 2 words
+birds$ebird_itis[which(birds$length_ebird_itis==1)] #  but they're all NA
+
+# save the taxonomic reference table for birds
+write.csv2(birds[, 1:2], "outputs/birds_taxmatch_ebirditis.csv")
 
 ## plants
 plants <- unique(plants_unified %>% 
@@ -178,12 +207,17 @@ plants <- tibble(parsed = plants,
   distinct_all()  %>%
   select(-accepted_id)
 
-write.csv2(plants, "outputs/plants_taxmatch_lcvp.csv")
-
 stopCluster(cl)
 
 
+# check that there are 2 words into lcvp, NA if not
+plants$lcvp <- word(plants$lcvp, 1, 2)
+plants$length_lcvp <- lengths(strsplit(plants$lcvp, " "))
+unique(plants$length_lcvp) # some do not have 2 words
+plants$lcvp[which(plants$length_lcvp==1)] <- NA
 
+# save the taxonomic reference table for birds
+write.csv2(plants[, 1:2], "outputs/plants_taxmatch_lcvp.csv")
 
 
 

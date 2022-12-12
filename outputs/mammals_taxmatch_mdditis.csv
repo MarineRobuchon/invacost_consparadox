@@ -53,7 +53,7 @@
 "52";"Ovis nivicola";"Ovis nivicola"
 "53";"Plagiodontia aedium";"Plagiodontia aedium"
 "54";"Pteropus vampyrus";"Pteropus vampyrus"
-"55";"Rhinolophus paradoxolophus";"Rhinolophus"
+"55";"Rhinolophus paradoxolophus";NA
 "56";"Rubrisciurus rubriventer";"Rubrisciurus rubriventer"
 "57";"Pennatomys nivalis";"Pennatomys nivalis"
 "58";"Solomys ponceleti";"Solomys ponceleti"
@@ -648,7 +648,7 @@
 "647";"Ia io";"Ia io"
 "648";"Rhinolophus nereis";"Rhinolophus nereis"
 "649";"Rhinolophus shameli";"Rhinolophus shameli"
-"650";"Myotis aurascens";"Myotis"
+"650";"Myotis aurascens";NA
 "651";"Rhinolophus sedulus";"Rhinolophus sedulus"
 "652";"Rhinolophus simulator";"Rhinolophus simulator"
 "653";"Rhinolophus silvestris";"Rhinolophus silvestris"
@@ -860,7 +860,7 @@
 "859";"Dobsonia inermis";"Dobsonia inermis"
 "860";"Dobsonia praedatrix";"Dobsonia praedatrix"
 "861";"Dobsonia viridis";"Dobsonia viridis"
-"862";"Myotis melanorhinus";"Myotis"
+"862";"Myotis melanorhinus";NA
 "863";"Dobsonia moluccensis";"Dobsonia moluccensis"
 "864";"Myotis moluccarum";"Myotis moluccarum"
 "865";"Dobsonia emersa";"Dobsonia emersa"
@@ -925,7 +925,7 @@
 "924";"Lophostoma silvicolum";"Lophostoma silvicola"
 "925";"Choeroniscus godmani";"Choeroniscus godmani"
 "926";"Lophostoma schulzi";"Lophostoma schulzi"
-"927";"Pteropus intermedius";"Pteropus"
+"927";"Pteropus intermedius";NA
 "928";"Choeroniscus minor";"Choeroniscus minor"
 "929";"Choeroniscus periosus";"Choeroniscus periosus"
 "930";"Choeronycteris mexicana";"Choeronycteris mexicana"
@@ -990,7 +990,7 @@
 "989";"Myotis insularum";"Myotis insularum"
 "990";"Myotis keaysi";"Myotis keaysi"
 "991";"Myotis longipes";"Myotis longipes"
-"992";"Myotis goudoti";"Myotis"
+"992";"Myotis goudoti";NA
 "993";"Myotis hasseltii";"Myotis hasseltii"
 "994";"Myotis fortidens";"Myotis fortidens"
 "995";"Myotis frater";"Myotis frater"
@@ -1013,7 +1013,7 @@
 "1012";"Myotis austroriparius";"Myotis austroriparius"
 "1013";"Vampyressa pusilla";"Vampyressa pusilla"
 "1014";"Myotis gomantongensis";"Myotis gomantongensis"
-"1015";"Myotis australis";"Myotis"
+"1015";"Myotis australis";NA
 "1016";"Tadarida latouchei";"Tadarida latouchei"
 "1017";"Vampyrodes caraccioli";"Vampyrodes caraccioli"
 "1018";"Myotis auriculus";"Myotis auriculus"
@@ -1063,7 +1063,7 @@
 "1062";"Myotis pequinius";"Myotis pequinius"
 "1063";"Myotis planiceps";"Myotis planiceps"
 "1064";"Myotis nigricans";"Myotis nigricans"
-"1065";"Myotis oreias";"Myotis"
+"1065";"Myotis oreias";NA
 "1066";"Myotis oxyotus";"Myotis oxyotus"
 "1067";"Rhinolophus maendeleo";"Rhinolophus maendeleo"
 "1068";"Rhinolophus ruwenzorii";"Rhinolophus ruwenzorii"
@@ -1099,7 +1099,7 @@
 "1098";"Vespertilio murinus";"Vespertilio murinus"
 "1099";"Vespertilio sinensis";"Vespertilio sinensis"
 "1100";"Hypsugo ariel";"Hypsugo ariel"
-"1101";"Pipistrellus anchietae";"Pipistrellus"
+"1101";"Pipistrellus anchietae";NA
 "1102";"Pipistrellus crassulus";"Pipistrellus crassulus"
 "1103";"Hypsugo savii";"Hypsugo savii"
 "1104";"Hypsugo musciculus";"Hypsugo musciculus"
@@ -1114,7 +1114,7 @@
 "1113";"Pteralopex atrata";"Pteralopex atrata"
 "1114";"Sauromys petrophilus";"Sauromys petrophilus"
 "1115";"Nycteris parisii";"Nycteris parisii"
-"1116";"Nycteris vinsoni";"Nycteris"
+"1116";"Nycteris vinsoni";NA
 "1117";"Macronycteris thomensis";"Macronycteris thomensis"
 "1118";"Platymops setiger";"Platymops setiger"
 "1119";"Macronycteris gigas";"Macronycteris gigas"
@@ -1201,11 +1201,11 @@
 "1200";"Pteropus tokudae";"Pteropus tokudae"
 "1201";"Pteropus tonganus";"Pteropus tonganus"
 "1202";"Pteropus tuberculatus";"Pteropus tuberculatus"
-"1203";"Pteropus vetulus";"Pteropus"
+"1203";"Pteropus vetulus";NA
 "1204";"Pteropus voeltzkowi";"Pteropus voeltzkowi"
 "1205";"Coleura afra";"Coleura afra"
 "1206";"Pteropus woodfordi";"Pteropus woodfordi"
-"1207";"Pteropus loochoensis";"Pteropus"
+"1207";"Pteropus loochoensis";NA
 "1208";"Coleura seychellensis";"Coleura seychellensis"
 "1209";"Hipposideros fulvus";"Hipposideros fulvus"
 "1210";"Hipposideros galeritus";"Hipposideros galeritus"
@@ -1381,7 +1381,7 @@
 "1380";"Falsistrellus tasmaniensis";"Falsistrellus tasmaniensis"
 "1381";"Glyphonycteris sylvestris";"Glyphonycteris sylvestris"
 "1382";"Micronycteris schmidtorum";"Micronycteris schmidtorum"
-"1383";"Pipistrellus rueppellii";"Pipistrellus"
+"1383";"Pipistrellus rueppellii";NA
 "1384";"Micronycteris hirsuta";"Micronycteris hirsuta"
 "1385";"Pipistrellus rusticus";"Pipistrellus rusticus"
 "1386";"Glyphonycteris daviesi";"Glyphonycteris daviesi"
@@ -1409,7 +1409,7 @@
 "1408";"Antrozous pallidus";"Antrozous pallidus"
 "1409";"Parastrellus hesperus";"Parastrellus hesperus"
 "1410";"Bauerus dubiaquercus";"Bauerus dubiaquercus"
-"1411";"Pipistrellus imbricatus";"Pipistrellus"
+"1411";"Pipistrellus imbricatus";NA
 "1412";"Pipistrellus endoi";"Pipistrellus endoi"
 "1413";"Scotozous dormeri";"Scotozous dormeri"
 "1414";"Pipistrellus coromandra";"Pipistrellus coromandra"
@@ -3626,8 +3626,8 @@
 "3625";"Rhinolophus proconsulis";"Rhinolophus proconsulis"
 "3626";"Rhinolophus tatar";"Rhinolophus tatar"
 "3627";"Rhinolophus chiewkweeae";"Rhinolophus chiewkweeae"
-"3628";"Rhinolophus huananus";"Rhinolophus"
-"3629";"Rhinolophus indorouxii";"Rhinolophus"
+"3628";"Rhinolophus huananus";NA
+"3629";"Rhinolophus indorouxii";NA
 "3630";"Rhinolophus microglobosus";"Rhinolophus microglobosus"
 "3631";"Balionycteris seimundi";"Balionycteris seimundi"
 "3632";"Desmalopex microleucopterus";"Desmalopex microleucopterus"
@@ -3672,7 +3672,7 @@
 "3671";"Nyctophilus daedalus";"Nyctophilus daedalus"
 "3672";"Otonycteris leucophaea";"Otonycteris leucophaea"
 "3673";"Lycalopex culpaeus";"Lycalopex culpaeus"
-"3674";"Pipistrellus aladdin";"Pipistrellus"
+"3674";"Pipistrellus aladdin";NA
 "3675";"Tylonycteris pygmaeus";"Tylonycteris pygmaeus"
 "3676";"Myotis annatessae";"Myotis annatessae"
 "3677";"Myotis badius";"Myotis badius"
@@ -3681,7 +3681,7 @@
 "3680";"Myotis indochinensis";"Myotis indochinensis"
 "3681";"Myotis petax";"Myotis petax"
 "3682";"Lycalopex gymnocercus";"Lycalopex gymnocercus"
-"3683";"Plecotus ariel";"Plecotus"
+"3683";"Plecotus ariel";NA
 "3684";"Plecotus turkmenicus";"Plecotus turkmenicus"
 "3685";"Plecotus kozlovi";"Plecotus kozlovi"
 "3686";"Plecotus wardi";"Plecotus wardi"
@@ -3700,7 +3700,7 @@
 "3699";"Myotis escalerai";"Myotis escalerai"
 "3700";"Myotis rufoniger";"Myotis rufoniger"
 "3701";"Myotis weberi";"Myotis weberi"
-"3702";"Pipistrellus grandidieri";"Pipistrellus"
+"3702";"Pipistrellus grandidieri";NA
 "3703";"Peropteryx pallidoptera";"Peropteryx pallidoptera"
 "3704";"Tympanoctomys kirchnerorum";"Tympanoctomys kirchnerorum"
 "3705";"Lycalopex sechurae";"Lycalopex sechurae"
@@ -3884,7 +3884,7 @@
 "3883";"Microgale brevicaudata";"Microgale brevicaudata"
 "3884";"Microgale grandidieri";"Microgale grandidieri"
 "3885";"Microgale cowani";"Microgale cowani"
-"3886";"Microgale dobsoni";"Microgale"
+"3886";"Microgale dobsoni";NA
 "3887";"Microgale drouhardi";"Microgale drouhardi"
 "3888";"Microgale dryas";"Microgale dryas"
 "3889";"Microgale fotsifotsy";"Microgale fotsifotsy"
@@ -3900,7 +3900,7 @@
 "3899";"Microgale pusilla";"Microgale pusilla"
 "3900";"Microgale soricoides";"Microgale soricoides"
 "3901";"Microgale taiva";"Microgale taiva"
-"3902";"Microgale talazaci";"Microgale"
+"3902";"Microgale talazaci";NA
 "3903";"Microgale thomasi";"Microgale thomasi"
 "3904";"Oryzorictes hova";"Oryzorictes hova"
 "3905";"Oryzorictes tetradactylus";"Oryzorictes tetradactylus"
@@ -4393,7 +4393,7 @@
 "4392";"Myospalax psilurus";"Myospalax psilurus"
 "4393";"Eospalax rothschildi";"Eospalax rothschildi"
 "4394";"Eospalax smithii";"Eospalax smithii"
-"4395";"Myotis aelleni";"Myotis"
+"4395";"Myotis aelleni";NA
 "4396";"Myotis elegans";"Myotis elegans"
 "4397";"Myotis levis";"Myotis levis"
 "4398";"Nannosciurus melanotis";"Nannosciurus melanotis"
@@ -5411,7 +5411,7 @@
 "5410";"Sapajus apella";"Sapajus apella"
 "5411";"Vulpes vulpes";"Vulpes vulpes"
 "5412";"Sorex monticola";"Sorex monticola"
-"5413";"Pteropus giganteus";"Pteropus"
+"5413";"Pteropus giganteus";NA
 "5414";"Ovis vignei";"Ovis vignei"
 "5415";"Macaca fuscata";"Macaca fuscata"
 "5416";"Presbytis hosei";"Presbytis hosei"
@@ -5648,11 +5648,11 @@
 "5647";"Hipposideros pendelburyi";"Hipposideros pendleburyi"
 "5648";"Triaenops menamena";"Triaenops menamena"
 "5649";"Casinycteris ophiodon";"Casinycteris ophiodon"
-"5650";"Pteropus argentatus";"Pteropus"
-"5651";"Pteropus yapensis";"Pteropus"
-"5652";"Desmodus draculae";"Desmodus"
+"5650";"Pteropus argentatus";NA
+"5651";"Pteropus yapensis";NA
+"5652";"Desmodus draculae";NA
 "5653";"Mimon koepckeae";"Mimon koepckeae"
-"5654";"Anoura canishina";"Anoura"
+"5654";"Anoura canishina";NA
 "5655";"Lonchophylla inexpectata";"Lonchophylla inexpectata"
 "5656";"Hsunycteris thomasi";"Hsunycteris thomasi"
 "5657";"Hsunycteris pattoni";"Hsunycteris pattoni"
@@ -5668,44 +5668,44 @@
 "5667";"Natalus lanatus";"Natalus lanatus"
 "5668";"Mormopterus kitcheneri";"Mormopterus kitcheneri"
 "5669";"Mormopterus lumsdenae";"Mormopterus lumsdenae"
-"5670";"Mormopterus beccarii";"Mormopterus"
-"5671";"Mormopterus planiceps";"Mormopterus"
+"5670";"Mormopterus beccarii";NA
+"5671";"Mormopterus planiceps";NA
 "5672";"Mormopterus halli";"Mormopterus halli"
 "5673";"Mormopterus loriae";"Mormopterus doriae"
-"5674";"Mormopterus norfolkensis";"Mormopterus"
+"5674";"Mormopterus norfolkensis";NA
 "5675";"Mormopterus eleryi";"Mormopterus eleryi"
 "5676";"Nyctinomops kalinowskii";"Nyctinomus kalinowskii"
 "5677";"Eumops chiribaya";"Eumops chiribaya"
 "5678";"Miniopterus mossambicus";"Miniopterus mossambicus"
 "5679";"Miniopterus fuliginosus";"Miniopterus fuliginosus"
-"5680";"Miniopterus oceanensis";"Miniopterus"
+"5680";"Miniopterus oceanensis";NA
 "5681";"Rhogeessa gracilis";"Rhogeessa gracilis"
 "5682";"Rhogeessa alleni";"Rhogeessa alleni"
-"5683";"Pipistrellus macrotis";"Pipistrellus"
-"5684";"Pipistrellus subflavus";"Pipistrellus"
-"5685";"Pipistrellus vordermanni";"Pipistrellus"
+"5683";"Pipistrellus macrotis";NA
+"5684";"Pipistrellus subflavus";NA
+"5685";"Pipistrellus vordermanni";NA
 "5686";"Pipistrellus musciculus";"Pipistrellus musciculus"
-"5687";"Pipistrellus deserti";"Pipistrellus"
+"5687";"Pipistrellus deserti";NA
 "5688";"Glischropus aquilus";"Glischropus aquilus"
 "5689";"Pipistrellus lophurus";"Pipistrellus lophurus"
-"5690";"Pipistrellus anthonyi";"Pipistrellus"
+"5690";"Pipistrellus anthonyi";NA
 "5691";"Pipistrellus eisentrauti";"Pipistrellus eisentrauti"
-"5692";"Pipistrellus pulveratus";"Pipistrellus"
-"5693";"Pipistrellus savii";"Pipistrellus"
-"5694";"Pipistrellus alaschanicus";"Pipistrellus"
-"5695";"Nyctophilus timoriensis";"Nyctophilus"
+"5692";"Pipistrellus pulveratus";NA
+"5693";"Pipistrellus savii";NA
+"5694";"Pipistrellus alaschanicus";NA
+"5695";"Nyctophilus timoriensis";NA
 "5696";"Pipistrellus cadornae";"Pipistrellus cadornae"
 "5697";"Pipistrellus ariel";"Pipistrellus ariel"
 "5698";"Pipistrellus arabicus";"Pipistrellus arabicus"
 "5699";"Pipistrellus kitcheneri";"Pipistrellus kitcheneri"
-"5700";"Pipistrellus joffrei";"Pipistrellus"
+"5700";"Pipistrellus joffrei";NA
 "5701";"Murina peninsularis";"Murina peninsularis"
 "5702";"Murina loreliae";"Murina lorelieae"
 "5703";"Murina guilleni";"Murina guilleni"
-"5704";"Myotis hajastanicus";"Myotis"
+"5704";"Myotis hajastanicus";NA
 "5705";"Myotis handleyi";"Myotis handleyi"
 "5706";"Myotis phanluongi";"Myotis phanluongi"
-"5707";"Myotis flavus";"Myotis"
+"5707";"Myotis flavus";NA
 "5708";"Myotis midastactus";"Myotis midastactus"
 "5709";"Ictonyx libyca";"Ictonyx libycus"
 "5710";"Aonyx cinerea";"Aonyx cinereus"
@@ -5732,9 +5732,9 @@
 "5731";"Mico chrysoleucus";"Mico chrysoleucos"
 "5732";"Lagothrix lagotricha";"Lagothrix lagothricha"
 "5733";"Homo sapiens";"Homo sapiens"
-"5734";"Semnopithecus dussumieri";"Semnopithecus"
+"5734";"Semnopithecus dussumieri";NA
 "5735";"Cercopithecus dryas";"Cercopithecus dryas"
-"5736";"Tupaia moellendorffi";"Tupaia"
+"5736";"Tupaia moellendorffi";NA
 "5737";"Ochotona pallasi";"Ochotona pallasii"
 "5738";"Tamiops macclellandii";"Tamiops mcclellandii"
 "5739";"Tamias speciosus";"Tamias speciosus"
@@ -5889,9 +5889,9 @@
 "5888";"Rhizoplagiodontia lemkei";"Rhizoplagiodontia lemkei"
 "5889";"Solenodon arredondoi";"Solenodon arredondoi"
 "5890";"Blarina peninsulae";"Blarina peninsulae"
-"5891";"Pteropus leucopterus";"Pteropus"
-"5892";"Pteropus insularis";"Pteropus"
-"5893";"Pteropus banakrisi";"Pteropus"
+"5891";"Pteropus leucopterus";NA
+"5892";"Pteropus insularis";NA
+"5893";"Pteropus banakrisi";NA
 "5894";"Pteralopex acrodonta";"Pteralopex acrodonta"
 "5895";"Scotonycteris ophiodon";"Scotonycteris ophiodon"
 "5896";"Rhinolophus monoceros";"Rhinolophus monoceros"
@@ -5908,19 +5908,19 @@
 "5907";"Artibeus toltecus";"Artibeus toltecus"
 "5908";"Artibeus watsoni";"Artibeus watsoni"
 "5909";"Artibeus anderseni";"Artibeus anderseni"
-"5910";"Phyllonycteris major";"Phyllonycteris"
+"5910";"Phyllonycteris major";NA
 "5911";"Scotoecus hindei";"Scotoecus hindei"
 "5912";"Scotoecus albigula";"Scotoecus albigula"
 "5913";"Pipistrellus hesperus";"Pipistrellus hesperidus"
-"5914";"Plecotus alpinus";"Plecotus"
+"5914";"Plecotus alpinus";NA
 "5915";"Neoromicia somalicus";"Neoromicia somalica"
 "5916";"Hypsugo imbricatus";"Hypsugo imbricatus"
-"5917";"Myotis hosonoi";"Myotis"
-"5918";"Myotis ozensis";"Myotis"
-"5919";"Myotis oxygnathus";"Myotis"
-"5920";"Myotis ricketti";"Myotis"
-"5921";"Myotis yesoensis";"Myotis"
-"5922";"Myotis abei";"Myotis"
+"5917";"Myotis hosonoi";NA
+"5918";"Myotis ozensis";NA
+"5919";"Myotis oxygnathus";NA
+"5920";"Myotis ricketti";NA
+"5921";"Myotis yesoensis";NA
+"5922";"Myotis abei";NA
 "5923";"Minopterus macrocneme";"Miniopterus macrocneme"
 "5924";"Murina grisea";"Murina grisea"
 "5925";"Leopardus braccatus";"Leopardus braccatus"
@@ -5932,729 +5932,729 @@
 "5931";"Neotragus moschatus";"Nesotragus moschatus"
 "5932";"Bubalus bubalis";"Bubalus bubalis"
 "5933";"Cephalophus brookei";"Cephalophus brookei"
-"11000";"Microtus gerbei";NA
-"21000";"Saguinus melanoleucus";"Leontocebus weddelli"
-"31000";"Scotophilus celebensis";NA
-"41000";"Pecari tajacu";NA
-"5934";"Gerbillus perpallidus";NA
-"6100";"Leontocebus tripartitus";NA
-"7100";"Leontocebus nigricollis";NA
-"8100";"Plecturocebus dubius";"Plecturocebus caligatus"
-"9100";"Leontocebus nigrifrons";NA
-"10100";"Leontocebus cruzlimai";NA
-"11100";"Leontocebus leucogenys";NA
-"12100";"Leontocebus lagonotus";NA
-"13100";"Leontocebus fuscus";NA
-"14100";"Leontocebus illigeri";NA
-"16100";"Calcochloris tytonis";NA
-"17100";"Elephantulus rufescens";NA
-"18100";"Elephantulus rozeti";NA
-"19100";"Chrysospalax villosus";NA
-"20100";"Pseudantechinus roryi";NA
-"21100";"Sminthopsis griseoventer";NA
-"22100";"Strigocuscus pelengensis";NA
-"23100";"Macropus parma";NA
-"24100";"Macropus irma";NA
-"25100";"Macropus rufogriseus";NA
-"26100";"Macropus robustus";NA
-"27100";"Macropus rufus";NA
-"28100";"Macropus dorsalis";NA
-"29100";"Macropus antilopinus";NA
-"30100";"Macropus eugenii";NA
-"31100";"Macropus parryi";NA
-"32100";"Macropus agilis";NA
-"33100";"Macropus bernardus";NA
-"34100";"Thylogale lanatus";NA
-"36100";"Dermanura rosenbergi";"Artibeus rosenbergi"
-"37100";"Melonycteris fardoulisi";"Nesonycteris fardoulisi"
-"38100";"Chaerephon tomensis";NA
-"39100";"Notopteris neocaledonica";"Notopteris neocaledonicus"
-"40100";"Natalus espiritosantensis";"Natalus macrourus"
-"41100";"Baeodon alleni";"Rhogeessa alleni"
-"42100";"Dermanura watsoni";"Artibeus watsoni"
-"43100";"Dermanura tolteca";"Artibeus toltecus"
-"44100";"Dermanura glauca";"Artibeus glaucus"
-"45100";"Dermanura azteca";"Artibeus aztecus"
-"46100";"Dermanura cinerea";"Artibeus cinereus"
-"47100";"Dermanura anderseni";"Artibeus anderseni"
-"48100";"Rousettus celebensis";NA
-"49100";"Lasiurus xanthinus";"Dasypterus xanthinus"
-"51100";"Nyctimene sanctacrucis";"Nyctimene major"
-"52100";"Nyctimene minutus";"Nyctimene albiventer"
-"53100";"Chaerephon pumilus";NA
-"54100";"Chaerephon plicatus";NA
-"55100";"Chaerephon major";NA
-"56100";"Chaerephon johorensis";NA
-"57100";"Chaerephon gallagheri";NA
-"58100";"Chaerephon bivittatus";NA
-"5935";"Chaerephon bemmeleni";NA
-"6010";"Chaerephon ansorgei";NA
-"6110";"Chaerephon aloysiisabaudiae";NA
-"6310";"Notopteris macdonaldi";"Notopteris macdonaldii"
-"6410";"Scotophilus borbonicus";"Scotophilus trujilloi"
-"6510";"Lasiurus insularis";"Dasypterus insularis"
-"6610";"Paratriaenops furculus";"Paratriaenops furcula"
-"6710";"Rhogeessa aeneus";"Rhogeessa aenea"
-"6810";"Neoromicia malagasyensis";"Laephotis malagasyensis"
-"6910";"Neoromicia tenuipinnis";"Pseudoromicia tenuipinnis"
-"7010";"Neoromicia helios";"Afronycteris helios"
-"7110";"Neoromicia melckorum";"Laephotis capensis"
-"7210";"Neoromicia nana";"Afronycteris nanus"
-"7310";"Neoromicia rendalli";"Pseudoromicia rendalli"
-"7410";"Neoromicia brunnea";"Pseudoromicia brunnea"
-"7510";"Neoromicia capensis";"Laephotis capensis"
-"7610";"Neoromicia flavescens";"Nycticeinops grandidieri"
-"7710";"Penthetor lucasi";"Penthetor lucasii"
-"7810";"Neoromicia matroka";"Laephotis matroka"
-"7910";"Triaenops rufus";"Triaenops persicus"
-"8010";"Hypsugo eisentrauti";"Nycticeinops eisentrauti"
-"8110";"Hipposideros cyclops";"Doryrhina cyclops"
-"8210";"Hipposideros stenotis";"Doryrhina stenotis"
-"8310";"Hipposideros pratti";NA
-"8410";"Molossops mattogrossensis";"Neoplatymops mattogrossensis"
-"8510";"Molossops aequatorianus";"Cabreramops aequatorianus"
-"8610";"Eptesicus bobrinskoi";"Eptesicus gobiensis"
-"8710";"Epomops dobsonii";"Epomophorus dobsonii"
-"8810";"Epomophorus minimus";"Epomophorus minor"
-"8910";"Eptesicus kobayashii";"Eptesicus pachyomus"
-"9010";"Lasiurus ega";"Dasypterus ega"
-"9110";"Lasiurus egregius";"Aeorestes egregius"
-"9210";"Lasiurus cinereus";"Aeorestes cinereus"
-"9310";"Falsistrellus petersi";"Hypsugo petersi"
-"9410";"Falsistrellus mordax";"Hypsugo mordax"
-"9510";"Hypsugo joffrei";"Mirostrellus joffrei"
-"9610";"Hypsugo anthonyi";"Mirostrellus joffrei"
-"9710";"Carollia brevicauda";"Carollia brevicaudum"
-"9810";"Mazama bricenii";NA
-"10110";"Thylamys cinderella";NA
-"10210";"Marmosa quichua";NA
-"10410";"Philander frenatus";NA
-"10710";"Marmosops impavidus";NA
-"10810";"Marmosops cracens";NA
-"10910";"Mysateles melanurus";"Mesocapromys melanurus"
-"11010";"Dolichotis salinicola";NA
-"11110";"Ctenomys azarae";NA
-"11210";"Ctenomys colburni";NA
-"11310";"Ctenomys porteousi";NA
-"11410";"Ctenomys coyhaiquensis";NA
-"11510";"Ctenomys goodfellowi";NA
-"11610";"Allactaga tetradactyla";NA
-"11710";"Allactaga balikunica";NA
-"11910";"Allactaga firouzi";"Allactaga hotsoni"
-"12110";"Orthogeomys cavator";NA
-"12210";"Orthogeomys heterodus";NA
-"12310";"Orthogeomys cuniculus";NA
-"12410";"Orthogeomys underwoodi";NA
-"12510";"Dendromus kivu";"Dendromus nyasae"
-"12610";"Brachytarsomys villosa";NA
-"12710";"Tamiasciurus mearnsi";NA
-"12810";"Dremomys everetti";NA
-"12910";"Spermophilus ralli";NA
-"13010";"Chimarrogale phaeura";NA
-"13110";"Chimarrogale hantu";NA
-"13210";"Chimarrogale sumatrana";NA
-"13310";"Blarinella griselda";NA
-"13410";"Cryptotis magna";NA
-"13510";"Cryptotis medellinia";NA
-"13610";"Suncus lixus";NA
-"13710";"Suncus megalura";NA
-"13810";"Chodsigoa lamula";NA
-"13910";"Episoriculus fumidus";NA
-"14010";"Crocidura batesi";NA
-"14110";"Crocidura greenwoodi";NA
-"14210";"Crocidura gmelini";NA
-"14310";"Sorex alaskanus";NA
-"14410";"Sorex bairdi";NA
-"14510";"Sorex yukonicus";NA
-"14610";"Sorex neomexicanus";NA
-"14710";"Euroscaptor micrura";NA
-"14810";"Euroscaptor mizura";NA
-"14910";"Galenomys garleppi";NA
-"15010";"Neodon juldaschi";"Blanfordimys juldaschi"
-"15110";"Phaiomys leucurus";"Neodon leucurus"
-"15210";"Delomys collinus";"Delomys dorsalis"
-"15310";"Lemmus portenkoi";NA
-"15410";"Wiedomys pyrrhorhinos";NA
-"15610";"Microtus sachalinensis";NA
-"15710";"Microtus schidlovskii";NA
-"15810";"Microtus breweri";NA
-"15910";"Microtus kikuchii";NA
-"16010";"Microtus hyperboreus";"Microtus middendorffi"
-"16110";"Lasiopodomys fuscus";"Neodon fuscus"
-"16210";"Euneomys mordax";NA
-"16310";"Oligoryzomys delticola";NA
-"16410";"Oligoryzomys magellanicus";NA
-"16510";"Loxodontomys pikumche";NA
-"16610";"Myodes andersoni";NA
-"16710";"Myodes smithii";NA
-"16810";"Myodes rufocanus";NA
-"16910";"Myodes rex";NA
-"17010";"Myodes shanseius";NA
-"17110";"Blanfordimys afghanus";NA
-"17210";"Blanfordimys bucharensis";NA
-"17310";"Brucepattersonius misionensis";NA
-"17410";"Brucepattersonius guarani";NA
-"17510";"Brucepattersonius igniventris";NA
-"17610";"Brucepattersonius paradisus";NA
-"17810";"Cricetulus lama";"Cricetulus kamensis"
-"17910";"Cricetulus kamensis";NA
-"18010";"Pseudomys pilligaensis";NA
-"18110";"Gerbilliscus afra";NA
-"18210";"Stenocephalemys albocaudata";NA
-"18310";"Meriones chengi";NA
-"18410";"Hybomys badius";NA
-"18510";"Hybomys planifrons";NA
-"18610";"Rattus annandalei";NA
-"18710";"Bunomys fratrorum";NA
-"18810";"Acomys airensis";NA
-"18910";"Muriculus imberbis";NA
-"19010";"Gerbillurus tytonis";NA
-"19110";"Gerbillurus setzeri";NA
-"19210";"Gerbillus juliani";"Gerbillus watersi"
-"19310";"Sus bucculentus";NA
-"19410";"Bison bonasus";NA
-"19510";"Galidictis grandidieri";NA
-"19610";"Mustela africana";NA
-"19710";"Mustela felipei";NA
-"19910";"Neovison macrodon";"Mustela macrodon"
-"20010";"Herpestes brachyurus";NA
-"20110";"Herpestes edwardsii";"Herpestes edwardsi"
-"20210";"Herpestes fuscus";NA
-"20310";"Herpestes javanicus";NA
-"20410";"Herpestes naso";NA
-"20510";"Herpestes semitorquatus";NA
-"20610";"Herpestes smithii";NA
-"20710";"Herpestes vitticollis";NA
-"20810";"Conepatus humboldtii";NA
-"20910";"Mustela frenata";NA
-"21010";"Neovison vison";"Mustela vison"
-"21110";"Arctocephalus australis";NA
-"21210";"Arctocephalus tropicalis";NA
-"21310";"Arctocephalus forsteri";NA
-"21510";"Jaculus thaleri";NA
-"21610";"Canis mesomelas";NA
-"21810";"Canis adustus";NA
-"21910";"Dasypus hybridus";NA
-"22010";"Dasypus yepesi";"Dasypus mazzai"
-"22110";"Abrawayaomys chebezi";NA
-"22210";"Cephalophus harveyi";"Cephalophus natalensis"
-"22310";"Gazella saudiya";NA
-"22410";"Neotragus batesi";NA
-"22510";"Lagenorhynchus acutus";NA
-"22610";"Lagenorhynchus australis";NA
-"22710";"Lagenorhynchus cruciger";NA
-"22810";"Otaria byronia";NA
-"22910";"Arctocephalus philippii";NA
-"23010";"Mustela subpalmata";"Mustela nivalis"
-"23110";"Arctocephalus gazella";NA
-"23210";"Herpestes auropunctatus";"Herpestes javanicus"
-"23310";"Mustela russelliana";"Mustela nivalis"
-"23410";"Mustela tonkinensis";"Mustela nivalis"
-"23510";"Nasuella meridensis";"Nasua olivacea"
-"23710";"Dermanura bogotensis";"Artibeus bogotensis"
-"23910";"Herpestes urva";NA
-"24010";"Cynomops paranus";"Cynomops planirostris"
-"24110";"Lasiurus salinae";"Lasiurus blossevillii"
-"24210";"Microtus bavaricus";NA
-"24310";"Dermanura gnoma";"Artibeus gnomus"
-"24410";"Akodon molinae";NA
-"24510";"Akodon serrensis";NA
-"24610";"Allactaga hotsoni";NA
-"24710";"Allactaga sibirica";NA
-"24810";"Necromys temchuki";NA
-"24910";"Callosciurus albescens";"Callosciurus notatus"
-"25010";"Chelemys macronyx";NA
-"25110";"Myodes centralis";NA
-"25210";"Cricetulus alticola";NA
-"25310";"Cricetulus migratorius";NA
-"25410";"Dicrostonyx vinogradovi";NA
-"25510";"Myodes regulus";NA
-"25610";"Euneomys petersoni";NA
-"25710";"Gerbillurus paeba";NA
-"25810";"Gerbillurus vallinus";NA
-"25910";"Gerbillus cosensis";"Gerbillus agag"
-"26010";"Hybomys trivirgatus";NA
-"26110";"Lorentzimys nouhuysi";NA
-"26210";"Microtus evoronensis";NA
-"26310";"Microtus fortis";NA
-"26410";"Microtus gregalis";NA
-"26510";"Microtus limnophilus";NA
-"26610";"Microtus maximowiczii";NA
-"26710";"Microtus middendorffii";"Microtus middendorffi"
-"26810";"Microtus mongolicus";NA
-"26910";"Microtus montebelli";NA
-"27010";"Microtus mujanensis";NA
-"27110";"Microtus nasarovi";"Microtus daghestanicus"
-"27210";"Microtus oeconomus";NA
-"27310";"Niviventer langbianis";NA
-"27410";"Oligoryzomys eliurus";NA
-"27510";"Orthogeomys hispidus";NA
-"27610";"Oxymycterus angularis";NA
-"27710";"Oxymycterus hispidus";NA
-"27810";"Oxymycterus roberti";NA
-"27910";"Paruromys dominator";NA
-"28010";"Phyllotis wolffsohni";NA
-"28110";"Spermophilopsis leptodactylus";NA
-"28210";"Microtus clarkei";NA
-"28310";"Xerus erythropus";NA
-"28410";"Xerus inauris";NA
-"28510";"Xerus princeps";NA
-"28610";"Cryptotis parva";NA
-"28710";"Myodes californicus";NA
-"28810";"Myodes gapperi";NA
-"28910";"Praomys derooi";NA
-"29010";"Vandeleuria nilagirica";NA
-"29110";"Necromys benefactus";NA
-"29210";"Gerbillus percivali";"Gerbillus pusillus"
-"29310";"Oligoryzomys fornesi";NA
-"29410";"Arvicola scherman";NA
-"29710";"Hybomys eisentrauti";"Hybomys badius"
-"30010";"Bison bison";NA
-"30110";"Martes pennanti";"Pekania pennanti"
-"30210";"Macropus greyi";NA
-"30310";"Sylvilagus mansuetus";NA
-"30410";"Chiroderma vizottoi";"Chiroderma doriae"
-"30510";"Vicugna vicugna";NA
-"30610";"Myodes rutilus";NA
-"30710";"Platyrrhinus chocoensis";"Platyrrhinus dorsalis"
-"30810";"Micropteropus pusillus";"Epomophorus pusillus"
-"30910";"Mesocapromys nanus";NA
-"31010";"Hipposideros atrox";"Hipposideros bicolor"
-"31110";"Lagenorhynchus obscurus";NA
-"31210";"Colobus caudatus";NA
-"31310";"Alouatta juara";"Alouatta seniculus"
-"31510";"Callibella humilis";"Mico humilis"
-"31610";"Leontocebus fuscicollis";NA
-"31710";"Leontocebus weddelli";NA
-"31810";"Pithecia mittermeieri";NA
-"31910";"Pithecia rylandsi";NA
-"32010";"Pithecia pissinattii";NA
-"32110";"Lepilemur ahmansoni";NA
-"32210";"Microtus levis";NA
-"32410";"Marmosops neblina";NA
-"32510";"Myodes glareolus";NA
-"32610";"Chaerephon jobensis";NA
-"32710";"Hipposideros corynophyllus";"Doryrhina corynophyllus"
-"32810";"Hipposideros muscinus";"Doryrhina muscinus"
-"32910";"Hipposideros wollastoni";"Doryrhina wollastoni"
-"33010";"Dobsonia magna";"Dobsonia moluccensis"
-"33110";"Chaerephon bregullae";NA
-"33210";"Chlorocebus dryas";NA
-"34010";"Chaetophractus nationi";NA
-"34310";"Suncus madagascariensis";NA
-"34410";"Cryptotis mera";NA
-"34510";"Sorex arunchi";NA
-"34610";"Megaderma lyra";"Lyroderma lyra"
-"34710";"Hipposideros thomensis";"Macronycteris thomensis"
-"34810";"Hipposideros commersoni";"Macronycteris commersonii"
-"34910";"Hipposideros vittatus";"Macronycteris vittatus"
-"35010";"Hipposideros gigas";"Macronycteris gigas"
-"35110";"Paracoelops megalotis";"Hipposideros pomona"
-"35310";"Rousettus bidens";"Boneia bidens"
-"36110";"Vampyressa bidens";"Vampyriscus bidens"
-"36210";"Vampyressa brocki";"Vampyriscus brocki"
-"36310";"Mimon crenulatum";"Gardnerycteris crenulatum"
-"36510";"Lophostoma yasuni";"Lophostoma carrikeri"
-"36710";"Tadarida kuboriensis";"Austronomus kuboriensis"
-"36910";"Molossus barnesi";"Molossus coibensis"
-"37010";"Tadarida australis";"Austronomus australis"
-"37110";"Phoniscus aerosa";"Phoniscus aerosus"
-"37210";"Hypsugo anchietae";"Neoromicia anchietae"
-"37310";"Falsistrellus affinis";"Hypsugo affinis"
-"37410";"Eptesicus nasutus";"Rhyneptesicus nasutus"
-"37510";"Eptesicus lobatus";"Eptesicus serotinus"
-"37610";"Arielulus aureocollaris";"Thainycteris aureocollaris"
-"37710";"Murina tiensa";"Murina harrisoni"
-"37810";"Murina cineracea";"Murina feae"
-"37910";"Harpiocephalus mordax";"Harpiocephalus harpia"
-"38010";"Canis anthus";NA
-"38110";"Pseudalopex sechurae";"Lycalopex sechurae"
-"38210";"Pseudalopex vetulus";"Lycalopex vetulus"
-"38410";"Pseudalopex gymnocercus";"Lycalopex gymnocercus"
-"38510";"Pseudalopex griseus";"Lycalopex gymnocercus"
-"38610";"Pseudalopex culpaeus";"Lycalopex culpaeus"
-"38810";"Lutra maculicollis";"Hydrictis maculicollis"
-"39210";"Hyaena brunnea";NA
-"40310";"Tapirus kabomani";NA
-"40510";"Vicugna pacos";NA
-"40810";"Delphinus capensis";"Delphinus delphis"
-"41110";"Alces americanus";NA
-"41210";"Eudorcas rufina";NA
-"41310";"Naemorhedus griseus";NA
-"41410";"Capricornis thar";NA
-"41510";"Capricornis milneedwardsii";NA
-"41610";"Ovis orientalis";"Ovis aries"
-"41910";"Galagoides demidovii";"Galagoides demidoff"
-"42010";"Galagoides orinus";"Paragalago orinus"
-"42210";"Galagoides rondoensis";"Paragalago rondoensis"
-"42310";"Galagoides granti";"Paragalago granti"
-"42410";"Galagoides zanzibaricus";"Paragalago zanzibaricus"
-"42510";"Galagoides cocos";"Paragalago cocos"
-"42810";"Lepilemur sahamalazensis";"Lepilemur sahamalaza"
-"42910";"Tarsius syrichta";"Carlito syrichta"
-"43010";"Tarsius bancanus";"Cephalopachus bancanus"
-"43110";"Callicebus medemi";"Cheracebus medemi"
-"43210";"Callicebus modestus";"Plecturocebus modestus"
-"43310";"Callicebus cupreus";"Plecturocebus cupreus"
-"43410";"Callicebus oenanthe";"Plecturocebus oenanthe"
-"43510";"Callicebus aureipalatii";"Plecturocebus aureipalatii"
-"43610";"Callicebus moloch";"Plecturocebus moloch"
-"43710";"Callicebus hoffmannsi";"Plecturocebus hoffmannsi"
-"43810";"Callicebus miltoni";"Plecturocebus miltoni"
-"43910";"Callicebus regulus";"Cheracebus regulus"
-"44010";"Callicebus donacophilus";"Plecturocebus donacophilus"
-"44110";"Callicebus caligatus";"Plecturocebus caligatus"
-"44210";"Callicebus olallae";"Plecturocebus olallae"
-"44310";"Callicebus stephennashi";"Plecturocebus stephennashi"
-"44410";"Callicebus lucifer";"Cheracebus lucifer"
-"44510";"Callicebus urubambensis";"Plecturocebus urubambensis"
-"44610";"Callicebus vieirai";"Plecturocebus vieirai"
-"44710";"Callicebus dubius";"Plecturocebus caligatus"
-"44810";"Callicebus discolor";"Plecturocebus discolor"
-"44910";"Callicebus bernhardi";"Plecturocebus bernhardi"
-"45010";"Callicebus brunneus";"Plecturocebus brunneus"
-"45110";"Callicebus pallescens";"Plecturocebus pallescens"
-"45210";"Callicebus cinerascens";"Plecturocebus cinerascens"
-"45310";"Callicebus ornatus";"Plecturocebus ornatus"
-"45410";"Callicebus baptista";"Plecturocebus baptista"
-"45510";"Callicebus lugens";"Cheracebus lugens"
-"45610";"Callicebus torquatus";"Cheracebus torquatus"
-"45710";"Callicebus purinus";"Cheracebus torquatus"
-"45810";"Mico manicorensis";"Mico marcai"
-"45910";"Sapajus macrocephalus";"Sapajus apella"
-"46010";"Lagothrix cana";"Lagothrix lagothricha"
-"46110";"Lagothrix poeppigii";"Lagothrix lagothricha"
-"46210";"Lagothrix lugens";"Lagothrix lagothricha"
-"46310";"Oreonax flavicauda";"Lagothrix flavicauda"
-"46710";"Trachypithecus johnii";"Semnopithecus johnii"
-"46810";"Trachypithecus vetulus";"Semnopithecus vetulus"
-"47110";"Procolobus rufomitratus";"Piliocolobus rufomitratus"
-"47210";"Procolobus pennantii";"Piliocolobus pennantii"
-"47310";"Procolobus preussi";"Piliocolobus preussi"
-"47410";"Procolobus badius";"Piliocolobus badius"
-"47510";"Cercopithecus solatus";"Allochrocebus solatus"
-"47610";"Cercopithecus lhoesti";"Allochrocebus lhoesti"
-"47710";"Cercopithecus preussi";"Allochrocebus preussi"
-"47810";"Urogale everetti";NA
-"47910";"Lepus microtis";"Lepus victoriae"
-"48010";"Tamias sibiricus";NA
-"48110";"Tamias quadrimaculatus";NA
-"48210";"Tamias ruficaudus";NA
-"48310";"Tamias durangae";NA
-"48410";"Tamias canipes";NA
-"48510";"Tamias rufus";NA
-"48610";"Tamias quadrivittatus";NA
-"48710";"Tamias palmeri";NA
-"48810";"Tamias bulleri";NA
-"48910";"Tamias merriami";NA
-"49010";"Tamias siskiyou";NA
-"49110";"Tamias sonomae";NA
-"49210";"Tamias ochrogenys";NA
-"49310";"Hylopetes lepidus";"Hylopetes sagitta"
-"49410";"Petinomys sagitta";"Hylopetes sagitta"
-"49510";"Dasyprocta cristata";NA
-"49710";"Lagidium peruanum";NA
-"49810";"Mysateles meridionalis";NA
-"49910";"Mysateles garridoi";NA
-"50010";"Mysateles gundlachi";"Mysateles prehensilis"
-"50110";"Trinomys myosuros";NA
-"50210";"Proechimys urichi";NA
-"50310";"Proechimys magdalenae";NA
-"50410";"Proechimys poliopus";NA
-"50510";"Clyomys bishopi";NA
-"50610";"Ctenomys budini";NA
-"50710";"Ctenomys sylvanus";NA
-"50810";"Dipodomys insularis";"Dipodomys merriami"
-"50910";"Dipodomys margaritae";"Dipodomys merriami"
-"51010";"Pappogeomys alcorni";"Pappogeomys bulleri"
-"51110";"Orthogeomys lanius";NA
-"51210";"Orthogeomys cherriei";NA
-"51310";"Orthogeomys matagalpae";NA
-"51410";"Orthogeomys dariensis";NA
-"51510";"Orthogeomys thaeleri";NA
-"51610";"Liomys salvini";NA
-"51710";"Liomys adspersus";NA
-"51810";"Liomys irroratus";NA
-"51910";"Liomys pictus";NA
-"52010";"Chaetodipus dalquesti";NA
-"52110";"Allactaga vinogradovi";NA
-"52210";"Allactaga elater";NA
-"52310";"Allactaga toussi";NA
-"52410";"Allactaga williamsi";NA
-"52510";"Allactaga euphratica";NA
-"52610";"Spalax ehrenbergi";NA
-"52710";"Spalax nehringi";NA
-"52810";"Spalax leucodon";NA
-"52910";"Coccymys albidens";"Brassomys albidens"
-"53010";"Malpaisomys insularis";NA
-"53110";"Mus orangiae";NA
-"53210";"Aethomys granti";"Micaelamys granti"
-"53310";"Aethomys namaquensis";"Micaelamys namaquensis"
-"53410";"Blanfordimys juldaschi";NA
-"53510";"Neotoma martinensis";NA
-"53610";"Neotoma anthonyi";NA
-"53710";"Neotoma bunkeri";NA
-"53810";"Kunsia fronto";NA
-"53910";"Akodon aliquantulus";"Akodon caenosus"
-"54010";"Brucepattersonius albinasus";"Brucepattersonius griserufescens"
-"54110";"Akodon bogotensis";"Neomicroxus bogotensis"
-"54210";"Akodon leucolimnaeus";"Akodon spegazzinii"
-"54310";"Oxymycterus akodontius";NA
-"54410";"Juscelinomys guaporensis";NA
-"54510";"Akodon neocenus";NA
-"54610";"Thomasomys rhoadsi";NA
-"54710";"Sigmodontomys aphrastus";NA
-"54810";"Oryzomys curasoae";NA
-"54910";"Akodon latebricola";"Neomicroxus latebricola"
-"55010";"Paralomys gerbillus";NA
-"55110";"Graomys centralis";NA
-"55210";"Chelemys delfini";NA
-"55310";"Abrothrix hershkovitzi";NA
-"55410";"Abrothrix markhami";NA
-"55510";"Monodelphis maraxina";NA
-"55610";"Monodelphis theresa";NA
-"55710";"Monodelphis rubida";NA
-"55910";"Sminthopsis aitkeni";NA
-"56010";"Gracilinanus formosus";NA
-"56110";"Gracilinanus agricolai";NA
-"56210";"Gracilinanus ignitus";NA
-"56310";"Marmosops dorothea";NA
-"56410";"Micoureus demerarae";NA
-"56510";"Micoureus regina";NA
-"56610";"Micoureus paraguayanus";NA
-"56710";"Micoureus constantiae";NA
-"56810";"Micoureus alstoni";NA
-"56910";"Micoureus phaeus";NA
-"57010";"Monodelphis sorex";NA
-"57110";"Micromurexia habbema";NA
-"57210";"Murexechinus melanurus";NA
-"57310";"Paramurexia rothschildi";NA
-"57410";"Phascomurexia naso";NA
-"57510";"Sminthopsis boullangerensis";NA
-"57610";"Trichosurus arnhemensis";NA
-"57710";"Calcochloris leucorhinus";NA
-"57810";"Elephantulus revoili";NA
-"57910";"Cheirogaleus ravus";"Cheirogaleus minusculus"
-"58010";"Cheirogaleus adipicaudatus";"Cheirogaleus medius"
-"58110";"Eulemur albocollaris";"Eulemur cinereiceps"
-"58210";"Pseudopotto martini";NA
-"58310";"Galago gabonensis";"Sciurocheirus gabonensis"
-"58410";"Galago thomasi";"Galagoides thomasi"
-"58510";"Galago rondoensis";"Paragalago rondoensis"
-"58610";"Galago nyasae";"Paragalago granti"
-"58710";"Galago orinus";"Paragalago orinus"
-"58810";"Galago zanzibaricus";"Paragalago zanzibaricus"
-"58910";"Galago granti";"Paragalago granti"
-"59010";"Galago alleni";"Sciurocheirus alleni"
-"59110";"Galago cameronensis";"Sciurocheirus alleni"
-"59210";"Galago demidoff";"Galagoides demidoff"
-"5936";"Otolemur monteiri";"Otolemur crassicaudatus"
-"5941";"Saguinus pileatus";"Saguinus mystax"
-"5951";"Saguinus graellsi";"Leontocebus nigricollis"
-"5961";"Callithrix nigriceps";"Mico nigriceps"
-"5971";"Callithrix intermedia";"Mico intermedius"
-"5981";"Callithrix leucippe";"Mico leucippe"
-"5991";"Callithrix manicorensis";"Mico marcai"
-"6001";"Callithrix marcai";"Mico marcai"
-"6011";"Callithrix melanura";"Mico melanurus"
-"6021";"Callithrix humeralifera";"Mico humeralifer"
-"6031";"Callithrix saterei";"Mico saterei"
-"6041";"Callithrix mauesi";"Mico mauesi"
-"6051";"Callithrix emiliae";"Mico emiliae"
-"6061";"Callithrix chrysoleuca";"Mico chrysoleucos"
-"6071";"Callithrix argentata";"Mico argentatus"
-"6081";"Callithrix acariensis";"Mico acariensis"
-"6091";"Callithrix pygmaea";"Cebuella pygmaea"
-"6101";"Callithrix humilis";"Mico humilis"
-"6111";"Cebus apella";"Sapajus apella"
-"6121";"Cebus nigritus";"Sapajus nigritus"
-"6131";"Cebus xanthosternos";"Sapajus xanthosternos"
-"6141";"Cebus libidinosus";"Sapajus libidinosus"
-"6151";"Alouatta coibensis";"Alouatta palliata"
-"6161";"Aotus hershkovitzi";"Aotus lemurinus"
-"6171";"Chiropotes israelita";NA
-"6181";"Cercopithecus kandti";"Cercopithecus mitis"
-"6191";"Cercopithecus doggetti";"Cercopithecus mitis"
-"6201";"Cercopithecus albogularis";"Cercopithecus mitis"
-"6211";"Lophocebus opdenboschi";"Lophocebus aterrimus"
-"6221";"Bunopithecus hoolock";"Hoolock hoolock"
-"6231";"Spermophilus canus";"Urocitellus canus"
-"6241";"Spermophilus brunneus";"Urocitellus brunneus"
-"6251";"Spermophilus richardsonii";"Urocitellus richardsonii"
-"6261";"Spermophilus washingtoni";"Urocitellus washingtoni"
-"6271";"Spermophilus variegatus";"Otospermophilus variegatus"
-"6281";"Spermophilus beecheyi";"Otospermophilus beecheyi"
-"6291";"Spermophilus atricapillus";"Otospermophilus atricapillus"
-"6301";"Spermophilus mexicanus";"Ictidomys mexicanus"
-"6311";"Spermophilus perotensis";"Xerospermophilus perotensis"
-"6321";"Spermophilus tridecemlineatus";"Ictidomys tridecemlineatus"
-"6331";"Spermophilus spilosoma";"Xerospermophilus spilosoma"
-"6341";"Spermophilus franklinii";"Poliocitellus franklinii"
-"6361";"Spermophilus lateralis";"Callospermophilus lateralis"
-"6371";"Spermophilus madrensis";"Callospermophilus madrensis"
-"6381";"Spermophilus columbianus";"Urocitellus columbianus"
-"6391";"Spermophilus undulatus";"Urocitellus undulatus"
-"6401";"Spermophilus adocetus";"Notocitellus adocetus"
-"6411";"Spermophilus parryii";"Urocitellus parryii"
-"6421";"Spermophilus annulatus";"Notocitellus annulatus"
-"6431";"Ammospermophilus insularis";NA
-"6441";"Cratogeomys neglectus";"Cratogeomys fumosus"
-"6451";"Cratogeomys tylorhinus";"Cratogeomys fumosus"
-"6461";"Cratogeomys gymnurus";"Cratogeomys fumosus"
-"6471";"Cratogeomys zinseri";"Cratogeomys fumosus"
-"6481";"Myodes imaizumii";NA
-"6491";"Andalgalomys roigi";NA
-"6501";"Oryzomys subflavus";"Cerradomys subflavus"
-"6511";"Oryzomys tatei";"Hylaeamys tatei"
-"6521";"Oryzomys seuanezi";"Hylaeamys laticeps"
-"6531";"Oryzomys yunganus";"Hylaeamys yunganus"
-"6541";"Oryzomys chapmani";NA
-"6551";"Oryzomys hammondi";"Mindomys hammondi"
-"6561";"Oryzomys galapagoensis";"Aegialomys galapagoensis"
-"6571";"Oryzomys emmonsae";"Euryoryzomys emmonsae"
-"6581";"Oryzomys laticeps";"Hylaeamys laticeps"
-"6591";"Oryzomys caracolus";"Nephelomys caracolus"
-"6601";"Oryzomys bolivaris";"Transandinomys bolivaris"
-"6611";"Oryzomys balneator";"Oreoryzomys balneator"
-"6621";"Oryzomys angouya";"Sooretamys angouya"
-"6631";"Oryzomys alfaroi";NA
-"6641";"Oryzomys albigularis";"Nephelomys albigularis"
-"6651";"Oryzomys melanotis";NA
-"6661";"Oryzomys saturatior";NA
-"6671";"Oryzomys russatus";"Euryoryzomys russatus"
-"6681";"Oryzomys nitidus";"Euryoryzomys nitidus"
-"6691";"Oryzomys lamia";"Euryoryzomys lamia"
-"6701";"Oryzomys megacephalus";"Hylaeamys megacephalus"
-"6711";"Oryzomys marinhus";"Cerradomys marinhus"
-"6721";"Oryzomys maracajuensis";"Cerradomys maracajuensis"
-"6731";"Oryzomys macconnelli";"Euryoryzomys macconnelli"
-"6741";"Oryzomys levipes";"Nephelomys levipes"
-"6751";"Oryzomys legatus";"Euryoryzomys legatus"
-"6761";"Oryzomys scotti";"Cerradomys scotti"
-"6771";"Taterillus harringtoni";NA
-"6781";"Dipodillus simoni";NA
-"6791";"Dipodillus zakariai";NA
-"6801";"Dipodillus jamesi";NA
-"6811";"Dipodillus lowei";NA
-"6821";"Dipodillus mackilligini";NA
-"6831";"Dipodillus rupicola";NA
-"6841";"Dipodillus stigmonyx";NA
-"6851";"Dipodillus dasyurus";NA
-"6861";"Dipodillus campestris";NA
-"6871";"Dipodillus bottai";NA
-"6881";"Dipodillus harwoodi";NA
-"6891";"Dipodillus somalicus";NA
-"6901";"Gerbillus dongolanus";NA
-"6911";"Archboldomys musseri";"Soricomys musseri"
-"6921";"Hydromys shawmayeri";"Baiyankamys shawmayeri"
-"6931";"Papagomys theodorverhoeveni";NA
-"6941";"Pseudomys laborifex";NA
-"6951";"Rhagamys orthodon";NA
-"6961";"Spelaeomys florensis";NA
-"6971";"Myotomys sloggetti";NA
-"6981";"Myotomys unisulcatus";NA
-"6991";"Otomys saundersiae";NA
-"7001";"Otomys maximus";NA
-"7011";"Spalax judaei";NA
-"7021";"Spalax galili";NA
-"7031";"Spalax carmeli";NA
-"7041";"Spalax golani";NA
-"7051";"Tachyoryctes ibeanus";NA
-"7061";"Tachyoryctes storeyi";NA
-"7071";"Tachyoryctes spalacinus";NA
-"7081";"Tachyoryctes ruddi";NA
-"7091";"Tachyoryctes ruandae";NA
-"7101";"Tachyoryctes rex";NA
-"7111";"Tachyoryctes daemon";NA
-"7121";"Tachyoryctes audax";NA
-"7131";"Tachyoryctes annectens";NA
-"7141";"Tachyoryctes ankoliae";NA
-"7151";"Tachyoryctes naivashae";NA
-"7161";"Cryptomys zechi";NA
-"7171";"Cryptomys ochraceocinereus";NA
-"7181";"Cryptomys mechowi";NA
-"7191";"Cryptomys kafuensis";NA
-"7201";"Cryptomys darlingi";NA
-"7211";"Cryptomys damarensis";NA
-"7221";"Cryptomys bocagei";NA
-"7231";"Cryptomys foxi";NA
-"7241";"Cryptomys amatus";NA
-"7251";"Cryptomys anselli";NA
-"7261";"Diplomys rufodorsalis";NA
-"7271";"Echimys semivillosus";NA
-"7281";"Makalata grandis";NA
-"7291";"Makalata rhipidura";NA
-"7301";"Makalata occasius";NA
-"7311";"Brotomys contractus";NA
-"7321";"Heteropsomys antillensis";NA
-"7331";"Coendou rothschildi";NA
-"7341";"Echinoprocta rufescens";NA
-"7361";"Sphiggurus villosus";NA
-"7371";"Sphiggurus vestitus";NA
-"7381";"Sphiggurus melanurus";NA
-"7391";"Sphiggurus roosmalenorum";NA
-"7401";"Sphiggurus mexicanus";NA
-"7411";"Sphiggurus pruinosus";NA
-"7421";"Sphiggurus ichillus";NA
-"7431";"Sphiggurus spinosus";NA
-"7441";"Capromys gundlachianus";NA
-"7451";"Plagiodontia araeum";NA
-"7461";"Ochotona huangensis";"Ochotona dauurica"
-"7471";"Ochotona gaoligongensis";"Ochotona forresti"
-"7481";"Ochotona muliensis";"Ochotona gloveri"
-"7491";"Ochotona nigritia";"Ochotona forresti"
-"7501";"Ochotona himalayana";"Ochotona roylii"
-"7511";"Crocidura ichnusae";NA
-"7521";"Sorex averini";NA
-"7531";"Sorex gaspensis";NA
-"7541";"Nesiotites hidalgo";NA
-"7551";"Nesiotites similis";NA
-"7561";"Micronycteris homezi";"Micronycteris minuta"
-"7571";"Sturnira thomasi";"Sturnira angeli"
-"7581";"Carollia colombiana";"Carollia brevicaudum"
-"7591";"Chaerephon leucogaster";NA
-"7601";"Chaerephon shortridgei";"Chaerephon chapini"
-"7611";"Eptesicus matroka";"Laephotis matroka"
-"7621";"Neoromicia nanus";"Afronycteris nanus"
-"7631";"Neoromicia brunneus";"Pseudoromicia brunnea"
-"7641";"Hypsugo bodenheimeri";"Hypsugo ariel"
-"7651";"Hypsugo crassulus";"Nycticeinops crassulus"
-"7661";"Murina silvatica";"Murina ussuriensis"
-"7671";"Mormoops magna";NA
-"7681";"Pteronotus pristinus";NA
-"7691";"Manis temminckii";NA
-"7701";"Manis gigantea";NA
-"7711";"Manis tetradactyla";NA
-"7721";"Manis tricuspis";NA
-"7731";"Felis manul";NA
-"7741";"Prionailurus iriomotensis";NA
-"7751";"Profelis aurata";NA
-"7761";"Puma yagouaroundi";NA
-"7771";"Uncia uncia";NA
-"7781";"Galerella sanguinea";NA
-"7791";"Galerella pulverulenta";NA
-"7801";"Galerella flavescens";NA
-"7811";"Galerella ochracea";NA
-"7821";"Herpestes edwardsi";NA
-"7831";"Monachus tropicalis";"Neomonachus tropicalis"
-"7841";"Monachus schauinslandi";"Neomonachus schauinslandi"
-"7861";"Bassaricyon beddardi";"Bassaricyon alleni"
-"7871";"Bassaricyon lasius";"Bassaricyon gabbii"
-"7881";"Bassaricyon pauli";"Bassaricyon gabbii"
-"7891";"Equus burchellii";"Equus quagga"
-"7901";"Sus salvanius";NA
-"7911";"Babyrousa bolabatuensis";NA
-"7921";"Hexaprotodon liberiensis";NA
-"7931";"Gazella erlangeri";NA
-"7941";"Saiga borealis";NA
-"7951";"Taurotragus oryx";NA
-"7961";"Taurotragus derbianus";NA
-"7971";"Alcelaphus caama";NA
-"7981";"Alcelaphus lichtensteinii";NA
-"7991";"Damaliscus superstes";NA
-"8001";"Damaliscus korrigum";NA
-"8011";"Hemitragus jayakari";NA
-"8021";"Hemitragus hylocrius";NA
-"8031";"Pseudois schaeferi";NA
-"8041";"Przewalskium albirostris";"Przewalskium albirostre"
-"8051";"Physeter catodon";"Physeter macrocephalus"
+"5934";"Microtus gerbei";NA
+"5935";"Saguinus melanoleucus";"Leontocebus weddelli"
+"5936";"Scotophilus celebensis";NA
+"5937";"Pecari tajacu";NA
+"5938";"Gerbillus perpallidus";NA
+"5939";"Leontocebus tripartitus";NA
+"5940";"Leontocebus nigricollis";NA
+"5941";"Plecturocebus dubius";"Plecturocebus caligatus"
+"5942";"Leontocebus nigrifrons";NA
+"5943";"Leontocebus cruzlimai";NA
+"5944";"Leontocebus leucogenys";NA
+"5945";"Leontocebus lagonotus";NA
+"5946";"Leontocebus fuscus";NA
+"5947";"Leontocebus illigeri";NA
+"5948";"Calcochloris tytonis";NA
+"5949";"Elephantulus rufescens";NA
+"5950";"Elephantulus rozeti";NA
+"5951";"Chrysospalax villosus";NA
+"5952";"Pseudantechinus roryi";NA
+"5953";"Sminthopsis griseoventer";NA
+"5954";"Strigocuscus pelengensis";NA
+"5955";"Macropus parma";NA
+"5956";"Macropus irma";NA
+"5957";"Macropus rufogriseus";NA
+"5958";"Macropus robustus";NA
+"5959";"Macropus rufus";NA
+"5960";"Macropus dorsalis";NA
+"5961";"Macropus antilopinus";NA
+"5962";"Macropus eugenii";NA
+"5963";"Macropus parryi";NA
+"5964";"Macropus agilis";NA
+"5965";"Macropus bernardus";NA
+"5966";"Thylogale lanatus";NA
+"5967";"Dermanura rosenbergi";"Artibeus rosenbergi"
+"5968";"Melonycteris fardoulisi";"Nesonycteris fardoulisi"
+"5969";"Chaerephon tomensis";NA
+"5970";"Notopteris neocaledonica";"Notopteris neocaledonicus"
+"5971";"Natalus espiritosantensis";"Natalus macrourus"
+"5972";"Baeodon alleni";"Rhogeessa alleni"
+"5973";"Dermanura watsoni";"Artibeus watsoni"
+"5974";"Dermanura tolteca";"Artibeus toltecus"
+"5975";"Dermanura glauca";"Artibeus glaucus"
+"5976";"Dermanura azteca";"Artibeus aztecus"
+"5977";"Dermanura cinerea";"Artibeus cinereus"
+"5978";"Dermanura anderseni";"Artibeus anderseni"
+"5979";"Rousettus celebensis";NA
+"5980";"Lasiurus xanthinus";"Dasypterus xanthinus"
+"5981";"Nyctimene sanctacrucis";"Nyctimene major"
+"5982";"Nyctimene minutus";"Nyctimene albiventer"
+"5983";"Chaerephon pumilus";NA
+"5984";"Chaerephon plicatus";NA
+"5985";"Chaerephon major";NA
+"5986";"Chaerephon johorensis";NA
+"5987";"Chaerephon gallagheri";NA
+"5988";"Chaerephon bivittatus";NA
+"5989";"Chaerephon bemmeleni";NA
+"5990";"Chaerephon ansorgei";NA
+"5991";"Chaerephon aloysiisabaudiae";NA
+"5992";"Notopteris macdonaldi";"Notopteris macdonaldii"
+"5993";"Scotophilus borbonicus";"Scotophilus trujilloi"
+"5994";"Lasiurus insularis";"Dasypterus insularis"
+"5995";"Paratriaenops furculus";"Paratriaenops furcula"
+"5996";"Rhogeessa aeneus";"Rhogeessa aenea"
+"5997";"Neoromicia malagasyensis";"Laephotis malagasyensis"
+"5998";"Neoromicia tenuipinnis";"Pseudoromicia tenuipinnis"
+"5999";"Neoromicia helios";"Afronycteris helios"
+"6000";"Neoromicia melckorum";"Laephotis capensis"
+"6001";"Neoromicia nana";"Afronycteris nanus"
+"6002";"Neoromicia rendalli";"Pseudoromicia rendalli"
+"6003";"Neoromicia brunnea";"Pseudoromicia brunnea"
+"6004";"Neoromicia capensis";"Laephotis capensis"
+"6005";"Neoromicia flavescens";"Nycticeinops grandidieri"
+"6006";"Penthetor lucasi";"Penthetor lucasii"
+"6007";"Neoromicia matroka";"Laephotis matroka"
+"6008";"Triaenops rufus";"Triaenops persicus"
+"6009";"Hypsugo eisentrauti";"Nycticeinops eisentrauti"
+"6010";"Hipposideros cyclops";"Doryrhina cyclops"
+"6011";"Hipposideros stenotis";"Doryrhina stenotis"
+"6012";"Hipposideros pratti";NA
+"6013";"Molossops mattogrossensis";"Neoplatymops mattogrossensis"
+"6014";"Molossops aequatorianus";"Cabreramops aequatorianus"
+"6015";"Eptesicus bobrinskoi";"Eptesicus gobiensis"
+"6016";"Epomops dobsonii";"Epomophorus dobsonii"
+"6017";"Epomophorus minimus";"Epomophorus minor"
+"6018";"Eptesicus kobayashii";"Eptesicus pachyomus"
+"6019";"Lasiurus ega";"Dasypterus ega"
+"6020";"Lasiurus egregius";"Aeorestes egregius"
+"6021";"Lasiurus cinereus";"Aeorestes cinereus"
+"6022";"Falsistrellus petersi";"Hypsugo petersi"
+"6023";"Falsistrellus mordax";"Hypsugo mordax"
+"6024";"Hypsugo joffrei";"Mirostrellus joffrei"
+"6025";"Hypsugo anthonyi";"Mirostrellus joffrei"
+"6026";"Carollia brevicauda";"Carollia brevicaudum"
+"6027";"Mazama bricenii";NA
+"6028";"Thylamys cinderella";NA
+"6029";"Marmosa quichua";NA
+"6030";"Philander frenatus";NA
+"6031";"Marmosops impavidus";NA
+"6032";"Marmosops cracens";NA
+"6033";"Mysateles melanurus";"Mesocapromys melanurus"
+"6034";"Dolichotis salinicola";NA
+"6035";"Ctenomys azarae";NA
+"6036";"Ctenomys colburni";NA
+"6037";"Ctenomys porteousi";NA
+"6038";"Ctenomys coyhaiquensis";NA
+"6039";"Ctenomys goodfellowi";NA
+"6040";"Allactaga tetradactyla";NA
+"6041";"Allactaga balikunica";NA
+"6042";"Allactaga firouzi";"Allactaga hotsoni"
+"6043";"Orthogeomys cavator";NA
+"6044";"Orthogeomys heterodus";NA
+"6045";"Orthogeomys cuniculus";NA
+"6046";"Orthogeomys underwoodi";NA
+"6047";"Dendromus kivu";"Dendromus nyasae"
+"6048";"Brachytarsomys villosa";NA
+"6049";"Tamiasciurus mearnsi";NA
+"6050";"Dremomys everetti";NA
+"6051";"Spermophilus ralli";NA
+"6052";"Chimarrogale phaeura";NA
+"6053";"Chimarrogale hantu";NA
+"6054";"Chimarrogale sumatrana";NA
+"6055";"Blarinella griselda";NA
+"6056";"Cryptotis magna";NA
+"6057";"Cryptotis medellinia";NA
+"6058";"Suncus lixus";NA
+"6059";"Suncus megalura";NA
+"6060";"Chodsigoa lamula";NA
+"6061";"Episoriculus fumidus";NA
+"6062";"Crocidura batesi";NA
+"6063";"Crocidura greenwoodi";NA
+"6064";"Crocidura gmelini";NA
+"6065";"Sorex alaskanus";NA
+"6066";"Sorex bairdi";NA
+"6067";"Sorex yukonicus";NA
+"6068";"Sorex neomexicanus";NA
+"6069";"Euroscaptor micrura";NA
+"6070";"Euroscaptor mizura";NA
+"6071";"Galenomys garleppi";NA
+"6072";"Neodon juldaschi";"Blanfordimys juldaschi"
+"6073";"Phaiomys leucurus";"Neodon leucurus"
+"6074";"Delomys collinus";"Delomys dorsalis"
+"6075";"Lemmus portenkoi";NA
+"6076";"Wiedomys pyrrhorhinos";NA
+"6077";"Microtus sachalinensis";NA
+"6078";"Microtus schidlovskii";NA
+"6079";"Microtus breweri";NA
+"6080";"Microtus kikuchii";NA
+"6081";"Microtus hyperboreus";"Microtus middendorffi"
+"6082";"Lasiopodomys fuscus";"Neodon fuscus"
+"6083";"Euneomys mordax";NA
+"6084";"Oligoryzomys delticola";NA
+"6085";"Oligoryzomys magellanicus";NA
+"6086";"Loxodontomys pikumche";NA
+"6087";"Myodes andersoni";NA
+"6088";"Myodes smithii";NA
+"6089";"Myodes rufocanus";NA
+"6090";"Myodes rex";NA
+"6091";"Myodes shanseius";NA
+"6092";"Blanfordimys afghanus";NA
+"6093";"Blanfordimys bucharensis";NA
+"6094";"Brucepattersonius misionensis";NA
+"6095";"Brucepattersonius guarani";NA
+"6096";"Brucepattersonius igniventris";NA
+"6097";"Brucepattersonius paradisus";NA
+"6098";"Cricetulus lama";"Cricetulus kamensis"
+"6099";"Cricetulus kamensis";NA
+"6100";"Pseudomys pilligaensis";NA
+"6101";"Gerbilliscus afra";NA
+"6102";"Stenocephalemys albocaudata";NA
+"6103";"Meriones chengi";NA
+"6104";"Hybomys badius";NA
+"6105";"Hybomys planifrons";NA
+"6106";"Rattus annandalei";NA
+"6107";"Bunomys fratrorum";NA
+"6108";"Acomys airensis";NA
+"6109";"Muriculus imberbis";NA
+"6110";"Gerbillurus tytonis";NA
+"6111";"Gerbillurus setzeri";NA
+"6112";"Gerbillus juliani";"Gerbillus watersi"
+"6113";"Sus bucculentus";NA
+"6114";"Bison bonasus";NA
+"6115";"Galidictis grandidieri";NA
+"6116";"Mustela africana";NA
+"6117";"Mustela felipei";NA
+"6118";"Neovison macrodon";"Mustela macrodon"
+"6119";"Herpestes brachyurus";NA
+"6120";"Herpestes edwardsii";"Herpestes edwardsi"
+"6121";"Herpestes fuscus";NA
+"6122";"Herpestes javanicus";NA
+"6123";"Herpestes naso";NA
+"6124";"Herpestes semitorquatus";NA
+"6125";"Herpestes smithii";NA
+"6126";"Herpestes vitticollis";NA
+"6127";"Conepatus humboldtii";NA
+"6128";"Mustela frenata";NA
+"6129";"Neovison vison";"Mustela vison"
+"6130";"Arctocephalus australis";NA
+"6131";"Arctocephalus tropicalis";NA
+"6132";"Arctocephalus forsteri";NA
+"6133";"Jaculus thaleri";NA
+"6134";"Canis mesomelas";NA
+"6135";"Canis adustus";NA
+"6136";"Dasypus hybridus";NA
+"6137";"Dasypus yepesi";"Dasypus mazzai"
+"6138";"Abrawayaomys chebezi";NA
+"6139";"Cephalophus harveyi";"Cephalophus natalensis"
+"6140";"Gazella saudiya";NA
+"6141";"Neotragus batesi";NA
+"6142";"Lagenorhynchus acutus";NA
+"6143";"Lagenorhynchus australis";NA
+"6144";"Lagenorhynchus cruciger";NA
+"6145";"Otaria byronia";NA
+"6146";"Arctocephalus philippii";NA
+"6147";"Mustela subpalmata";"Mustela nivalis"
+"6148";"Arctocephalus gazella";NA
+"6149";"Herpestes auropunctatus";"Herpestes javanicus"
+"6150";"Mustela russelliana";"Mustela nivalis"
+"6151";"Mustela tonkinensis";"Mustela nivalis"
+"6152";"Nasuella meridensis";"Nasua olivacea"
+"6153";"Dermanura bogotensis";"Artibeus bogotensis"
+"6154";"Herpestes urva";NA
+"6155";"Cynomops paranus";"Cynomops planirostris"
+"6156";"Lasiurus salinae";"Lasiurus blossevillii"
+"6157";"Microtus bavaricus";NA
+"6158";"Dermanura gnoma";"Artibeus gnomus"
+"6159";"Akodon molinae";NA
+"6160";"Akodon serrensis";NA
+"6161";"Allactaga hotsoni";NA
+"6162";"Allactaga sibirica";NA
+"6163";"Necromys temchuki";NA
+"6164";"Callosciurus albescens";"Callosciurus notatus"
+"6165";"Chelemys macronyx";NA
+"6166";"Myodes centralis";NA
+"6167";"Cricetulus alticola";NA
+"6168";"Cricetulus migratorius";NA
+"6169";"Dicrostonyx vinogradovi";NA
+"6170";"Myodes regulus";NA
+"6171";"Euneomys petersoni";NA
+"6172";"Gerbillurus paeba";NA
+"6173";"Gerbillurus vallinus";NA
+"6174";"Gerbillus cosensis";"Gerbillus agag"
+"6175";"Hybomys trivirgatus";NA
+"6176";"Lorentzimys nouhuysi";NA
+"6177";"Microtus evoronensis";NA
+"6178";"Microtus fortis";NA
+"6179";"Microtus gregalis";NA
+"6180";"Microtus limnophilus";NA
+"6181";"Microtus maximowiczii";NA
+"6182";"Microtus middendorffii";"Microtus middendorffi"
+"6183";"Microtus mongolicus";NA
+"6184";"Microtus montebelli";NA
+"6185";"Microtus mujanensis";NA
+"6186";"Microtus nasarovi";"Microtus daghestanicus"
+"6187";"Microtus oeconomus";NA
+"6188";"Niviventer langbianis";NA
+"6189";"Oligoryzomys eliurus";NA
+"6190";"Orthogeomys hispidus";NA
+"6191";"Oxymycterus angularis";NA
+"6192";"Oxymycterus hispidus";NA
+"6193";"Oxymycterus roberti";NA
+"6194";"Paruromys dominator";NA
+"6195";"Phyllotis wolffsohni";NA
+"6196";"Spermophilopsis leptodactylus";NA
+"6197";"Microtus clarkei";NA
+"6198";"Xerus erythropus";NA
+"6199";"Xerus inauris";NA
+"6200";"Xerus princeps";NA
+"6201";"Cryptotis parva";NA
+"6202";"Myodes californicus";NA
+"6203";"Myodes gapperi";NA
+"6204";"Praomys derooi";NA
+"6205";"Vandeleuria nilagirica";NA
+"6206";"Necromys benefactus";NA
+"6207";"Gerbillus percivali";"Gerbillus pusillus"
+"6208";"Oligoryzomys fornesi";NA
+"6209";"Arvicola scherman";NA
+"6210";"Hybomys eisentrauti";"Hybomys badius"
+"6211";"Bison bison";NA
+"6212";"Martes pennanti";"Pekania pennanti"
+"6213";"Macropus greyi";NA
+"6214";"Sylvilagus mansuetus";NA
+"6215";"Chiroderma vizottoi";"Chiroderma doriae"
+"6216";"Vicugna vicugna";NA
+"6217";"Myodes rutilus";NA
+"6218";"Platyrrhinus chocoensis";"Platyrrhinus dorsalis"
+"6219";"Micropteropus pusillus";"Epomophorus pusillus"
+"6220";"Mesocapromys nanus";NA
+"6221";"Hipposideros atrox";"Hipposideros bicolor"
+"6222";"Lagenorhynchus obscurus";NA
+"6223";"Colobus caudatus";NA
+"6224";"Alouatta juara";"Alouatta seniculus"
+"6225";"Callibella humilis";"Mico humilis"
+"6226";"Leontocebus fuscicollis";NA
+"6227";"Leontocebus weddelli";NA
+"6228";"Pithecia mittermeieri";NA
+"6229";"Pithecia rylandsi";NA
+"6230";"Pithecia pissinattii";NA
+"6231";"Lepilemur ahmansoni";NA
+"6232";"Microtus levis";NA
+"6233";"Marmosops neblina";NA
+"6234";"Myodes glareolus";NA
+"6235";"Chaerephon jobensis";NA
+"6236";"Hipposideros corynophyllus";"Doryrhina corynophyllus"
+"6237";"Hipposideros muscinus";"Doryrhina muscinus"
+"6238";"Hipposideros wollastoni";"Doryrhina wollastoni"
+"6239";"Dobsonia magna";"Dobsonia moluccensis"
+"6240";"Chaerephon bregullae";NA
+"6241";"Chlorocebus dryas";NA
+"6242";"Chaetophractus nationi";NA
+"6243";"Suncus madagascariensis";NA
+"6244";"Cryptotis mera";NA
+"6245";"Sorex arunchi";NA
+"6246";"Megaderma lyra";"Lyroderma lyra"
+"6247";"Hipposideros thomensis";"Macronycteris thomensis"
+"6248";"Hipposideros commersoni";"Macronycteris commersonii"
+"6249";"Hipposideros vittatus";"Macronycteris vittatus"
+"6250";"Hipposideros gigas";"Macronycteris gigas"
+"6251";"Paracoelops megalotis";"Hipposideros pomona"
+"6252";"Rousettus bidens";"Boneia bidens"
+"6253";"Vampyressa bidens";"Vampyriscus bidens"
+"6254";"Vampyressa brocki";"Vampyriscus brocki"
+"6255";"Mimon crenulatum";"Gardnerycteris crenulatum"
+"6256";"Lophostoma yasuni";"Lophostoma carrikeri"
+"6257";"Tadarida kuboriensis";"Austronomus kuboriensis"
+"6258";"Molossus barnesi";"Molossus coibensis"
+"6259";"Tadarida australis";"Austronomus australis"
+"6260";"Phoniscus aerosa";"Phoniscus aerosus"
+"6261";"Hypsugo anchietae";"Neoromicia anchietae"
+"6262";"Falsistrellus affinis";"Hypsugo affinis"
+"6263";"Eptesicus nasutus";"Rhyneptesicus nasutus"
+"6264";"Eptesicus lobatus";"Eptesicus serotinus"
+"6265";"Arielulus aureocollaris";"Thainycteris aureocollaris"
+"6266";"Murina tiensa";"Murina harrisoni"
+"6267";"Murina cineracea";"Murina feae"
+"6268";"Harpiocephalus mordax";"Harpiocephalus harpia"
+"6269";"Canis anthus";NA
+"6270";"Pseudalopex sechurae";"Lycalopex sechurae"
+"6271";"Pseudalopex vetulus";"Lycalopex vetulus"
+"6272";"Pseudalopex gymnocercus";"Lycalopex gymnocercus"
+"6273";"Pseudalopex griseus";"Lycalopex gymnocercus"
+"6274";"Pseudalopex culpaeus";"Lycalopex culpaeus"
+"6275";"Lutra maculicollis";"Hydrictis maculicollis"
+"6276";"Hyaena brunnea";NA
+"6277";"Tapirus kabomani";NA
+"6278";"Vicugna pacos";NA
+"6279";"Delphinus capensis";"Delphinus delphis"
+"6280";"Alces americanus";NA
+"6281";"Eudorcas rufina";NA
+"6282";"Naemorhedus griseus";NA
+"6283";"Capricornis thar";NA
+"6284";"Capricornis milneedwardsii";NA
+"6285";"Ovis orientalis";"Ovis aries"
+"6286";"Galagoides demidovii";"Galagoides demidoff"
+"6287";"Galagoides orinus";"Paragalago orinus"
+"6288";"Galagoides rondoensis";"Paragalago rondoensis"
+"6289";"Galagoides granti";"Paragalago granti"
+"6290";"Galagoides zanzibaricus";"Paragalago zanzibaricus"
+"6291";"Galagoides cocos";"Paragalago cocos"
+"6292";"Lepilemur sahamalazensis";"Lepilemur sahamalaza"
+"6293";"Tarsius syrichta";"Carlito syrichta"
+"6294";"Tarsius bancanus";"Cephalopachus bancanus"
+"6295";"Callicebus medemi";"Cheracebus medemi"
+"6296";"Callicebus modestus";"Plecturocebus modestus"
+"6297";"Callicebus cupreus";"Plecturocebus cupreus"
+"6298";"Callicebus oenanthe";"Plecturocebus oenanthe"
+"6299";"Callicebus aureipalatii";"Plecturocebus aureipalatii"
+"6300";"Callicebus moloch";"Plecturocebus moloch"
+"6301";"Callicebus hoffmannsi";"Plecturocebus hoffmannsi"
+"6302";"Callicebus miltoni";"Plecturocebus miltoni"
+"6303";"Callicebus regulus";"Cheracebus regulus"
+"6304";"Callicebus donacophilus";"Plecturocebus donacophilus"
+"6305";"Callicebus caligatus";"Plecturocebus caligatus"
+"6306";"Callicebus olallae";"Plecturocebus olallae"
+"6307";"Callicebus stephennashi";"Plecturocebus stephennashi"
+"6308";"Callicebus lucifer";"Cheracebus lucifer"
+"6309";"Callicebus urubambensis";"Plecturocebus urubambensis"
+"6310";"Callicebus vieirai";"Plecturocebus vieirai"
+"6311";"Callicebus dubius";"Plecturocebus caligatus"
+"6312";"Callicebus discolor";"Plecturocebus discolor"
+"6313";"Callicebus bernhardi";"Plecturocebus bernhardi"
+"6314";"Callicebus brunneus";"Plecturocebus brunneus"
+"6315";"Callicebus pallescens";"Plecturocebus pallescens"
+"6316";"Callicebus cinerascens";"Plecturocebus cinerascens"
+"6317";"Callicebus ornatus";"Plecturocebus ornatus"
+"6318";"Callicebus baptista";"Plecturocebus baptista"
+"6319";"Callicebus lugens";"Cheracebus lugens"
+"6320";"Callicebus torquatus";"Cheracebus torquatus"
+"6321";"Callicebus purinus";"Cheracebus torquatus"
+"6322";"Mico manicorensis";"Mico marcai"
+"6323";"Sapajus macrocephalus";"Sapajus apella"
+"6324";"Lagothrix cana";"Lagothrix lagothricha"
+"6325";"Lagothrix poeppigii";"Lagothrix lagothricha"
+"6326";"Lagothrix lugens";"Lagothrix lagothricha"
+"6327";"Oreonax flavicauda";"Lagothrix flavicauda"
+"6328";"Trachypithecus johnii";"Semnopithecus johnii"
+"6329";"Trachypithecus vetulus";"Semnopithecus vetulus"
+"6330";"Procolobus rufomitratus";"Piliocolobus rufomitratus"
+"6331";"Procolobus pennantii";"Piliocolobus pennantii"
+"6332";"Procolobus preussi";"Piliocolobus preussi"
+"6333";"Procolobus badius";"Piliocolobus badius"
+"6334";"Cercopithecus solatus";"Allochrocebus solatus"
+"6335";"Cercopithecus lhoesti";"Allochrocebus lhoesti"
+"6336";"Cercopithecus preussi";"Allochrocebus preussi"
+"6337";"Urogale everetti";NA
+"6338";"Lepus microtis";"Lepus victoriae"
+"6339";"Tamias sibiricus";NA
+"6340";"Tamias quadrimaculatus";NA
+"6341";"Tamias ruficaudus";NA
+"6342";"Tamias durangae";NA
+"6343";"Tamias canipes";NA
+"6344";"Tamias rufus";NA
+"6345";"Tamias quadrivittatus";NA
+"6346";"Tamias palmeri";NA
+"6347";"Tamias bulleri";NA
+"6348";"Tamias merriami";NA
+"6349";"Tamias siskiyou";NA
+"6350";"Tamias sonomae";NA
+"6351";"Tamias ochrogenys";NA
+"6352";"Hylopetes lepidus";"Hylopetes sagitta"
+"6353";"Petinomys sagitta";"Hylopetes sagitta"
+"6354";"Dasyprocta cristata";NA
+"6355";"Lagidium peruanum";NA
+"6356";"Mysateles meridionalis";NA
+"6357";"Mysateles garridoi";NA
+"6358";"Mysateles gundlachi";"Mysateles prehensilis"
+"6359";"Trinomys myosuros";NA
+"6360";"Proechimys urichi";NA
+"6361";"Proechimys magdalenae";NA
+"6362";"Proechimys poliopus";NA
+"6363";"Clyomys bishopi";NA
+"6364";"Ctenomys budini";NA
+"6365";"Ctenomys sylvanus";NA
+"6366";"Dipodomys insularis";"Dipodomys merriami"
+"6367";"Dipodomys margaritae";"Dipodomys merriami"
+"6368";"Pappogeomys alcorni";"Pappogeomys bulleri"
+"6369";"Orthogeomys lanius";NA
+"6370";"Orthogeomys cherriei";NA
+"6371";"Orthogeomys matagalpae";NA
+"6372";"Orthogeomys dariensis";NA
+"6373";"Orthogeomys thaeleri";NA
+"6374";"Liomys salvini";NA
+"6375";"Liomys adspersus";NA
+"6376";"Liomys irroratus";NA
+"6377";"Liomys pictus";NA
+"6378";"Chaetodipus dalquesti";NA
+"6379";"Allactaga vinogradovi";NA
+"6380";"Allactaga elater";NA
+"6381";"Allactaga toussi";NA
+"6382";"Allactaga williamsi";NA
+"6383";"Allactaga euphratica";NA
+"6384";"Spalax ehrenbergi";NA
+"6385";"Spalax nehringi";NA
+"6386";"Spalax leucodon";NA
+"6387";"Coccymys albidens";"Brassomys albidens"
+"6388";"Malpaisomys insularis";NA
+"6389";"Mus orangiae";NA
+"6390";"Aethomys granti";"Micaelamys granti"
+"6391";"Aethomys namaquensis";"Micaelamys namaquensis"
+"6392";"Blanfordimys juldaschi";NA
+"6393";"Neotoma martinensis";NA
+"6394";"Neotoma anthonyi";NA
+"6395";"Neotoma bunkeri";NA
+"6396";"Kunsia fronto";NA
+"6397";"Akodon aliquantulus";"Akodon caenosus"
+"6398";"Brucepattersonius albinasus";"Brucepattersonius griserufescens"
+"6399";"Akodon bogotensis";"Neomicroxus bogotensis"
+"6400";"Akodon leucolimnaeus";"Akodon spegazzinii"
+"6401";"Oxymycterus akodontius";NA
+"6402";"Juscelinomys guaporensis";NA
+"6403";"Akodon neocenus";NA
+"6404";"Thomasomys rhoadsi";NA
+"6405";"Sigmodontomys aphrastus";NA
+"6406";"Oryzomys curasoae";NA
+"6407";"Akodon latebricola";"Neomicroxus latebricola"
+"6408";"Paralomys gerbillus";NA
+"6409";"Graomys centralis";NA
+"6410";"Chelemys delfini";NA
+"6411";"Abrothrix hershkovitzi";NA
+"6412";"Abrothrix markhami";NA
+"6413";"Monodelphis maraxina";NA
+"6414";"Monodelphis theresa";NA
+"6415";"Monodelphis rubida";NA
+"6416";"Sminthopsis aitkeni";NA
+"6417";"Gracilinanus formosus";NA
+"6418";"Gracilinanus agricolai";NA
+"6419";"Gracilinanus ignitus";NA
+"6420";"Marmosops dorothea";NA
+"6421";"Micoureus demerarae";NA
+"6422";"Micoureus regina";NA
+"6423";"Micoureus paraguayanus";NA
+"6424";"Micoureus constantiae";NA
+"6425";"Micoureus alstoni";NA
+"6426";"Micoureus phaeus";NA
+"6427";"Monodelphis sorex";NA
+"6428";"Micromurexia habbema";NA
+"6429";"Murexechinus melanurus";NA
+"6430";"Paramurexia rothschildi";NA
+"6431";"Phascomurexia naso";NA
+"6432";"Sminthopsis boullangerensis";NA
+"6433";"Trichosurus arnhemensis";NA
+"6434";"Calcochloris leucorhinus";NA
+"6435";"Elephantulus revoili";NA
+"6436";"Cheirogaleus ravus";"Cheirogaleus minusculus"
+"6437";"Cheirogaleus adipicaudatus";"Cheirogaleus medius"
+"6438";"Eulemur albocollaris";"Eulemur cinereiceps"
+"6439";"Pseudopotto martini";NA
+"6440";"Galago gabonensis";"Sciurocheirus gabonensis"
+"6441";"Galago thomasi";"Galagoides thomasi"
+"6442";"Galago rondoensis";"Paragalago rondoensis"
+"6443";"Galago nyasae";"Paragalago granti"
+"6444";"Galago orinus";"Paragalago orinus"
+"6445";"Galago zanzibaricus";"Paragalago zanzibaricus"
+"6446";"Galago granti";"Paragalago granti"
+"6447";"Galago alleni";"Sciurocheirus alleni"
+"6448";"Galago cameronensis";"Sciurocheirus alleni"
+"6449";"Galago demidoff";"Galagoides demidoff"
+"6450";"Otolemur monteiri";"Otolemur crassicaudatus"
+"6451";"Saguinus pileatus";"Saguinus mystax"
+"6452";"Saguinus graellsi";"Leontocebus nigricollis"
+"6453";"Callithrix nigriceps";"Mico nigriceps"
+"6454";"Callithrix intermedia";"Mico intermedius"
+"6455";"Callithrix leucippe";"Mico leucippe"
+"6456";"Callithrix manicorensis";"Mico marcai"
+"6457";"Callithrix marcai";"Mico marcai"
+"6458";"Callithrix melanura";"Mico melanurus"
+"6459";"Callithrix humeralifera";"Mico humeralifer"
+"6460";"Callithrix saterei";"Mico saterei"
+"6461";"Callithrix mauesi";"Mico mauesi"
+"6462";"Callithrix emiliae";"Mico emiliae"
+"6463";"Callithrix chrysoleuca";"Mico chrysoleucos"
+"6464";"Callithrix argentata";"Mico argentatus"
+"6465";"Callithrix acariensis";"Mico acariensis"
+"6466";"Callithrix pygmaea";"Cebuella pygmaea"
+"6467";"Callithrix humilis";"Mico humilis"
+"6468";"Cebus apella";"Sapajus apella"
+"6469";"Cebus nigritus";"Sapajus nigritus"
+"6470";"Cebus xanthosternos";"Sapajus xanthosternos"
+"6471";"Cebus libidinosus";"Sapajus libidinosus"
+"6472";"Alouatta coibensis";"Alouatta palliata"
+"6473";"Aotus hershkovitzi";"Aotus lemurinus"
+"6474";"Chiropotes israelita";NA
+"6475";"Cercopithecus kandti";"Cercopithecus mitis"
+"6476";"Cercopithecus doggetti";"Cercopithecus mitis"
+"6477";"Cercopithecus albogularis";"Cercopithecus mitis"
+"6478";"Lophocebus opdenboschi";"Lophocebus aterrimus"
+"6479";"Bunopithecus hoolock";"Hoolock hoolock"
+"6480";"Spermophilus canus";"Urocitellus canus"
+"6481";"Spermophilus brunneus";"Urocitellus brunneus"
+"6482";"Spermophilus richardsonii";"Urocitellus richardsonii"
+"6483";"Spermophilus washingtoni";"Urocitellus washingtoni"
+"6484";"Spermophilus variegatus";"Otospermophilus variegatus"
+"6485";"Spermophilus beecheyi";"Otospermophilus beecheyi"
+"6486";"Spermophilus atricapillus";"Otospermophilus atricapillus"
+"6487";"Spermophilus mexicanus";"Ictidomys mexicanus"
+"6488";"Spermophilus perotensis";"Xerospermophilus perotensis"
+"6489";"Spermophilus tridecemlineatus";"Ictidomys tridecemlineatus"
+"6490";"Spermophilus spilosoma";"Xerospermophilus spilosoma"
+"6491";"Spermophilus franklinii";"Poliocitellus franklinii"
+"6492";"Spermophilus lateralis";"Callospermophilus lateralis"
+"6493";"Spermophilus madrensis";"Callospermophilus madrensis"
+"6494";"Spermophilus columbianus";"Urocitellus columbianus"
+"6495";"Spermophilus undulatus";"Urocitellus undulatus"
+"6496";"Spermophilus adocetus";"Notocitellus adocetus"
+"6497";"Spermophilus parryii";"Urocitellus parryii"
+"6498";"Spermophilus annulatus";"Notocitellus annulatus"
+"6499";"Ammospermophilus insularis";NA
+"6500";"Cratogeomys neglectus";"Cratogeomys fumosus"
+"6501";"Cratogeomys tylorhinus";"Cratogeomys fumosus"
+"6502";"Cratogeomys gymnurus";"Cratogeomys fumosus"
+"6503";"Cratogeomys zinseri";"Cratogeomys fumosus"
+"6504";"Myodes imaizumii";NA
+"6505";"Andalgalomys roigi";NA
+"6506";"Oryzomys subflavus";"Cerradomys subflavus"
+"6507";"Oryzomys tatei";"Hylaeamys tatei"
+"6508";"Oryzomys seuanezi";"Hylaeamys laticeps"
+"6509";"Oryzomys yunganus";"Hylaeamys yunganus"
+"6510";"Oryzomys chapmani";NA
+"6511";"Oryzomys hammondi";"Mindomys hammondi"
+"6512";"Oryzomys galapagoensis";"Aegialomys galapagoensis"
+"6513";"Oryzomys emmonsae";"Euryoryzomys emmonsae"
+"6514";"Oryzomys laticeps";"Hylaeamys laticeps"
+"6515";"Oryzomys caracolus";"Nephelomys caracolus"
+"6516";"Oryzomys bolivaris";"Transandinomys bolivaris"
+"6517";"Oryzomys balneator";"Oreoryzomys balneator"
+"6518";"Oryzomys angouya";"Sooretamys angouya"
+"6519";"Oryzomys alfaroi";NA
+"6520";"Oryzomys albigularis";"Nephelomys albigularis"
+"6521";"Oryzomys melanotis";NA
+"6522";"Oryzomys saturatior";NA
+"6523";"Oryzomys russatus";"Euryoryzomys russatus"
+"6524";"Oryzomys nitidus";"Euryoryzomys nitidus"
+"6525";"Oryzomys lamia";"Euryoryzomys lamia"
+"6526";"Oryzomys megacephalus";"Hylaeamys megacephalus"
+"6527";"Oryzomys marinhus";"Cerradomys marinhus"
+"6528";"Oryzomys maracajuensis";"Cerradomys maracajuensis"
+"6529";"Oryzomys macconnelli";"Euryoryzomys macconnelli"
+"6530";"Oryzomys levipes";"Nephelomys levipes"
+"6531";"Oryzomys legatus";"Euryoryzomys legatus"
+"6532";"Oryzomys scotti";"Cerradomys scotti"
+"6533";"Taterillus harringtoni";NA
+"6534";"Dipodillus simoni";NA
+"6535";"Dipodillus zakariai";NA
+"6536";"Dipodillus jamesi";NA
+"6537";"Dipodillus lowei";NA
+"6538";"Dipodillus mackilligini";NA
+"6539";"Dipodillus rupicola";NA
+"6540";"Dipodillus stigmonyx";NA
+"6541";"Dipodillus dasyurus";NA
+"6542";"Dipodillus campestris";NA
+"6543";"Dipodillus bottai";NA
+"6544";"Dipodillus harwoodi";NA
+"6545";"Dipodillus somalicus";NA
+"6546";"Gerbillus dongolanus";NA
+"6547";"Archboldomys musseri";"Soricomys musseri"
+"6548";"Hydromys shawmayeri";"Baiyankamys shawmayeri"
+"6549";"Papagomys theodorverhoeveni";NA
+"6550";"Pseudomys laborifex";NA
+"6551";"Rhagamys orthodon";NA
+"6552";"Spelaeomys florensis";NA
+"6553";"Myotomys sloggetti";NA
+"6554";"Myotomys unisulcatus";NA
+"6555";"Otomys saundersiae";NA
+"6556";"Otomys maximus";NA
+"6557";"Spalax judaei";NA
+"6558";"Spalax galili";NA
+"6559";"Spalax carmeli";NA
+"6560";"Spalax golani";NA
+"6561";"Tachyoryctes ibeanus";NA
+"6562";"Tachyoryctes storeyi";NA
+"6563";"Tachyoryctes spalacinus";NA
+"6564";"Tachyoryctes ruddi";NA
+"6565";"Tachyoryctes ruandae";NA
+"6566";"Tachyoryctes rex";NA
+"6567";"Tachyoryctes daemon";NA
+"6568";"Tachyoryctes audax";NA
+"6569";"Tachyoryctes annectens";NA
+"6570";"Tachyoryctes ankoliae";NA
+"6571";"Tachyoryctes naivashae";NA
+"6572";"Cryptomys zechi";NA
+"6573";"Cryptomys ochraceocinereus";NA
+"6574";"Cryptomys mechowi";NA
+"6575";"Cryptomys kafuensis";NA
+"6576";"Cryptomys darlingi";NA
+"6577";"Cryptomys damarensis";NA
+"6578";"Cryptomys bocagei";NA
+"6579";"Cryptomys foxi";NA
+"6580";"Cryptomys amatus";NA
+"6581";"Cryptomys anselli";NA
+"6582";"Diplomys rufodorsalis";NA
+"6583";"Echimys semivillosus";NA
+"6584";"Makalata grandis";NA
+"6585";"Makalata rhipidura";NA
+"6586";"Makalata occasius";NA
+"6587";"Brotomys contractus";NA
+"6588";"Heteropsomys antillensis";NA
+"6589";"Coendou rothschildi";NA
+"6590";"Echinoprocta rufescens";NA
+"6591";"Sphiggurus villosus";NA
+"6592";"Sphiggurus vestitus";NA
+"6593";"Sphiggurus melanurus";NA
+"6594";"Sphiggurus roosmalenorum";NA
+"6595";"Sphiggurus mexicanus";NA
+"6596";"Sphiggurus pruinosus";NA
+"6597";"Sphiggurus ichillus";NA
+"6598";"Sphiggurus spinosus";NA
+"6599";"Capromys gundlachianus";NA
+"6600";"Plagiodontia araeum";NA
+"6601";"Ochotona huangensis";"Ochotona dauurica"
+"6602";"Ochotona gaoligongensis";"Ochotona forresti"
+"6603";"Ochotona muliensis";"Ochotona gloveri"
+"6604";"Ochotona nigritia";"Ochotona forresti"
+"6605";"Ochotona himalayana";"Ochotona roylii"
+"6606";"Crocidura ichnusae";NA
+"6607";"Sorex averini";NA
+"6608";"Sorex gaspensis";NA
+"6609";"Nesiotites hidalgo";NA
+"6610";"Nesiotites similis";NA
+"6611";"Micronycteris homezi";"Micronycteris minuta"
+"6612";"Sturnira thomasi";"Sturnira angeli"
+"6613";"Carollia colombiana";"Carollia brevicaudum"
+"6614";"Chaerephon leucogaster";NA
+"6615";"Chaerephon shortridgei";"Chaerephon chapini"
+"6616";"Eptesicus matroka";"Laephotis matroka"
+"6617";"Neoromicia nanus";"Afronycteris nanus"
+"6618";"Neoromicia brunneus";"Pseudoromicia brunnea"
+"6619";"Hypsugo bodenheimeri";"Hypsugo ariel"
+"6620";"Hypsugo crassulus";"Nycticeinops crassulus"
+"6621";"Murina silvatica";"Murina ussuriensis"
+"6622";"Mormoops magna";NA
+"6623";"Pteronotus pristinus";NA
+"6624";"Manis temminckii";NA
+"6625";"Manis gigantea";NA
+"6626";"Manis tetradactyla";NA
+"6627";"Manis tricuspis";NA
+"6628";"Felis manul";NA
+"6629";"Prionailurus iriomotensis";NA
+"6630";"Profelis aurata";NA
+"6631";"Puma yagouaroundi";NA
+"6632";"Uncia uncia";NA
+"6633";"Galerella sanguinea";NA
+"6634";"Galerella pulverulenta";NA
+"6635";"Galerella flavescens";NA
+"6636";"Galerella ochracea";NA
+"6637";"Herpestes edwardsi";NA
+"6638";"Monachus tropicalis";"Neomonachus tropicalis"
+"6639";"Monachus schauinslandi";"Neomonachus schauinslandi"
+"6640";"Bassaricyon beddardi";"Bassaricyon alleni"
+"6641";"Bassaricyon lasius";"Bassaricyon gabbii"
+"6642";"Bassaricyon pauli";"Bassaricyon gabbii"
+"6643";"Equus burchellii";"Equus quagga"
+"6644";"Sus salvanius";NA
+"6645";"Babyrousa bolabatuensis";NA
+"6646";"Hexaprotodon liberiensis";NA
+"6647";"Gazella erlangeri";NA
+"6648";"Saiga borealis";NA
+"6649";"Taurotragus oryx";NA
+"6650";"Taurotragus derbianus";NA
+"6651";"Alcelaphus caama";NA
+"6652";"Alcelaphus lichtensteinii";NA
+"6653";"Damaliscus superstes";NA
+"6654";"Damaliscus korrigum";NA
+"6655";"Hemitragus jayakari";NA
+"6656";"Hemitragus hylocrius";NA
+"6657";"Pseudois schaeferi";NA
+"6658";"Przewalskium albirostris";"Przewalskium albirostre"
+"6659";"Physeter catodon";"Physeter macrocephalus"

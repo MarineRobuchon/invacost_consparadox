@@ -65,7 +65,7 @@ invacost$unique.sp.id <- do.call("paste", invacost[, c("Kingdom", "Phylum", "Cla
 
 # check entries for Canis lupus and Equus ferus
 canislupus <- invacost[which(invacost$sp.list=="Canis lupus"),]
-# ok so these are only subpsecies entries even if not encoded as such, we therefore need to remove it later in the script "03_build database mammals_birds"
+# ok so these are only subpsecies entries even if not encoded as such, we therefore need to remove it later in the script "04_build_describe_database")
 equusferus <- invacost[which(invacost$sp.list=="Equus ferus"),]
 # this is the species, not the subspecies, so we keep it
 
