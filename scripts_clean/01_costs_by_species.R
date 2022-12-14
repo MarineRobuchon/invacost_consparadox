@@ -63,11 +63,13 @@ invacost$unique.sp.id <- do.call("paste", invacost[, c("Kingdom", "Phylum", "Cla
 # invacost$unique.sp.id[which(invacost$sp.list== "Agave americana")] # so we have to change 117
 # invacost$unique.sp.id[which(invacost$sp.list== "Agave americana")][117] <- "Plantae Tracheophyta Liliopsida Asparagaceae Agave Agave americana"
 
-# check entries for Canis lupus and Equus ferus
+# check entries for Canis lupus, Equus ferus and Felis catus
 canislupus <- invacost[which(invacost$sp.list=="Canis lupus"),]
-# ok so these are only subpsecies entries even if not encoded as such, we therefore need to remove it later in the script "04_build_describe_database")
+# ok so these are only subpsecies entries even if not encoded as such, we therefore need to remove it later in the script "04_build_describe_database"
 equusferus <- invacost[which(invacost$sp.list=="Equus ferus"),]
 # this is the species, not the subspecies, so we keep it
+feliscatus <- invacost[which(invacost$sp.list=="Felis catus"),]
+# Felis catus is a domestic species so we need to remove these entries later in the script "04_build_describe_database"
 
 ## remove entries without cost in "Cost estimate per year 2017 exchange rate"
 ## and those with no information on starting and ending years

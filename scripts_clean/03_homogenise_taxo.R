@@ -102,85 +102,169 @@ write.csv2(taxa_unified, "outputs/taxa_rawandparsednames.csv")
 
 
 ### step 2 of taxonomic homogenisation: match taxonomic databases ----
-## mammals
-# we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms
-out <- gnr_datasources()
-mamout <- out[grep("ammal", out$title),] 
-mamout[2,c("description", "title", "id")]
-# Ref database: Mammal Diversity Database. 2021. www.mammaldiversity.org. American Society of Mammalogists. Accessed 2021-01-28. ASM Mammal Diversity Database
+## mammals - option IUCN RL 2022-1 as the taxonomic reference and itis + mdd for unmatched names
+mammals <- tibble(parsed = unique(mammals_unified %>% 
+                       pull(parsed_binomial)))  %>%
+            left_join(iucn[, 2:3], by = c("parsed" = "scientificName"), keep = TRUE) 
 
-mammals <- unique(mammals_unified %>% 
-                   pull(parsed_binomial)) # the 6738 names to match
+nrow(mammals[which(is.na(mammals$internalTaxonId)),]) # the 769 unmatched names that we will try to retrieve from iucn RL 2022-1 synomyms and itis
 
-mdd <- sapply(mammals, 
-              function(x) gnr_resolve(x, data_source_ids = 184, canonical = TRUE, best_match_only = TRUE)$matched_name2) # match the accepted names of Mammal Diversity Database
+rlsyn <- read.csv("./data/RL_2022-1/synonyms.csv", header = TRUE, sep = ",")
 
-length(mdd[which(mdd=="NULL")]) # 805 unmatched names that we will try to retrieve from ITIS
+rlsyn$synonym <- paste(rlsyn$genusName, rlsyn$speciesName, sep = " ")
 
-itis <- data.frame(mammals = names(mdd[which(mdd=="NULL")]), tsn = NA)
-itis$tsn <- get_tsn(itis$mammals) # get tsn
-itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
-itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
-itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
-colnames(itis)[1] <- "parsed"
-colnames(itis)[3] <- "mdd_itis"
+mammals_rlsyn <- tibble(parsed = unique(mammals$parsed[which(is.na(mammals$internalTaxonId))]))  %>%
+                  left_join(rlsyn[, c(1, 2, 9)], by = c("parsed" = "synonym")) 
 
+mammals_itis <- tibble(parsed = unique(mammals_rlsyn$parsed[which(is.na(mammals_rlsyn$scientificName))]),
+                       tsn = NA)
+mammals_itis$tsn <- get_tsn(mammals_itis$parsed) # get tsn
 
-mdd[which(mdd=="NULL")] <- NA
-mdd <- unlist(mdd)
+mammals_mdd <- tibble(parsed = unique(mammals_itis$parsed[which(is.na(mammals_itis$tsn))]))
 
-mammals <- tibble(parsed = mammals, mdd_itis = mdd)
-mammals <- mammals[-which(is.na(mammals$mdd_itis)),]
-mammals <- rbind(mammals, itis[, c(1, 3)])
+mammals_itis <- mammals_itis[-which(is.na(mammals_itis$tsn)),] # remove names without tsn
+mammals_itis$scientificName <- itis_acceptname(mammals_itis$tsn)$acceptedname # find accepted names
+mammals_itis$scientificName <- word(gn_parse_tidy(mammals_itis$scientificName)$canonicalsimple, 1, 2)
 
-# check that there are 2 words into mdd_itis, NA if not
-mammals$length_mdd_itis <- lengths(strsplit(mammals$mdd_itis, " "))
-unique(mammals$length_mdd_itis) # some do not have 2 words 
-mammals$mdd_itis[which(mammals$length_mdd_itis==1)] <- NA
+mammals_mdd$scientificName <- sapply(mammals_mdd$parsed, 
+                                     function(x) gnr_resolve(x, data_source_ids = 184, canonical = TRUE, best_match_only = TRUE)$matched_name2)
+
+mammals <- mammals[-which(is.na(mammals$scientificName)),]
+mammals_rlsyn <- mammals_rlsyn[-which(is.na(mammals_rlsyn$scientificName)),]
+mammals_itis <- mammals_itis[-which(is.na(mammals_itis$scientificName)),]
+mammals_mdd <- mammals_mdd[-which(mammals_mdd$scientificName=="NULL"),]
+
+mammals <- unique(rbind(mammals [, c(1, 3)], mammals_rlsyn[, c(1, 3)], mammals_itis[, c(1, 3)], mammals_mdd))
+colnames(mammals)[2] <- "iucn_itis_mdd"
+
+# check that there are 2 words into iucn_itis_mdd, NA if not
+mammals$length_iucn_itis_mdd <- lengths(strsplit(as.character(mammals$iucn_itis_mdd), " "))
+unique(mammals$length_iucn_itis_mdd) # some do not have 2 words 
+mammals$iucn_itis_mdd[which(mammals$length_iucn_itis_mdd==1)] <- NA
+mammals$iucn_itis_mdd <- as.character(mammals$iucn_itis_mdd)
 
 # save the taxonomic reference table for mammals
-write.csv2(mammals[, 1:2], "outputs/mammals_taxmatch_mdditis.csv")
-                       
-## birds
-birds <- unique(birds_unified %>%
- pull(parsed_binomial)) # the 13 148 unique parsed names for birds
+write.csv2(mammals[, 1:2], "outputs/mammals_taxmatch_iucnitismdd.csv")
+
+# ## mammals - option mdd itis
+# # we will use gnr_resolve with the mammal species diversity database as the reference, and itis for the synonyms
+# out <- gnr_datasources()
+# mamout <- out[grep("ammal", out$title),] 
+# mamout[2,c("description", "title", "id")]
+# # Ref database: Mammal Diversity Database. 2021. www.mammaldiversity.org. American Society of Mammalogists. Accessed 2021-01-28. ASM Mammal Diversity Database
+# 
+# mammals <- unique(mammals_unified %>% 
+#                    pull(parsed_binomial)) # the 6738 names to match
+# 
+# mdd <- sapply(mammals, 
+#               function(x) gnr_resolve(x, data_source_ids = 184, canonical = TRUE, best_match_only = TRUE)$matched_name2) # match the accepted names of Mammal Diversity Database
+# 
+# length(mdd[which(mdd=="NULL")]) # 805 unmatched names that we will try to retrieve from ITIS
+# 
+# itis <- data.frame(mammals = names(mdd[which(mdd=="NULL")]), tsn = NA)
+# itis$tsn <- get_tsn(itis$mammals) # get tsn
+# itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
+# itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
+# itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
+# colnames(itis)[1] <- "parsed"
+# colnames(itis)[3] <- "mdd_itis"
+# 
+# 
+# mdd[which(mdd=="NULL")] <- NA
+# mdd <- unlist(mdd)
+# 
+# mammals <- tibble(parsed = mammals, mdd_itis = mdd)
+# mammals <- mammals[-which(is.na(mammals$mdd_itis)),]
+# mammals <- rbind(mammals, itis[, c(1, 3)])
+# 
+# # check that there are 2 words into mdd_itis, NA if not
+# mammals$length_mdd_itis <- lengths(strsplit(mammals$mdd_itis, " "))
+# unique(mammals$length_mdd_itis) # some do not have 2 words 
+# mammals$mdd_itis[which(mammals$length_mdd_itis==1)] <- NA
+# 
+# # save the taxonomic reference table for mammals
+# write.csv2(mammals[, 1:2], "outputs/mammals_taxmatch_mdditis.csv")
+
+## birds - option IUCN RL 2022-1 as the taxonomic reference and itis + ebird 2022 for unmatched names
+birds <- tibble(parsed = unique(birds_unified %>% 
+                                    pull(parsed_binomial)))  %>%
+  left_join(iucn[, 2:3], by = c("parsed" = "scientificName"), keep = TRUE) 
+
+nrow(birds[which(is.na(birds$internalTaxonId)),]) # the 1986 unmatched names that we will try to retrieve from iucn RL 2022-1 synomyms and itis and ebird
+
+birds_rlsyn <- tibble(parsed = unique(birds$parsed[which(is.na(birds$internalTaxonId))]))  %>%
+  left_join(rlsyn[, c(1, 2, 9)], by = c("parsed" = "synonym")) 
+
+birds_itis <- tibble(parsed = unique(birds_rlsyn$parsed[which(is.na(birds_rlsyn$scientificName))]),
+                       tsn = NA)
+birds_itis$tsn <- get_tsn(birds_itis$parsed) # get tsn
+
+birds_ebird <- tibble(parsed = unique(birds_itis$parsed[which(is.na(birds_itis$tsn))]))
+
+birds_itis <- birds_itis[-which(is.na(birds_itis$tsn)),] # remove names without tsn
+birds_itis$scientificName <- itis_acceptname(birds_itis$tsn)$acceptedname # find accepted names
+birds_itis$scientificName <- word(gn_parse_tidy(birds_itis$scientificName)$canonicalsimple, 1, 2)
 
 new_tax <- ebirdtaxonomy() # taxonomy ebird V2022
 
-ebird <- sapply(birds, function(x) tryCatch(rebird::species_code(x),
-                               error = function(e) NA)) # match the code name of the species using package rebird version 1.3.0
+birds_ebird <- birds_ebird %>%
+                left_join(new_tax[, c(1, 3)], by = c("parsed" = "sciName"), keep = TRUE) # well, no further match in ebird
 
-birds <- tibble(parsed = birds,
-                code = ebird) %>%
-  left_join(rebird:::tax %>%
-              filter(speciesCode %in% ebird) %>%
-              transmute(code = speciesCode, ebird = sciName)) %>%
-  select(-code)
+birds <- birds[-which(is.na(birds$scientificName)),]
+birds_rlsyn <- birds_rlsyn[-which(is.na(birds_rlsyn$scientificName)),]
+birds_itis <- birds_itis[-which(is.na(birds_itis$scientificName)),]
 
-nrow(birds[which(is.na(birds$ebird)),]) # the 2953 names for which we do not have any match that we will try to retrieve from ITIS
+birds <- unique(rbind(birds [, c(1, 3)], birds_rlsyn[, c(1, 3)], birds_itis[, c(1, 3)]))
+colnames(birds)[2] <- "iucn_itis"
 
-
-itis <- data.frame(birds = birds$parsed[which(is.na(birds$ebird))], tsn = NA)
-itis$tsn <- get_tsn(itis$birds) # get tsn
-
-
-itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
-itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
-itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
-colnames(itis)[1] <- "parsed"
-colnames(itis)[3] <- "ebird_itis"
-
-colnames(birds)[2] <- "ebird_itis"
-birds <- birds[-which(is.na(birds$ebird_itis)),]
-birds <- rbind(birds, itis[, c(1, 3)])
-
-# check that there are 2 words into ebird_itis, NA if not
-birds$length_ebird_itis <- lengths(strsplit(birds$ebird_itis, " "))
-unique(birds$length_ebird_itis) # some do not have 2 words
-birds$ebird_itis[which(birds$length_ebird_itis==1)] #  but they're all NA
+# check that there are 2 words into iucn_itis_ebird, NA if not
+birds$length_iucn_itis <- lengths(strsplit(as.character(birds$iucn_itis), " "))
+unique(birds$length_iucn_itis) # all have 2 words 
 
 # save the taxonomic reference table for birds
-write.csv2(birds[, 1:2], "outputs/birds_taxmatch_ebirditis.csv")
+write.csv2(birds[, 1:2], "outputs/birds_taxmatch_iucnitis.csv")
+
+                       
+# ## birds - option ebird and itis
+# birds <- unique(birds_unified %>%
+#  pull(parsed_binomial)) # the 13 148 unique parsed names for birds
+# 
+# new_tax <- ebirdtaxonomy() # taxonomy ebird V2022
+# 
+# ebird <- sapply(birds, function(x) tryCatch(rebird::species_code(x),
+#                                error = function(e) NA)) # match the code name of the species using package rebird version 1.3.0
+# 
+# birds <- tibble(parsed = birds,
+#                 code = ebird) %>%
+#   left_join(rebird:::tax %>%
+#               filter(speciesCode %in% ebird) %>%
+#               transmute(code = speciesCode, ebird = sciName)) %>%
+#   select(-code)
+# 
+# nrow(birds[which(is.na(birds$ebird)),]) # the 2953 names for which we do not have any match that we will try to retrieve from ITIS
+# 
+# 
+# itis <- data.frame(birds = birds$parsed[which(is.na(birds$ebird))], tsn = NA)
+# itis$tsn <- get_tsn(itis$birds) # get tsn
+# 
+# 
+# itis <- itis[-which(is.na(itis$tsn)),] # remove names without tsn
+# itis$acceptedname <- itis_acceptname(itis$tsn)$acceptedname # find accepted names
+# itis$acceptedname <- word(gn_parse_tidy(itis$acceptedname)$canonicalsimple, 1, 2)
+# colnames(itis)[1] <- "parsed"
+# colnames(itis)[3] <- "ebird_itis"
+# 
+# colnames(birds)[2] <- "ebird_itis"
+# birds <- birds[-which(is.na(birds$ebird_itis)),]
+# birds <- rbind(birds, itis[, c(1, 3)])
+# 
+# # check that there are 2 words into ebird_itis, NA if not
+# birds$length_ebird_itis <- lengths(strsplit(birds$ebird_itis, " "))
+# unique(birds$length_ebird_itis) # some do not have 2 words
+# birds$ebird_itis[which(birds$length_ebird_itis==1)] #  but they're all NA
+# 
+# # save the taxonomic reference table for birds
+# write.csv2(birds[, 1:2], "outputs/birds_taxmatch_ebirditis.csv")
 
 ## plants
 plants <- unique(plants_unified %>% 
