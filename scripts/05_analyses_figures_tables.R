@@ -12,6 +12,7 @@ library(DataCombine)
 library(ggpubr)
 library(cowplot)
 library(forcats)
+library(eulerr)
 
 ### Load and organise data ----
 data_all <-  read.csv2(paste0(getwd(), "/outputs/final_db.csv"))[, -1]
@@ -32,6 +33,7 @@ data_all$species2lines <- gsub(" ", "\n", data_all$species)
 
 # transform oriFtree in numeric
 data_all$oriFtree <- as.numeric(data_all$oriFtree)
+
 
 ### Threat status and distinctiveness of the costliest invasive species in InvaCost ----
 ## identification of the costliest species by type of costs & taxon ----
@@ -273,7 +275,9 @@ dev.off()
 # damage
 summary(mammals$oriFtree)[3]  # median
 summary(mammals$oriFtree)[5]  # 3rd quantile
-
+mammals$rank_dietoriFtree <- rank(-mammals$dietoriFtree, na.last = "keep", ties.method = "average")
+mammals$rank_activityoriFtree <- rank(-mammals$activityoriFtree, na.last = "keep", ties.method = "average")
+mammals$rank_massoriFtree <- rank(-mammals$massoriFtree, na.last = "keep", ties.method = "average")
 mammals$rank_oriFtree <- rank(-mammals$oriFtree, na.last = "keep", ties.method = "average")
 top5_mam_damage <- merge(top5_mam_damage, mammals)
 
@@ -294,6 +298,9 @@ A_mammals
 
 summary(birds$oriFtree)[3]  # median
 summary(birds$oriFtree)[5]  # 3rd quantile
+birds$rank_dietoriFtree <- rank(-birds$dietoriFtree, na.last = "keep", ties.method = "average")
+birds$rank_activityoriFtree <- rank(-birds$activityoriFtree, na.last = "keep", ties.method = "average")
+birds$rank_massoriFtree <- rank(-birds$massoriFtree, na.last = "keep", ties.method = "average")
 birds$rank_oriFtree <- rank(-birds$oriFtree, na.last = "keep", ties.method = "average")
 top5_bird_damage <- merge(top5_bird_damage, birds)
 
@@ -315,6 +322,9 @@ C_birds
 summary(plants$oriFtree)[3]  # median
 summary(plants$oriFtree)[5]  # 3rd quantile
 plants$rank_oriFtree <- rank(-plants$oriFtree, na.last = "keep", ties.method = "average")
+plants$rank_dietoriFtree <- rank(-plants$dietoriFtree, na.last = "keep", ties.method = "average")
+plants$rank_activityoriFtree <- rank(-plants$activityoriFtree, na.last = "keep", ties.method = "average")
+plants$rank_massoriFtree <- rank(-plants$massoriFtree, na.last = "keep", ties.method = "average")
 top5_plant_damage <- merge(top5_plant_damage, plants)
 
 E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(species2lines, oriFtree), y = oriFtree)) + 
@@ -390,8 +400,10 @@ ggarrange(A_mammals + rremove("x.title"), B_mammals + rremove("x.title"), C_bird
           ncol = 2, nrow = 3 , heights = c(1, 1, 1), common.legend = TRUE, legend = "bottom", align = "hv")
 dev.copy(png, file = paste0(getwd(), "/outputs/FIGURE4.png"), res = 600, height = 7, width = 6.85, units = "in")
 dev.off()
+
+
 ### Presence in InvaCost and costs of the threatened and most distinctive species ----
-## identification of the threatened and most original species by taxon ----
+## identification of the threatened and most distinctive species by taxon ----
 threatened <- data_all[which(data_all$redlistCategory%in%c("vulnerable", "endangered", "critically endangered")),]
 threatened_mammals <- threatened[which(threatened$taxon=="MAMMALS") ,]
 threatened_birds <- threatened[which(threatened$taxon=="BIRDS") ,]
@@ -436,3 +448,355 @@ colnames(threatened_inv)
 
 table_invacost_threatened <- threatened_inv[c("taxon", "species", "redlistCategory", "damage_cost", "management_cost")]
 write.csv2(table_invacost_threatened, paste0(getwd(), "/outputs/table_invacost_threatened.csv"))
+
+## presence in InvaCost and costs of the TOP25 PO species ----
+TOP25PO_mammals_inv <- TOP25PO_mammals[-which(is.na(TOP25PO_mammals$damage_cost|TOP25PO_mammals$management_cost)),]
+TOP25PO_mammals_inv[order(TOP25PO_mammals_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP25PO_mammals_inv) # 11 mammal species are both in TOP25PO and have a cost in InvaCost
+nrow(TOP25PO_mammals_inv[!is.na(TOP25PO_mammals_inv$damage_cost),]) # 3 mammal species have a damage cost
+nrow(TOP25PO_mammals_inv[!is.na(TOP25PO_mammals_inv$management_cost),]) # 11 mammal species have a management cost
+
+TOP25PO_birds_inv <- TOP25PO_birds[-which(is.na(TOP25PO_birds$damage_cost|TOP25PO_birds$management_cost)),]
+TOP25PO_birds_inv[order(TOP25PO_birds_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP25PO_birds_inv) # 2 bird species are both in TOP25PO and have a cost in InvaCost
+nrow(TOP25PO_birds_inv[!is.na(TOP25PO_birds_inv$damage_cost),]) # none have a damage cost
+nrow(TOP25PO_birds_inv[!is.na(TOP25PO_birds_inv$management_cost),]) # 2 bird species have a management cost
+
+TOP25PO_plants_inv <- TOP25PO_plants[-which(is.na(TOP25PO_plants$damage_cost|TOP25PO_plants$management_cost)),]
+TOP25PO_plants_inv[order(TOP25PO_plants_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP25PO_plants_inv) # 28 plant species are both in TOP25PO and have a cost in InvaCost
+nrow(TOP25PO_plants_inv[!is.na(TOP25PO_plants_inv$damage_cost),]) # 5 plant species have a damage cost
+nrow(TOP25PO_plants_inv[!is.na(TOP25PO_plants_inv$management_cost),]) # 26 plant species have a management cost
+
+TOP25PO_inv <- rbind(TOP25PO_mammals_inv[order(TOP25PO_mammals_inv$oriPtree, decreasing = TRUE),],
+                     TOP25PO_birds_inv[order(TOP25PO_birds_inv$oriPtree, decreasing = TRUE),],
+                     TOP25PO_plants_inv[order(TOP25PO_plants_inv$oriPtree, decreasing = TRUE),])
+
+colnames(TOP25PO_inv)
+
+table_invacost_TOP25PO <- TOP25PO_inv[c("taxon", "species", "oriPtree", "rank_oriPtree","damage_cost", "management_cost")]
+write.csv2(table_invacost_TOP25PO, paste0(getwd(), "/outputs/table_invacost_TOP25PO.csv"))
+
+## presence in InvaCost and costs of the TOP25 FO species ---- 
+TOP25FO_mammals_inv <- TOP25FO_mammals[-which(is.na(TOP25FO_mammals$damage_cost|TOP25FO_mammals$management_cost)),]
+TOP25FO_mammals_inv[order(TOP25FO_mammals_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP25FO_mammals_inv) # 14 mammal species are both in TOP25FO and have a cost in InvaCost
+nrow(TOP25FO_mammals_inv[!is.na(TOP25FO_mammals_inv$damage_cost),]) # 7 mammal species have a damage cost
+nrow(TOP25FO_mammals_inv[!is.na(TOP25FO_mammals_inv$management_cost),]) # 12 mammal species have a management cost
+
+TOP25FO_birds_inv <- TOP25FO_birds[-which(is.na(TOP25FO_birds$damage_cost|TOP25FO_birds$management_cost)),]
+TOP25FO_birds_inv[order(TOP25FO_birds_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP25FO_birds_inv) # 8 bird species are both in TOP25FO and have a cost in InvaCost
+nrow(TOP25FO_birds_inv[!is.na(TOP25FO_birds_inv$damage_cost),]) # 4 have a damage cost
+nrow(TOP25FO_birds_inv[!is.na(TOP25FO_birds_inv$management_cost),]) # 7 bird species have a management cost
+
+TOP25FO_plants_inv <- TOP25FO_plants[-which(is.na(TOP25FO_plants$damage_cost|TOP25FO_plants$management_cost)),]
+TOP25FO_plants_inv[order(TOP25FO_plants_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP25FO_plants_inv) # 26 plant species are both in TOP25FO and have a cost in InvaCost
+nrow(TOP25FO_plants_inv[!is.na(TOP25FO_plants_inv$damage_cost),]) # 5 plant species have a damage cost
+nrow(TOP25FO_plants_inv[!is.na(TOP25FO_plants_inv$management_cost),]) # 24 plant species have a management cost
+
+TOP25FO_inv <- rbind(TOP25FO_mammals_inv[order(TOP25FO_mammals_inv$oriFtree, decreasing = TRUE),],
+                     TOP25FO_birds_inv[order(TOP25FO_birds_inv$oriFtree, decreasing = TRUE),],
+                     TOP25FO_plants_inv[order(TOP25FO_plants_inv$oriFtree, decreasing = TRUE),])
+
+colnames(TOP25FO_inv)
+
+table_invacost_TOP25FO <- TOP25FO_inv[c("taxon", "species", "oriFtree", "rank_oriFtree",
+                                        "dietoriFtree", "rank_dietoriFtree",
+                                        "activityoriFtree", "rank_activityoriFtree",     
+                                        "massoriFtree", "rank_massoriFtree",
+                                        "damage_cost", "management_cost")]
+write.csv2(table_invacost_TOP25FO, paste0(getwd(), "/outputs/table_invacost_TOP25FO.csv"))
+
+## presence in InvaCost and costs of the TOP5 PO species ----
+TOP5PO_mammals_inv <- TOP5PO_mammals[-which(is.na(TOP5PO_mammals$damage_cost|TOP5PO_mammals$management_cost)),]
+TOP5PO_mammals_inv[order(TOP5PO_mammals_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP5PO_mammals_inv) # 1 mammal species is both in TOP5PO and has a cost in InvaCost
+nrow(TOP5PO_mammals_inv[!is.na(TOP5PO_mammals_inv$damage_cost),]) # it has no damage cost
+nrow(TOP5PO_mammals_inv[!is.na(TOP5PO_mammals_inv$management_cost),]) # it has a management cost
+
+TOP5PO_birds_inv <- TOP5PO_birds[-which(is.na(TOP5PO_birds$damage_cost|TOP5PO_birds$management_cost)),]
+TOP5PO_birds_inv[order(TOP5PO_birds_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP5PO_birds_inv) # none bird species is both in TOP5PO and has a cost in InvaCost
+
+TOP5PO_plants_inv <- TOP5PO_plants[-which(is.na(TOP5PO_plants$damage_cost|TOP5PO_plants$management_cost)),]
+TOP5PO_plants_inv[order(TOP5PO_plants_inv$oriPtree, decreasing = TRUE),]
+nrow(TOP5PO_plants_inv) # 7 plant species are both in TOP5PO and have a cost in InvaCost
+nrow(TOP5PO_plants_inv[!is.na(TOP5PO_plants_inv$damage_cost),]) # 2 plant species have a damage cost
+nrow(TOP5PO_plants_inv[!is.na(TOP5PO_plants_inv$management_cost),]) # 6 plant species have a management cost
+
+TOP5PO_inv <- rbind(TOP5PO_mammals_inv[order(TOP5PO_mammals_inv$oriPtree, decreasing = TRUE),],
+                     TOP5PO_birds_inv[order(TOP5PO_birds_inv$oriPtree, decreasing = TRUE),],
+                     TOP5PO_plants_inv[order(TOP5PO_plants_inv$oriPtree, decreasing = TRUE),])
+
+table_invacost_TOP5PO <- TOP5PO_inv[c("taxon", "species", "oriPtree", "rank_oriPtree","damage_cost", "management_cost")]
+write.csv2(table_invacost_TOP5PO, paste0(getwd(), "/outputs/table_invacost_TOP5PO.csv"))
+
+## presence in InvaCost and costs of the TOP5 FO species ---- 
+TOP5FO_mammals_inv <- TOP5FO_mammals[-which(is.na(TOP5FO_mammals$damage_cost|TOP5FO_mammals$management_cost)),]
+TOP5FO_mammals_inv[order(TOP5FO_mammals_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP5FO_mammals_inv) # 8 mammal species are both in TOP5FO and have a cost in InvaCost
+nrow(TOP5FO_mammals_inv[!is.na(TOP5FO_mammals_inv$damage_cost),]) # 4 mammal species have a damage cost
+nrow(TOP5FO_mammals_inv[!is.na(TOP5FO_mammals_inv$management_cost),]) # 6 mammal species have a management cost
+
+TOP5FO_birds_inv <- TOP5FO_birds[-which(is.na(TOP5FO_birds$damage_cost|TOP5FO_birds$management_cost)),]
+TOP5FO_birds_inv[order(TOP5FO_birds_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP5FO_birds_inv) # 3 bird species are both in TOP5FO and have a cost in InvaCost
+nrow(TOP5FO_birds_inv[!is.na(TOP5FO_birds_inv$damage_cost),]) # 1 has a damage cost
+nrow(TOP5FO_birds_inv[!is.na(TOP5FO_birds_inv$management_cost),]) # 3 bird species have a management cost
+
+TOP5FO_plants_inv <- TOP5FO_plants[-which(is.na(TOP5FO_plants$damage_cost|TOP5FO_plants$management_cost)),]
+TOP5FO_plants_inv[order(TOP5FO_plants_inv$oriFtree, decreasing = TRUE),]
+nrow(TOP5FO_plants_inv) # 8 plant species are both in TOP5FO and have a cost in InvaCost
+nrow(TOP5FO_plants_inv[!is.na(TOP5FO_plants_inv$damage_cost),]) # 2 plant species have a damage cost
+nrow(TOP5FO_plants_inv[!is.na(TOP5FO_plants_inv$management_cost),]) # 7 plant species have a management cost
+
+TOP5FO_inv <- rbind(TOP5FO_mammals_inv[order(TOP5FO_mammals_inv$oriFtree, decreasing = TRUE),],
+                     TOP5FO_birds_inv[order(TOP5FO_birds_inv$oriFtree, decreasing = TRUE),],
+                     TOP5FO_plants_inv[order(TOP5FO_plants_inv$oriFtree, decreasing = TRUE),])
+
+table_invacost_TOP5FO <- TOP5FO_inv[c("taxon", "species", "oriFtree", "rank_oriFtree",
+                                        "dietoriFtree", "rank_dietoriFtree",
+                                        "activityoriFtree", "rank_activityoriFtree",     
+                                        "massoriFtree", "rank_massoriFtree",
+                                        "damage_cost", "management_cost")]
+write.csv2(table_invacost_TOP5FO, paste0(getwd(), "/outputs/table_invacost_TOP5FO.csv"))
+
+
+## build a table with quantitative info about all species in InvaCost being either threatened 
+## and/or in TOP25PO and/or in TOP25FO and/or in TOP5PO and/or in TOP5FO----
+quanti_all <- rbind(mammals, birds, plants) # all mammals, birds, and plants
+quanti_inv <- quanti_all[-which(is.na(quanti_all$damage_cost|quanti_all$management_cost)),] # mammals, birds, and plants having a cost in InvaCost
+
+consparadox <- unique(c(threatened_inv$species, TOP25PO_inv$species, TOP25FO_inv$species,
+                        TOP5PO_inv$species, TOP5FO_inv$species)) # list of species in InvaCost being either threatened and/or in TOP25PO and/or in TOP25FO and/or in TOP5PO and/or in TOP5FO
+
+quanti_consparadox <- quanti_inv[which(quanti_inv$species %in% consparadox),]
+
+colnames(quanti_consparadox)
+
+quanti_consparadox <- quanti_consparadox[c("taxon", "species", "redlistCategory", "oriPtree", "rank_oriPtree", "dietoriFtree", "rank_dietoriFtree",
+                                           "activityoriFtree", "rank_activityoriFtree",  "massoriFtree", "rank_massoriFtree",
+                                           "oriFtree", "rank_oriFtree", "damage_cost", "management_cost")]
+
+quanti_consparadox$threatened <- 0
+quanti_consparadox$threatened[which(quanti_consparadox$species %in% threatened_inv$species)] <- 1
+
+quanti_consparadox$TOP25PO <- 0
+quanti_consparadox$TOP25PO[which(quanti_consparadox$species %in% TOP25PO_inv$species)] <- 1
+
+quanti_consparadox$TOP25FO <- 0
+quanti_consparadox$TOP25FO[which(quanti_consparadox$species %in% TOP25FO_inv$species)] <- 1
+
+quanti_consparadox$TOP5PO <- 0
+quanti_consparadox$TOP5PO[which(quanti_consparadox$species %in% TOP5PO_inv$species)] <- 1
+
+quanti_consparadox$TOP5FO <- 0
+quanti_consparadox$TOP5FO[which(quanti_consparadox$species %in% TOP5FO_inv$species)] <- 1
+
+quanti_consparadox$N_criteriaTOP25 <- rowSums(quanti_consparadox[c("threatened", "TOP25PO", "TOP25FO")])
+quanti_consparadox$N_criteriaTOP5 <- rowSums(quanti_consparadox[c("threatened", "TOP5PO", "TOP5FO")])
+
+quanti_consparadox$species[quanti_consparadox$N_criteriaTOP25==2]
+quanti_consparadox$species[quanti_consparadox$N_criteriaTOP5==2]
+
+str(quanti_consparadox)
+
+write.csv2(quanti_consparadox, paste0(getwd(), "/outputs/quanti_consparadox.csv"))
+
+# quantitative information on mammal conservation paradoxes
+quanti_consparadox_mammals <- quanti_consparadox[which(quanti_consparadox$taxon=="MAMMALS"),]
+nrow(quanti_consparadox_mammals) # 23 mammal species constitute a conservation paradox, of which
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$N_criteriaTOP25 == 1 & quanti_consparadox_mammals$threatened == 1),]) # 3 are threatened only
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$N_criteriaTOP25 == 1 & quanti_consparadox_mammals$TOP25PO == 1),]) # 3 belong to the TOP25% PO only
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$N_criteriaTOP25 == 1 & quanti_consparadox_mammals$TOP25FO == 1),]) # 9 belong to the TOP25% FO only
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$threatened == 1 & quanti_consparadox_mammals$TOP25PO == 1),]) # 2 are both threatened and belong to the TOP25% PO
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$threatened == 1 & quanti_consparadox_mammals$TOP25FO == 1),]) # 0 are both threatened and belong to the TOP25% FO
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$TOP25PO == 1 & quanti_consparadox_mammals$TOP25FO == 1),]) # 5 both belong to the TOP25% PO and the TOP25% FO
+
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$N_criteriaTOP5 == 1 & quanti_consparadox_mammals$TOP5PO == 1),]) # 0 belong to the TOP5% PO only
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$N_criteriaTOP5 == 1 & quanti_consparadox_mammals$TOP5FO == 1),]) # 8 belong to the TOP5% FO only
+nrow(quanti_consparadox_mammals[which(quanti_consparadox_mammals$TOP5PO == 1 & quanti_consparadox_mammals$TOP5FO == 1),]) # 0 both belong to the TOP5% PO and the TOP5% FO
+
+# quantitative information on bird conservation paradoxes
+quanti_consparadox_birds <- quanti_consparadox[which(quanti_consparadox$taxon=="BIRDS"),]
+nrow(quanti_consparadox_birds) # 9 bird species constitute a conservation paradox, of which
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$N_criteriaTOP25 == 1 & quanti_consparadox_birds$threatened == 1),]) # 0 are threatened only
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$N_criteriaTOP25 == 1 & quanti_consparadox_birds$TOP25PO == 1),]) # 1 belongs to the TOP25% PO only
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$N_criteriaTOP25 == 1 & quanti_consparadox_birds$TOP25FO == 1),]) # 7 belong to the TOP25% FO only
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$TOP25PO == 1 & quanti_consparadox_birds$TOP25FO == 1),]) # 1 both belongs to the TOP25% PO and the TOP25% FO
+
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$N_criteriaTOP5 == 1 & quanti_consparadox_birds$TOP5PO == 1),]) # 0 belong to the TOP5% PO only
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$N_criteriaTOP5 == 1 & quanti_consparadox_birds$TOP5FO == 1),]) # 3 belong to the TOP5% FO only
+nrow(quanti_consparadox_birds[which(quanti_consparadox_birds$TOP5PO == 1 & quanti_consparadox_birds$TOP5FO == 1),]) # 0 both belong to the TOP5% PO and the TOP5% FO
+
+# quantitative information on plant conservation paradoxes
+quanti_consparadox_plants <- quanti_consparadox[which(quanti_consparadox$taxon=="PLANTS"),]
+nrow(quanti_consparadox_plants) # 57 plant species constitute a conservation paradox, of which
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$N_criteriaTOP25 == 1 & quanti_consparadox_plants$threatened == 1),]) # 5 are threatened only
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$N_criteriaTOP25 == 1 & quanti_consparadox_plants$TOP25PO == 1),]) # 26 belong to the TOP25% PO only
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$N_criteriaTOP25 == 1 & quanti_consparadox_plants$TOP25FO == 1),]) # 24 belong to the TOP25% FO only
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$threatened == 1 & quanti_consparadox_plants$TOP25PO == 1),]) # 0 are both threatened and belong to the TOP25% PO
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$threatened == 1 & quanti_consparadox_plants$TOP25FO == 1),]) # 0 are both threatened and belong to the TOP25% FO
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$TOP25PO == 1 & quanti_consparadox_plants$TOP25FO == 1),]) # 2 both belong to the TOP25% PO and the TOP25% FO
+
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$N_criteriaTOP5 == 1 & quanti_consparadox_plants$TOP5PO == 1),]) # 7 belong to the TOP5% PO only
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$N_criteriaTOP5 == 1 & quanti_consparadox_plants$TOP5FO == 1),]) # 8 belong to the TOP5% FO only
+nrow(quanti_consparadox_plants[which(quanti_consparadox_plants$TOP5PO == 1 & quanti_consparadox_plants$TOP5FO == 1),]) # 0 both belong to the TOP5% PO and the TOP5% FO
+
+## build euler diagram to show which species have both a cost in Invacost and are threatened 
+## and/or belong to TOP25PO and/or belong to TOP25FO and/or belong to TOP5PO and/or belong to TOP5FO ----
+# prepare the input tables
+quanti_all$invacost <- 0
+quanti_all$invacost[-which(is.na(quanti_all$damage_cost|quanti_all$management_cost))] <- 1
+  
+quanti_all$threatened <- 0
+quanti_all$threatened[which(quanti_all$species %in% threatened$species)] <- 1
+
+quanti_all$TOP25PO <- 0
+quanti_all$TOP25PO[which(quanti_all$species %in% c(TOP25PO_mammals$species, TOP25PO_birds$species, TOP25PO_plants$species))] <- 1
+
+quanti_all$TOP25FO <- 0
+quanti_all$TOP25FO[which(quanti_all$species %in% c(TOP25FO_mammals$species, TOP25FO_birds$species, TOP25FO_plants$species))] <- 1
+
+quanti_all$TOP5PO <- 0
+quanti_all$TOP5PO[which(quanti_all$species %in% c(TOP5PO_mammals$species, TOP5PO_birds$species, TOP5PO_plants$species))] <- 1
+
+quanti_all$TOP5FO <- 0
+quanti_all$TOP5FO[which(quanti_all$species %in% c(TOP5FO_mammals$species, TOP5FO_birds$species, TOP5FO_plants$species))] <- 1
+
+colnames(quanti_all)
+
+# make and save the plots
+euler_input_TOP25 <- quanti_all[, c("invacost", "threatened", "TOP25PO", "TOP25FO")] 
+fit_TOP25 <-  euler(euler_input_TOP25, shape = "ellipse")
+fit_TOP25
+plot(fit_TOP25) # the number of species in InvaCost is low compared to the number of species investigated that it is worth representing only InvaCost species
+
+euler_input_TOP25_inv <- euler_input_TOP25[which(euler_input_TOP25$invacost==1), c("threatened", "TOP25PO", "TOP25FO")]
+fit_TOP25_inv <-  euler(euler_input_TOP25_inv, shape = "ellipse")
+fit_TOP25_inv
+
+windows(6.85, 5)
+plot(fit_TOP25_inv, quantities = TRUE, 
+     labels = c("Threatened", "Phylogenetically distinctive", "Functionally distinctive"),
+     fill = RColorBrewer::brewer.pal(3, "Pastel1"))
+dev.copy(png, file = paste0(getwd(), "/outputs/FIGURE2_TOP25.png"), res = 600, height = 5, width = 6.85, units = "in")
+dev.off()
+
+euler_input_TOP5 <- quanti_all[, c("invacost", "threatened", "TOP5PO", "TOP5FO")] 
+fit_TOP5 <-  euler(euler_input_TOP5, shape = "ellipse")
+fit_TOP5
+plot(fit_TOP5) # the number of species in InvaCost is low compared to the number of species investigated that it is worth representing only InvaCost species
+
+euler_input_TOP5_inv <- euler_input_TOP5[which(euler_input_TOP5$invacost==1), c("threatened", "TOP5PO", "TOP5FO")]
+fit_TOP5_inv <-  euler(euler_input_TOP5_inv, shape = "ellipse")
+fit_TOP5_inv
+
+windows(6.85, 5)
+plot(fit_TOP5_inv, quantities = TRUE, 
+     labels = c("Threatened", "Phylogenetically\ndistinctive", "Functionally\ndistinctive"),
+     fill = RColorBrewer::brewer.pal(3, "Pastel1"))
+dev.copy(png, file = paste0(getwd(), "/outputs/FIGURE2_TOP5.png"), res = 600, height = 5, width = 6.85, units = "in")
+dev.off()
+
+
+
+
+
+
+### Showing threat status and distinctiveness of species in InvaCost in in comparison of all species of their taxonomic group ----
+## threat status ----
+# mammals
+mammals <- quanti_all[which(quanti_all$taxon=="MAMMALS"),]
+Nb <- rep(1, length(mammals[,1]))
+mammals$Nb <- Nb
+mammals$invacost <- factor(mammals$invacost, levels = c("1", "0"))
+levels(mammals$invacost)
+mammals$redlistCategory <- factor(mammals$redlistCategory)
+levels(mammals$redlistCategory)
+
+threatmammals <- ddply(mammals, c("redlistCategory", "invacost"), summarise, Number=sum(Nb), .drop = FALSE)
+
+plot_threatmammals <- ggplot(data = threatmammals, aes(x = redlistCategory, fill = invacost, y = Number)) + 
+  geom_bar(position = "dodge", stat = "identity") +
+  ggtitle("MAMMALS") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 40, hjust = 1), axis.title.x = element_blank(), plot.title = element_text(size = 10))+
+  guides(fill = guide_legend(title = "Presence in InvaCost"))+
+  labs(y = "Number of species") +
+  scale_fill_manual(values = c("black","grey")) +
+  scale_y_continuous(trans = "sqrt")
+
+plot_threatmammals
+
+# birds
+birds <- quanti_all[which(quanti_all$taxon=="BIRDS"),]
+Nb <- rep(1, length(birds[,1]))
+birds$Nb <- Nb
+birds$invacost <- factor(birds$invacost, levels = c("1", "0"))
+levels(birds$invacost)
+birds$redlistCategory <- factor(birds$redlistCategory)
+levels(birds$redlistCategory)
+
+threatbirds <- ddply(birds, c("redlistCategory", "invacost"), summarise, Number=sum(Nb), .drop = FALSE)
+
+plot_threatbirds <- ggplot(data = threatbirds, aes(x = redlistCategory, fill = invacost, y = Number)) + 
+  geom_bar(position = "dodge", stat = "identity") +
+  ggtitle("BIRDS") +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 40, hjust = 1), axis.title.x = element_blank(), plot.title = element_text(size = 10)) +
+  guides(fill = guide_legend(title = "Presence in InvaCost"))+
+  labs(y = "Number of species") +
+  scale_fill_manual(values = c("black","grey")) +
+  scale_y_continuous(trans = "sqrt")
+
+plot_threatbirds
+
+# plants
+plants <- quanti_all[which(quanti_all$taxon=="PLANTS"),]
+Nb <- rep(1, length(plants[,1]))
+plants$Nb <- Nb
+
+plants$invacost <- factor(plants$invacost, levels = c("1", "0"))
+levels(plants$invacost)
+plants$redlistCategory <- factor(plants$redlistCategory)
+levels(plants$redlistCategory)
+
+threatplants <- ddply(plants, c("redlistCategory", "invacost"), summarise, Number=sum(Nb), .drop = FALSE)
+
+plot_threatplants <- ggplot(data = threatplants, aes(x = redlistCategory, fill = invacost, y = Number)) + 
+  geom_bar(position = "dodge", stat = "identity") +
+  ggtitle("PLANTS" ) +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 40, hjust = 1), axis.title.x = element_blank(), plot.title = element_text(size = 10))+
+  guides(fill = guide_legend(title = "Presence in InvaCost"))+
+  labs(y = "Number of species") +
+  scale_fill_manual(values = c("black","grey")) +
+  scale_y_continuous(trans = "sqrt")
+
+plot_threatplants
+
+## phylogenetic distinctiveness ---- HERE!!!
+# mammals
+phylomammals <- mammals[!is.na(mammals$oriPtree),]
+
+plot_phylomammals <- ggplot(phylomammals, aes(x = oriPtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") +
+  geom_jitter(data = phylomammals[which(phylomammals$invacost == 1),], aes(x = oriPtree, y = ""),
+              shape = 16, size = 1, binwidth = 0.005, color = "black", position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 10)) +
+  labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
+  ggtitle("MAMMALS") +
+  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 35, 45, 55)) +
+  coord_flip()
+
+plot_phylomammals
+
+
+
+
+
