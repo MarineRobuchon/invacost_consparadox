@@ -785,10 +785,10 @@ phylomammals <- mammals[!is.na(mammals$oriPtree),]
 plot_phylomammals <- ggplot(phylomammals, aes(x = oriPtree, y = "")) +
   geom_violin(fill = "grey", scale = "area") +
   geom_jitter(data = phylomammals[which(phylomammals$invacost == 1),], aes(x = oriPtree, y = ""),
-              shape = 16, size = 1, binwidth = 0.005, color = "black", position = position_jitter(0)) +
+              shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  theme_bw() +  theme(plot.title = element_text(size = 10)) +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
   ggtitle("MAMMALS") +
   scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 35, 45, 55)) +
@@ -796,6 +796,102 @@ plot_phylomammals <- ggplot(phylomammals, aes(x = oriPtree, y = "")) +
 
 plot_phylomammals
 
+# birds
+phylobirds <- birds[!is.na(birds$oriPtree),]
+
+plot_phylobirds <- ggplot(phylobirds, aes(x = oriPtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") +
+  geom_jitter(data = phylobirds[which(phylobirds$invacost == 1),], aes(x = oriPtree, y = ""),
+              shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
+  labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
+  ggtitle("BIRDS") +
+  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 35, 45, 55)) +
+  coord_flip()
+
+plot_phylobirds
+
+# plants
+phyloplants <- plants[!is.na(plants$oriPtree),]
+
+plot_phyloplants <- ggplot(phyloplants, aes(x = oriPtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") + 
+  geom_jitter(data = phyloplants[which(phyloplants$invacost == 1),], aes(x = oriPtree, y = ""),
+              shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
+  labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
+  ggtitle("PLANTS") +
+  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 100, 150, 250)) +
+  coord_flip()
+
+plot_phyloplants
+
+
+## functional distinctiveness ----
+# mammals
+functiomammals <- mammals[!is.na(mammals$oriFtree),]
+
+plot_functiomammals <- ggplot(functiomammals, aes(x = oriFtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") +
+  geom_jitter(data = functiomammals[which(functiomammals$invacost == 1),], aes(x = oriFtree, y = ""),
+              shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
+  labs(x = "Functional distinctiveness", y = "") +
+  ggtitle("MAMMALS") +
+  scale_x_continuous(trans = "log", breaks = c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) +
+  coord_flip()
+
+plot_functiomammals
+
+# birds
+functiobirds <- birds[!is.na(birds$oriFtree),]
+
+plot_functiobirds <- ggplot(functiobirds, aes(x = oriFtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") +
+  geom_jitter(data = functiobirds[which(functiobirds$invacost == 1),], aes(x = oriFtree, y = ""),
+              shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
+  labs(x = "Functional distinctiveness", y = "") +
+  ggtitle("BIRDS") +
+  scale_x_continuous(trans = "log", breaks = c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) +
+  coord_flip()
+
+plot_functiobirds
+
+# plants
+functioplants <- plants[!is.na(plants$oriFtree),]
+
+plot_functioplants <- ggplot(functioplants, aes(x = oriFtree, y = "")) +
+  geom_violin(fill = "grey", scale = "area") +
+  geom_jitter(data = functioplants[which(functioplants$invacost == 1),], aes(x = oriFtree, y = ""),
+              shape = 16, size = 0.9, fill = "black", alpha = 0.6, position = position_jitter(0)) +
+  geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
+  geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
+  labs(x = "Functional distinctiveness", y = "") +
+  ggtitle("PLANTS") +
+  scale_x_continuous(trans = "log", breaks = c(0.005, 0.01, 0.1, 1), labels = c("0.005", "0.01", "0.1", "1")) +
+  coord_flip()
+
+plot_functioplants
+
+## complete figure ----
+jpeg(paste0(getwd(), "/outputs/FIGURE1.jpeg"), width = 7, height = 9, units = "in", res = 600)
+plot_grid(plot_threatmammals + theme(legend.position = "none"), 
+          plot_threatbirds + theme(legend.position = "none"), 
+          plot_threatplants + theme(legend.position = "none"),
+          plot_phylomammals, plot_phylobirds, plot_phyloplants,
+          plot_functiomammals, plot_functiobirds, plot_functioplants,
+          rel_widths = c(2, 2, 2), ncol = 3, nrow = 3, labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I"))
+dev.off()
 
 
 
