@@ -1,6 +1,6 @@
 ---
-title: "Originality and threat status of economically important exotic species: revealing conservation paradoxes"
-author: Github repository & scripts created by Marine Robuchon, with contributions of Céline Bellard and XXX
+title: "Assessing conservation paradoxes and challenges in invasive alien species of economic concern"
+author: Github repository & scripts created by Marine Robuchon, with contributions of Céline Bellard, Camille Bernery, Cheikh Dia, Gustavo Heringer, Boris Leroy, Sandrine Pavoine & Vanessa Rezende
 output: 
   # html_document: 
   #   theme: united
@@ -11,5 +11,90 @@ output:
     toc_depth: 3
 ---
 
-## 1. Description & organisation of the repository
-The purpose of this github repository is to document the data used, the analyses carried out and the figures and tables produced with RStudio for the paper "Originality and threat status of economically important exotic species: revealing conservation paradoxes". 
+NB: data and outputs to further complete from script 03 (01 and 02 already included)
+
+
+# 1. Description & organisation of the repository
+The purpose of this github repository is to document the data used, the analyses carried out and the figures and tables produced with RStudio for the paper "Assessing conservation paradoxes and challenges in invasive alien species of economic concern". The repository contains 3 folders (data, scripts, outputs), which content is described below.
+
+## 1.1. data
+This folder includes the following files:
+
++ InvaCost_database_v4.1.xlsx (version 4.1 of the InvaCost database)
++ taxonomy_mamPhy_5911species.csv
++ MamFuncDat.txt
++ AllBirdsEricson1.tre
++ BirdFuncDat.txt
++ ALLMB.tre
++ traits_to_run.csv
+
+
+This folder further includes the following folders:
+
++ Completed_5911sp_topoCons_FBDasZhouEtAl
+
+## 1.2. scripts
+This folder includes the following scripts:
+
++ 01_costs_by_species.R (script to calculate economic cost by species)
++ 02_originality_scores.R (script to calculate originality scores by species)
++ 03_homogenise_taxo.R (script to homogenize taxonomy across the different datasets)
++ 04_build_describe_database.R (script to build and describe the final database)
++ 05_analyses_figures_tables.R (script to generate the figures and tables of the paper)
+
+
+## 1.3. outputs
+This folder includes the following outputs (that you can re-generate yourself by following the requirements and running the analyses):
+
++ damagecost_by_species.csv (damage costs by species)
++ managementcost_by_species.csv (management costs by species)
++ mammals_vertlife_distance-based_phylori.csv
++ mammals_vertlife_tree-based_dietori.csv
++ mammals_vertlife_distance-based_dietori.csv
++ mammals_vertlife_tree-based_activityori.csv
++ mammals_vertlife_distance-based_activityori.csv
++ mammals_vertlife_tree-based_massori.csv
++ mammals_vertlife_distance-based_massori.csv
++ mammals_vertlife_tree-based_funcori.csv
++ mammals_vertlife_distance-based_funcori.csv
++ birds_vertlife_tree-based_phylori.csv
++ birds_vertlife_distance-based_phylori.csv
++ birds_vertlife_tree-based_dietori.csv
++ birds_vertlife_distance-based_dietori.csv
++ birds_vertlife_tree-based_activityori.csv
++ birds_vertlife_distance-based_activityori.csv
++ birds_vertlife_tree-based_massori.csv
++ birds_vertlife_distance-based_massori.csv
++ birds_vertlife_tree-based_funcori.csv
++ birds_vertlife_distance-based_funcori.csv
++ plants_tree-based_phylori.csv
++ oriplantsmiss.csv
+
+
+
+
+# 2. Requirements
+Before starting the analyses, make sure to follow the two requirements described below.
+
+## 2.1. clone the repository
+Clone this repository in your R working directory on your computer. This will create a folder "invacost_consparadox" in your R working directory with 3 folders (data, scripts, outputs).
+
+## 2.2. install packages
+Install the following R packages:
+
+```{r required, eval = FALSE}
+install.packages(c("invacost", "readxl", "adiv", "StatMatch", "ape", "phylobase", "cluster", "dplyr", "Rarity", "kader", "ade4"))
+```
+
+# 3. Analyses
+
+## 3.1. step 1: calculate economic costs by species
+
+## 3.2. step 2: calculate distinctiveness (= originality) scores of species
+
+## 3.3. step 3: homogenize taxonomy over the different datasets
+
+## 3.4. step 4: build and describe the final database
+
+## 3.5. step 5: generate figures and tables
+Run the script "analyses_figures_tables.R". This will allow you to generate all the figures and tables of the paper. Note that, although this script is the backbone to generate the figures and tables of the paper, the final figures and tables appearing in the paper may slightly differ from those generated with this script because of customizations out of R. 

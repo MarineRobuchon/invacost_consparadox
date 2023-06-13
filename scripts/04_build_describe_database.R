@@ -209,7 +209,7 @@ nrow(management[which(management$taxon=="MAMMALS"),]) # 33
 nrow(management[which(management$taxon=="BIRDS"),]) # 14
 nrow(management[which(management$taxon=="PLANTS"),]) # 287
 nrow(management) # 334
-length(unique(management$species)) # 334, so no duplicates
+length(unique(management$species)) # 334, so no duplicate
 
 # number of cost entries by taxon (damage + management) : 36 + 17 + 302 = 355
 length(unique(c(damage$species[which(damage$taxon=="MAMMALS")], management$species[which(management$taxon=="MAMMALS")]))) # 36
