@@ -34,9 +34,6 @@ Heringer, Boris Leroy, Sandrine Pavoine & Vanessa Rezende
     id="toc-35-step-5-generate-figures-and-tables">3.5. step 5: generate
     figures and tables</a>
 
-NB: data and outputs to further complete from script 03 (01 and 02
-already included)
-
 # 1. Description & organisation of the repository
 
 The purpose of this github repository is to document the data used, the

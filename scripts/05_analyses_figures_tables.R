@@ -28,7 +28,7 @@ data_all$redlistCategory <- factor(data_all$redlistCategory, levels = c("least c
                                                                         "vulnerable", "endangered", "critically endangered", 
                                                                         "data deficient", "not assessed"))
 
-# add a second column that will contribute to show them on two line on the graph
+# add a second column that will contribute to show them on two lines on the graph
 data_all$species2lines <- gsub(" ", "\n", data_all$species)
 
 # transform oriFtree in numeric
