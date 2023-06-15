@@ -300,7 +300,7 @@ plants$length_lcvp <- lengths(strsplit(plants$lcvp, " "))
 unique(plants$length_lcvp) # some do not have 2 words
 plants$lcvp[which(plants$length_lcvp==1)] <- NA
 
-# save the taxonomic reference table for birds
+# save the taxonomic reference table for plants
 write.csv2(plants[, 1:2], "outputs/plants_taxmatch_lcvp.csv")
 
 

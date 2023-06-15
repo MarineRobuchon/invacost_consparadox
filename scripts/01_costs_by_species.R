@@ -34,7 +34,7 @@ invacost <- invacost[is.na(invacost$Subspecies),] # 9958 observations after this
 
 ## filter mix of species: none, we apply the calculation of costs to all unique values of invacost$Species
 ## this will calculate by species for some, and by other units than species for others
-## but we will keep only species when we make the match by names in the script 0x_build_database
+## but we will keep only species when we make the match by names in the script 04_build_describe_database
 
 ## check and fix taxon duplicates 
 # first we create new columns in character format to avoid factor errors in R
