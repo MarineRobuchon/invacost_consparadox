@@ -117,7 +117,6 @@ Run the script “01_costs_by_species.R”. This will allow you to:
 + calculate an average annual damage cost by species based on the aggregation of damage cost entries over all sites and all dates after 1960
 + calculate an average annual management cost by species based on the aggregation of management cost entries over all sites and all dates after 1960.
 
-
 ## 3.2. step 2: calculate distinctiveness (= originality) scores of species
 Run the script “02_originality_scores.R”. This will allow you to:
 
