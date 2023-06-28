@@ -113,18 +113,46 @@ Run the script “01_costs_by_species.R”. This will allow you to:
 + load the InvaCost database version 4.1
 + remove from this database (i) potential costs, (ii) costs from unreliable sources, (iii) costs associated to subspecies, (iv) entries without cost in "Cost estimate per year 2017 exchange rate" and (v) entries with no information on starting and ending years
 + identify taxonomic duplicates in the database and correct them
-+ check the entries associated to species names that have both domestic and wild representatives to keep only entries associated with wild representatives
++ check the entries associated to species names that have both domestic and wild representatives to keep only entries associated with wild representatives (the actual removal is done in step 4)
 + calculate an average annual damage cost by species based on the aggregation of damage cost entries over all sites and all dates after 1960
 + calculate an average annual management cost by species based on the aggregation of management cost entries over all sites and all dates after 1960.
 
 ## 3.2. step 2: calculate distinctiveness (= originality) scores of species
 Run the script “02_originality_scores.R”. This will allow you to:
 
++ calculate tree-based phylogenetic distinctiveness scores for mammals
++ calculate distance-based phylogenetic distinctiveness scores for mammals (no further used in the paper)
++ calculate tree-based diet distinctiveness scores for mammals
++ calculate distance-based diet distinctiveness scores for mammals (no further used in the paper)
++ calculate tree-based activity distinctiveness scores for mammals
++ calculate distance-based activity distinctiveness scores for mammals (no further used in the paper)
++ calculate tree-based mass distinctiveness scores for mammals
++ calculate distance-based mass distinctiveness scores for mammals (no further used in the paper)
++ calculate tree-based functional distinctiveness scores for mammals
++ calculate distance-based functional distinctiveness scores for mammals (no further used in the paper)
++ calculate tree-based phylogenetic distinctiveness scores for birds
++ calculate distance-based phylogenetic distinctiveness scores for birds (no further used in the paper)
++ calculate tree-based diet distinctiveness scores for birds
++ calculate distance-based diet distinctiveness scores for birds (no further used in the paper)
++ calculate tree-based activity distinctiveness scores for birds
++ calculate distance-based activity distinctiveness scores for birds (no further used in the paper)
++ calculate tree-based mass distinctiveness scores for birds
++ calculate distance-based mass distinctiveness scores for birds (no further used in the paper)
++ calculate tree-based functional distinctiveness scores for birds
++ calculate distance-based functional distinctiveness scores for birds (no further used in the paper)
++ calculate tree-based phylogenetic distinctiveness scores for plants
++ calculate tree-based functional distinctiveness scores for plants
+
 ## 3.3. step 3: homogenize taxonomy over the different datasets
-Run the script “03_homogenize_taxo.R”. This will allow you to:
+Run the script “03_homogenize_taxo.R”. This will allow you to harmonise species names across the datasets describing species economic costs, phylogenetic and functional distinctiveness scores and threat status.
+
 
 ## 3.4. step 4: build and describe the final database
 Run the script “04_build_describe_database.R”. This will allow you to:
 
++ combine information on costs, phylogenetic and functional distinctiveness and threat status in a single dataset by the harmonised species names
++ remove entries related to domestic, extinct and extinct in the wild species from this single dataset to obtain the final dataset used for the analyses in the paper
++ describe the final dataset
+
 ## 3.5. step 5: generate figures and tables
-Run the script "05_analyses_figures_tables.R". This will allow you to generate all the figures and tables of the paper. Note that, although this script is the backbone to generate the figures and tables of the paper, the final figures and tables appearing in the paper may slightly differ from those generated with this script because of customizations out of R. 
+Run the script "05_analyses_figures_tables.R". This will allow you to generate all the figures and tables of the paper. Note that, although this script is the backbone to generate the figures and tables of the paper, the final figures and tables appearing in the paper may slightly differ from those generated with this script because of customization out of R. 

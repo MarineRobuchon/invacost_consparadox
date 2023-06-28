@@ -5,6 +5,7 @@
 
 # Specific to this repository
 /data/*
-/script_drafts/*
-/output_drafts/*
+/data_draft/*
+/script_draft/*
+/output_draft/*
 *.Rproj

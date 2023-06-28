@@ -39,7 +39,7 @@ mam.ESmed <- apply(X = mam_tb_phylori.allscores[colnames(mam_tb_phylori.allscore
 mam_tb_phylori.med <- data.frame(cbind(ED_median = mam.EDmed, ES_median = mam.ESmed))
 write.csv2(mam_tb_phylori.med, paste0(getwd(), "/outputs/mammals_vertlife_tree-based_phylori.csv")) # save results
 
-## distance-based phylogenetic originalityfor 100 trees to take into account phylogenetic uncertainty
+## distance-based phylogenetic originality for 100 trees to take into account phylogenetic uncertainty
 ## and then computation of the median score over the 100 trees
 mam_db_phylori <- list()
 for (i in 1:length(mam_sub100trees))

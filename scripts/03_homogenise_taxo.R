@@ -2,7 +2,7 @@
 # Script to homogenise taxonomy across the different datasets to compare
 # before building the final database by merging IUCN status, originality scores and INVACOST info
 # original script by Marine Robuchon
-# based on Workflow 1 described in Grenié et al. 2022 (https://doi.org/10.1111/2041-210X.13802)
+# based on Workflow 2 described in Grenié et al. 2022 (https://doi.org/10.1111/2041-210X.13802)
 ####################################################################################################
 
 ### install and load packages ----
