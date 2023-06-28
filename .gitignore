@@ -4,7 +4,14 @@
 .Ruserdata
 
 # Specific to this repository
-/data/*
+/data/AllBirdsEricson1.tre
+/data/ALLMB.tre
+/data/BirdFuncDat.txt
+/data/MamFuncDat.txt
+/data/Completed_5911sp_topoCons_FBDasZhouEtAl/*
+/data/InvaCost_database_v4.1.xlsx
+/data/RL_2022-1/*
+/data/taxonomy_mamPhy_5911species.csv
 /data_draft/*
 /script_draft/*
 /output_draft/*
