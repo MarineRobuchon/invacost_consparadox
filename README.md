@@ -14,7 +14,9 @@ Heringer, Boris Leroy, Sandrine Pavoine & Vanessa Rezende
 - <a href="#2-requirements" id="toc-2-requirements">2. Requirements</a>
   - <a href="#21-clone-the-repository" id="toc-21-clone-the-repository">2.1.
     clone the repository</a>
-  - <a href="#22-install-packages" id="toc-22-install-packages">2.2. install
+  - <a href="#22-download-data" id="toc-22-download-data">2.2. download
+    data</a>
+  - <a href="#23-install-packages" id="toc-23-install-packages">2.3. install
     packages</a>
 - <a href="#3-analyses" id="toc-3-analyses">3. Analyses</a>
   - <a href="#31-step-1-calculate-economic-costs-by-species"
@@ -177,9 +179,48 @@ described below.
 
 Clone this repository in your R working directory on your computer. This
 will create a folder “invacost_consparadox” in your R working directory
-with 3 folders (data, scripts, outputs).
+with 3 folders (data, scripts, outputs). The folder data already
+contains files for which you cannot retrieve the version online, and you
+will need to download and add to this folder the files that you can
+still download online.
 
-## 2.2. install packages
+## 2.2. download data
+
+Go to <https://doi.org/10.6084/m9.figshare.12668570> and download the
+file “InvaCost_database_v4.1.xlsx”. Place it in the “data” folder.
+
+Go to <https://data.vertlife.org/> and:
+
+- download the archive “Completed_5911sp_topoCons_NDexp” and the file
+  “taxonomy_mamPhy_5911species.csv” (under “mammaltree”), decompress the
+  downloaded archive folder into the “data” folder, place the file
+  “taxonomy_mamPhy_5911species.csv” into the “data” folder
+- download the archive “EricsonStage2_0001_1000” (under “birdtree”,
+  “Stage 2”), decompress it, and copy from this folder the file
+  “AllBirdsEricson1.tre” to the “data” folder.
+
+Go to
+<https://figshare.com/articles/dataset/Data_Paper_Data_Paper/3559887?backTo=/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933>
+and:
+
+- download the file “MamFuncDat.txt” and place it into the “data” folder
+- download the file “BirdFuncDat.txt” and place it into the “data”
+  folder.
+
+Go to
+<https://github.com/FePhyFoFum/big_seed_plant_trees/releases/tag/v0.1>,
+download the archive “v0.1”, decompress it and copy from this folder the
+file “ALLMB.tre” and place it into the “data” folder.
+
+Go to <https://www.iucnredlist.org/search>, select the taxa “Plants”,
+“Aves” and “Mammalia”, and download the summary (you may need to create
+an account and connect). Place the downloaded folder into the “data”
+folder. The folder used in this paper is named RL_2022-1 and corresponds
+to version 2022-1 of the Red List. The one you will download may be
+different: you will need to change the name in the scripts accordingly
+and may obtain slightly different outputs.
+
+## 2.3. install packages
 
 Install the following R packages:
 
