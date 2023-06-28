@@ -13,6 +13,6 @@
 /data/RL_2022-1/*
 /data/taxonomy_mamPhy_5911species.csv
 /data_draft/*
-/script_draft/*
-/output_draft/*
+/scripts_draft/*
+/outputs_draft/*
 *.Rproj
