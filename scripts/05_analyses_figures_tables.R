@@ -67,6 +67,10 @@ plant_management <- management[which(management$taxon=="PLANTS"),]
 nrow(plant_management) # 287 plant species have a management cost
 top5_plant_management <- head(plant_management[order(plant_management$management_cost, decreasing = TRUE),], 5)
 
+# identity and number of the top 5 costliest IAS by taxon and type of costs
+unique(c(top5_mam_damage$species, top5_bird_damage$species, top5_plant_damage$species,
+       top5_mam_management$species, top5_bird_management$species, top5_plant_management$species))
+
 ## figure showing costs and threat status of the TOP 5 costliest species (by type of cost and taxon) ----
 # damage
 A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(species2lines, damage_cost), y = damage_cost, fill = redlistCategory)) + 
@@ -151,7 +155,7 @@ dev.off()
 mammals <- data_all[which(data_all$taxon == "MAMMALS"),]
 summary(mammals$oriPtree)[3]  # median
 summary(mammals$oriPtree)[5]  # 3rd quantile
-quantile(mammals$oriPtree[!is.na(mammals$oriPtree)], 0.95) # 95th percentile - not shown on the graph
+quantile(mammals$oriPtree[!is.na(mammals$oriPtree)], 0.95) # 95th percentile 
 
 mammals$rank_oriPtree <- rank(-mammals$oriPtree, na.last = "keep", ties.method = "average")
 top5_mam_damage <- merge(top5_mam_damage, mammals)
@@ -165,14 +169,17 @@ A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(species2lines, oriPt
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*4.5), size = 2, color = "black") +
-  scale_y_continuous(limits = c(0, 6)) +
+  geom_hline(aes(yintercept = quantile(mammals$oriPtree[!is.na(mammals$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.3*4.5), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, 8.5)) +
   coord_flip()
 A_mammals
 
 birds <- data_all[which(data_all$taxon == "BIRDS"),]
 summary(birds$oriPtree)[3]  # median
 summary(birds$oriPtree)[5]  # 3rd quantile
+quantile(birds$oriPtree[!is.na(birds$oriPtree)], 0.95) # 95th percentile 
+
 birds$rank_oriPtree <- rank(-birds$oriPtree, na.last = "keep", ties.method = "average")
 top5_bird_damage <- merge(top5_bird_damage, birds)
 
@@ -185,14 +192,17 @@ C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(species2lines, oriPtr
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*7.5), size = 2, color = "black") +
-  scale_y_continuous(limits = c(0, 9.5)) +
+  geom_hline(aes(yintercept = quantile(birds$oriPtree[!is.na(birds$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.3*7.5), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, 14)) +
   coord_flip()
 C_birds
 
 plants <- data_all[which(data_all$taxon == "PLANTS"),]
 summary(plants$oriPtree)[3]  # median
 summary(plants$oriPtree)[5]  # 3rd quantile
+quantile(plants$oriPtree[!is.na(plants$oriPtree)], 0.95) # 95th percentile 
+
 plants$rank_oriPtree <- rank(-plants$oriPtree, na.last = "keep", ties.method = "average")
 top5_plant_damage <- merge(top5_plant_damage, plants)
 
@@ -205,9 +215,10 @@ E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(species2lines, oriP
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*16), size = 2, color = "black") +
-  geom_text(aes(label = "phylogenetic distinctiveness not assessed", x = 5, y = 7), size = 2) +
-  scale_y_continuous(limits = c(0, 17)) +
+  geom_hline(aes(yintercept = quantile(plants$oriPtree[!is.na(plants$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.45*16), size = 2, color = "black") +
+  geom_text(aes(label = "phylogenetic distinctiveness not assessed", x = 5, y = 15), size = 2) +
+  scale_y_continuous(limits = c(0, 41)) +
   coord_flip()
 E_plants
 
@@ -224,6 +235,7 @@ B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(species2lines, o
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(mammals$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(mammals$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_hline(aes(yintercept = quantile(mammals$oriPtree[!is.na(mammals$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*7.5), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 9.5)) +
   coord_flip()
@@ -241,8 +253,9 @@ D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(species2lines, or
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(birds$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(birds$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*7.5), size = 2, color = "black") +
-  scale_y_continuous(limits = c(0, 9.5)) +
+  geom_hline(aes(yintercept = quantile(birds$oriPtree[!is.na(birds$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.3*7.5), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, 14)) +
   coord_flip()
 D_birds
 
@@ -258,9 +271,10 @@ F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(species2lines, 
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(plants$oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(plants$oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.2*16), size = 2, color = "black") +
-  geom_text(aes(label = "phylogenetic distinctiveness not assessed", x = 5, y = 7), size = 2) +
-  scale_y_continuous(limits = c(0, 17)) +
+  geom_hline(aes(yintercept = quantile(plants$oriPtree[!is.na(plants$oriPtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriPtree)), y = oriPtree + 0.45*16), size = 2, color = "black") +
+  geom_text(aes(label = "phylogenetic distinctiveness not assessed", x = 5, y = 15), size = 2) +
+  scale_y_continuous(limits = c(0, 41)) +
   coord_flip()
 F_plants
 
@@ -275,6 +289,8 @@ dev.off()
 # damage
 summary(mammals$oriFtree)[3]  # median
 summary(mammals$oriFtree)[5]  # 3rd quantile
+quantile(mammals$oriFtree[!is.na(mammals$oriFtree)], 0.95) # 95th percentile 
+
 mammals$rank_dietoriFtree <- rank(-mammals$dietoriFtree, na.last = "keep", ties.method = "average")
 mammals$rank_activityoriFtree <- rank(-mammals$activityoriFtree, na.last = "keep", ties.method = "average")
 mammals$rank_massoriFtree <- rank(-mammals$massoriFtree, na.last = "keep", ties.method = "average")
@@ -290,14 +306,17 @@ A_mammals <- ggplot(data = top5_mam_damage, aes(x = reorder(species2lines, oriFt
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(mammals$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(mammals$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.15*0.0115), size = 2, color = "black") +
-  scale_y_continuous(limits = c(0, 0.0125)) +
+  geom_hline(aes(yintercept = quantile(mammals$oriFtree[!is.na(mammals$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.25*0.0115), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, 0.0175)) +
   coord_flip()
 A_mammals
 
 
 summary(birds$oriFtree)[3]  # median
 summary(birds$oriFtree)[5]  # 3rd quantile
+quantile(birds$oriFtree[!is.na(birds$oriFtree)], 0.95) # 95th percentile 
+
 birds$rank_dietoriFtree <- rank(-birds$dietoriFtree, na.last = "keep", ties.method = "average")
 birds$rank_activityoriFtree <- rank(-birds$activityoriFtree, na.last = "keep", ties.method = "average")
 birds$rank_massoriFtree <- rank(-birds$massoriFtree, na.last = "keep", ties.method = "average")
@@ -313,6 +332,7 @@ C_birds <- ggplot(data = top5_bird_damage, aes(x = reorder(species2lines, oriFtr
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(birds$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(birds$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_hline(aes(yintercept = quantile(birds$oriFtree[!is.na(birds$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.2*0.04), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.05)) +
   coord_flip()
@@ -321,6 +341,8 @@ C_birds
 
 summary(plants$oriFtree)[3]  # median
 summary(plants$oriFtree)[5]  # 3rd quantile
+quantile(plants$oriFtree[!is.na(plants$oriFtree)], 0.95) # 95th percentile 
+
 plants$rank_oriFtree <- rank(-plants$oriFtree, na.last = "keep", ties.method = "average")
 plants$rank_dietoriFtree <- rank(-plants$dietoriFtree, na.last = "keep", ties.method = "average")
 plants$rank_activityoriFtree <- rank(-plants$activityoriFtree, na.last = "keep", ties.method = "average")
@@ -336,9 +358,10 @@ E_plants <- ggplot(data = top5_plant_damage, aes(x = reorder(species2lines, oriF
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(plants$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(plants$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.2*0.3), size = 2, color = "black") +
-  geom_text(aes(label = "Functional distinctiveness not assessed", x = 5, y = 0.15), size = 2) +
-  scale_y_continuous(limits = c(0, 0.4)) +
+  geom_hline(aes(yintercept = quantile(plants$oriFtree[!is.na(plants$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.3*0.3), size = 2, color = "black") +
+  geom_text(aes(label = "Functional distinctiveness not assessed", x = 5, y = 0.20), size = 2) +
+  scale_y_continuous(limits = c(0, 0.51)) +
   coord_flip()
 E_plants
 
@@ -355,6 +378,7 @@ B_mammals <- ggplot(data = top5_mam_management, aes(x = reorder(species2lines, o
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(mammals$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(mammals$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_hline(aes(yintercept = quantile(mammals$oriFtree[!is.na(mammals$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.2*0.019), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.025)) +
   coord_flip()
@@ -372,6 +396,7 @@ D_birds <- ggplot(data = top5_bird_management, aes(x = reorder(species2lines, or
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(birds$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(birds$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_hline(aes(yintercept = quantile(birds$oriFtree[!is.na(birds$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.2*0.04), size = 2, color = "black") +
   scale_y_continuous(limits = c(0, 0.05)) +
   coord_flip()
@@ -389,8 +414,9 @@ F_plants <- ggplot(data = top5_plant_management, aes(x = reorder(species2lines, 
         axis.title.y = element_text(size = 9, face = "bold")) + 
   geom_hline(aes(yintercept = summary(plants$oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_hline(aes(yintercept = summary(plants$oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
-  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.2*0.4), size = 2, color = "black") +
-  scale_y_continuous(limits = c(0, 0.5)) +
+  geom_hline(aes(yintercept = quantile(plants$oriFtree[!is.na(plants$oriFtree)], 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
+  geom_text(aes(label = paste("rank", round(rank_oriFtree)), y = oriFtree + 0.25*0.4), size = 2, color = "black") +
+  scale_y_continuous(limits = c(0, 0.51)) +
   coord_flip()
 F_plants
 
@@ -702,10 +728,6 @@ dev.copy(png, file = paste0(getwd(), "/outputs/FIGURE2_TOP5.png"), res = 600, he
 dev.off()
 
 
-
-
-
-
 ### Showing threat status and distinctiveness of species in InvaCost in in comparison of all species of their taxonomic group ----
 ## threat status ----
 # mammals
@@ -778,7 +800,7 @@ plot_threatplants <- ggplot(data = threatplants, aes(x = redlistCategory, fill =
 
 plot_threatplants
 
-## phylogenetic distinctiveness ---- HERE!!!
+## phylogenetic distinctiveness ---- 
 # mammals
 phylomammals <- mammals[!is.na(mammals$oriPtree),]
 
@@ -788,6 +810,7 @@ plot_phylomammals <- ggplot(phylomammals, aes(x = oriPtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
   ggtitle("MAMMALS") +
@@ -805,6 +828,7 @@ plot_phylobirds <- ggplot(phylobirds, aes(x = oriPtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
   ggtitle("BIRDS") +
@@ -822,6 +846,7 @@ plot_phyloplants <- ggplot(phyloplants, aes(x = oriPtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriPtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriPtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
   ggtitle("PLANTS") +
@@ -841,6 +866,7 @@ plot_functiomammals <- ggplot(functiomammals, aes(x = oriFtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
   ggtitle("MAMMALS") +
@@ -858,6 +884,7 @@ plot_functiobirds <- ggplot(functiobirds, aes(x = oriFtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.7, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
   ggtitle("BIRDS") +
@@ -875,6 +902,7 @@ plot_functioplants <- ggplot(functioplants, aes(x = oriFtree, y = "")) +
               shape = 16, size = 0.9, fill = "black", alpha = 0.6, position = position_jitter(0)) +
   geom_vline(aes(xintercept = summary(oriFtree)[3]), color= "red", size = 0.5, alpha = 0.4) +
   geom_vline(aes(xintercept = summary(oriFtree)[5]), color= "red", size = 0.5, alpha = 0.4, linetype = "twodash") +
+  geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
   ggtitle("PLANTS") +
