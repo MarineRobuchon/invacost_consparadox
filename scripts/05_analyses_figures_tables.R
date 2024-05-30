@@ -749,7 +749,7 @@ plot_threatmammals <- ggplot(data = threatmammals, aes(x = redlistCategory, fill
   guides(fill = guide_legend(title = "Presence in InvaCost"))+
   labs(y = "Number of species") +
   scale_fill_manual(values = c("black","grey")) +
-  scale_y_continuous(trans = "sqrt")
+  scale_y_continuous(trans = "sqrt", minor_breaks = NULL, breaks = c(0, 500, 1000, 1500, 2000, 2500, 3000), labels = c(0,500, 1000, 1500, 2000, 2500, 3000)) 
 
 plot_threatmammals
 
@@ -772,7 +772,7 @@ plot_threatbirds <- ggplot(data = threatbirds, aes(x = redlistCategory, fill = i
   guides(fill = guide_legend(title = "Presence in InvaCost"))+
   labs(y = "Number of species") +
   scale_fill_manual(values = c("black","grey")) +
-  scale_y_continuous(trans = "sqrt")
+  scale_y_continuous(trans = "sqrt", minor_breaks = NULL, breaks = c(0, 500, 1000, 2500, 5000, 7500), labels = c(0, 500, 1000, 2500, 5000, 7500))
 
 plot_threatbirds
 
@@ -796,7 +796,7 @@ plot_threatplants <- ggplot(data = threatplants, aes(x = redlistCategory, fill =
   guides(fill = guide_legend(title = "Presence in InvaCost"))+
   labs(y = "Number of species") +
   scale_fill_manual(values = c("black","grey")) +
-  scale_y_continuous(trans = "sqrt")
+  scale_y_continuous(trans = "sqrt", minor_breaks = NULL, breaks = c(0, 1000, 10000, 100000, 200000), labels = c(0, 1000, 10000, 100000, 200000))
 
 plot_threatplants
 
@@ -813,8 +813,8 @@ plot_phylomammals <- ggplot(phylomammals, aes(x = oriPtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
-  ggtitle("MAMMALS") +
-  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 35, 45, 55)) +
+  #ggtitle("MAMMALS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0, 5, 15, 25, 35, 45, 55), labels = c(0, 5, 15, 25, 35, 45, 55)) +
   coord_flip()
 
 plot_phylomammals
@@ -831,8 +831,8 @@ plot_phylobirds <- ggplot(phylobirds, aes(x = oriPtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
-  ggtitle("BIRDS") +
-  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 35, 45, 55)) +
+  #ggtitle("BIRDS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0, 5, 15, 25, 35, 45, 55), labels = c(0, 5, 15, 25, 35, 45, 55)) +
   coord_flip()
 
 plot_phylobirds
@@ -849,8 +849,8 @@ plot_phyloplants <- ggplot(phyloplants, aes(x = oriPtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriPtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Phylogenetic distinctiveness (Ma)", y = "") +
-  ggtitle("PLANTS") +
-  scale_x_continuous(trans = "log", breaks = c(5, 15, 25, 100, 150, 250)) +
+  #ggtitle("PLANTS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0, 5, 15, 25, 100, 150, 250), labels = c(0,5, 15, 25, 100, 150, 250)) +
   coord_flip()
 
 plot_phyloplants
@@ -869,8 +869,8 @@ plot_functiomammals <- ggplot(functiomammals, aes(x = oriFtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
-  ggtitle("MAMMALS") +
-  scale_x_continuous(trans = "log", breaks = c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) +
+  #ggtitle("MAMMALS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0, 0.0001, 0.001, 0.01, 0.1), labels = c("0", "0.0001", "0.001", "0.01", "0.1")) +
   coord_flip()
 
 plot_functiomammals
@@ -887,8 +887,8 @@ plot_functiobirds <- ggplot(functiobirds, aes(x = oriFtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
-  ggtitle("BIRDS") +
-  scale_x_continuous(trans = "log", breaks = c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) +
+  #ggtitle("BIRDS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0.0001, 0.001, 0.01, 0.1), labels = c("0.0001", "0.001", "0.01", "0.1")) +
   coord_flip()
 
 plot_functiobirds
@@ -905,8 +905,8 @@ plot_functioplants <- ggplot(functioplants, aes(x = oriFtree, y = "")) +
   geom_vline(aes(xintercept = quantile(oriFtree, 0.95)), color= "red", size = 0.5, alpha = 0.4, linetype = "dashed") +
   theme_bw() +  theme(plot.title = element_text(size = 0.90)) +
   labs(x = "Functional distinctiveness", y = "") +
-  ggtitle("PLANTS") +
-  scale_x_continuous(trans = "log", breaks = c(0.005, 0.01, 0.1, 1), labels = c("0.005", "0.01", "0.1", "1")) +
+  #ggtitle("PLANTS") +
+  scale_x_continuous(trans = "log", minor_breaks = NULL, breaks = c(0.005, 0.01, 0.1, 0.5, 1), labels = c("0.005", "0.01", "0.1", "0.5", "1")) +
   coord_flip()
 
 plot_functioplants
