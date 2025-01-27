@@ -52,6 +52,9 @@ plant_damage <- damage[which(damage$taxon=="PLANTS"),]
 nrow(plant_damage)# 53 plant species have a damage cost
 top5_plant_damage <- head(plant_damage[order(plant_damage$damage_cost, decreasing = TRUE),], 5)
 
+top5_damage <- rbind (top5_mam_damage, top5_bird_damage, top5_plant_damage)
+write.csv2(top5_damage, file = paste0(getwd(), "/outputs/top5_damage.csv"))
+
 # management
 management <- data_all[-which(is.na(data_all$management_cost)),]
 
@@ -66,6 +69,9 @@ top5_bird_management <- head(bird_management[order(bird_management$management_co
 plant_management <- management[which(management$taxon=="PLANTS"),]
 nrow(plant_management) # 287 plant species have a management cost
 top5_plant_management <- head(plant_management[order(plant_management$management_cost, decreasing = TRUE),], 5)
+
+top5_management <- rbind (top5_mam_management, top5_bird_management, top5_plant_management)
+write.csv2(top5_management, file = paste0(getwd(), "/outputs/top5_management.csv"))
 
 # identity and number of the top 5 costliest IAS by taxon and type of costs
 unique(c(top5_mam_damage$species, top5_bird_damage$species, top5_plant_damage$species,
