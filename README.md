@@ -1,5 +1,5 @@
 Assessing conservation paradoxes and challenges in invasive alien
-species of economic concern
+species with economic costs
 ================
 Github repository & scripts created by Marine Robuchon, with
 contributions of Céline Bellard, Camille Bernery, Cheikh Dia, Gustavo
@@ -41,7 +41,7 @@ Heringer, Boris Leroy, Sandrine Pavoine & Vanessa Rezende
 The purpose of this github repository is to document the data used, the
 analyses carried out and the figures and tables produced with RStudio
 for the paper “Assessing conservation paradoxes and challenges in
-invasive alien species of economic concern”. The repository contains 3
+invasive alien species with economic costs”. The repository contains 3
 folders (data, scripts, outputs), which content is described below.
 
 ## 1.1. data
